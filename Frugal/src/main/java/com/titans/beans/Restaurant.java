@@ -1,6 +1,5 @@
 package com.titans.beans;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
