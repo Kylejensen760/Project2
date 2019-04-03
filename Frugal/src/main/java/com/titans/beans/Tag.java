@@ -71,7 +71,5 @@ public class Tag implements Serializable {
 		this.restaurantId = restaurantId;
 	}
 	
-	 
-
 	
 }

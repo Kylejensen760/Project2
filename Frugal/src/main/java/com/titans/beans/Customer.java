@@ -1,5 +1,6 @@
 package com.titans.beans;
 
+	
 import java.io.Serializable;
 @Entity
 public class Customer implements Serializable{
@@ -148,6 +149,4 @@ public class Customer implements Serializable{
 			// TODO Auto-generated constructor stub
 		}
 
-	    
-	    
 }
