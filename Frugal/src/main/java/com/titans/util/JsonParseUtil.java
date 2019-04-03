@@ -1,4 +1,4 @@
-package com.revature.util;
+package com.titans.util;
 
 import java.io.IOException;
 import java.io.InputStream;
