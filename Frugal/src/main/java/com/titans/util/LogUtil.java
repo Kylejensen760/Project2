@@ -1,4 +1,4 @@
-package com.titans.util;
+package com.revature.util;
 
 import java.sql.Connection;
 import java.sql.SQLException;
