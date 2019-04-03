@@ -7,6 +7,7 @@ public class Tag implements Serializable {
 	//add an annotation because The bean is named differently from the database table
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "tag_id")
 	private int tagId;
 	

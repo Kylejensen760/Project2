@@ -7,6 +7,7 @@ public class MenuItem implements Serializable{
 	//add an annotation because MenuItem is named differently from the table
 		
 	 	@Id
+	 	@GeneratedValue(strategy = GenerationType.AUTO)
 	 	@Column(name = "id")
 	 	private int menuItemId;
 	 	

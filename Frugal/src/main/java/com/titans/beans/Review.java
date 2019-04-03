@@ -2,6 +2,7 @@ package com.titans.beans;
 @Entity
 public class Review implements Serializable{
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private int reviewId;
 	

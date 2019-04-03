@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Customer implements Serializable{
 	
 	 	@Id
+	 	@GeneratedValue(strategy = GenerationType.AUTO)
 	 	@Column(name = "id")
 	  	private int customerId;
 	 	
