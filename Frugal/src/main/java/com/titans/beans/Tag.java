@@ -1,41 +1,40 @@
 package com.titans.beans;
 
-import java.io.Serializable;
+<<<<<<< HEAD
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 @Entity
-public class Tag implements Serializable {
-	//add an annotation because The bean is named differently from the database table
-	
+@Table(name="tag")
+public class Tag {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "tag_id")
-	private int tagId;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	
-	@Column(name = "restaurant_id")
-	private int restaurantId;
+	private String name;
 
-	public int getTagId() {
-		return tagId;
+	public Tag(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
 	}
 
-	public void setTagId(int tagId) {
-		this.tagId = tagId;
-	}
+	public Tag() {
+		super();
+		// TODO Auto-generated constructor stub
 
-	public int getRestaurantId() {
-		return restaurantId;
-	}
-
-	public void setRestaurantId(int restaurantId) {
-		this.restaurantId = restaurantId;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + restaurantId;
-		result = prime * result + tagId;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -48,28 +47,21 @@ public class Tag implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Tag other = (Tag) obj;
-		if (restaurantId != other.restaurantId)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
-		if (tagId != other.tagId)
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Tag [tagId=" + tagId + ", restaurantId=" + restaurantId + "]";
+		return "Tag [id=" + id + ", name=" + name + "]";
 	}
-
-	public Tag() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Tag(int tagId, int restaurantId) {
-		super();
-		this.tagId = tagId;
-		this.restaurantId = restaurantId;
-	}
-	
-	
 }
