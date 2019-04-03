@@ -7,8 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="menu_item")
 public class MenuItem implements Serializable{
 	//add an annotation because MenuItem is named differently from the table
 		
@@ -37,56 +39,89 @@ public class MenuItem implements Serializable{
 	 	
 	 	@Column(name = "special_end")
 	    private Long specialEnd;
-	    
-	    
+
+		public MenuItem() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+
+		public MenuItem(int menuItemId, int menuId, String itemName, Double itemPrice, Double specialPrice,
+				Long specialDay, Long specialStart, Long specialEnd) {
+			super();
+			this.menuItemId = menuItemId;
+			this.menuId = menuId;
+			this.itemName = itemName;
+			this.itemPrice = itemPrice;
+			this.specialPrice = specialPrice;
+			this.specialDay = specialDay;
+			this.specialStart = specialStart;
+			this.specialEnd = specialEnd;
+		}
+
 		public int getMenuItemId() {
 			return menuItemId;
 		}
+
 		public void setMenuItemId(int menuItemId) {
 			this.menuItemId = menuItemId;
 		}
+
 		public int getMenuId() {
 			return menuId;
 		}
+
 		public void setMenuId(int menuId) {
 			this.menuId = menuId;
 		}
+
 		public String getItemName() {
 			return itemName;
 		}
+
 		public void setItemName(String itemName) {
 			this.itemName = itemName;
 		}
+
 		public Double getItemPrice() {
 			return itemPrice;
 		}
+
 		public void setItemPrice(Double itemPrice) {
 			this.itemPrice = itemPrice;
 		}
+
 		public Double getSpecialPrice() {
 			return specialPrice;
 		}
+
 		public void setSpecialPrice(Double specialPrice) {
 			this.specialPrice = specialPrice;
 		}
+
 		public Long getSpecialDay() {
 			return specialDay;
 		}
+
 		public void setSpecialDay(Long specialDay) {
 			this.specialDay = specialDay;
 		}
-		public int getSpecialStart() {
+
+		public Long getSpecialStart() {
 			return specialStart;
 		}
-		public void setSpecialStart(int specialStart) {
+
+		public void setSpecialStart(Long specialStart) {
 			this.specialStart = specialStart;
 		}
-		public int getSpecialEnd() {
+
+		public Long getSpecialEnd() {
 			return specialEnd;
 		}
-		public void setSpecialEnd(int specialEnd) {
+
+		public void setSpecialEnd(Long specialEnd) {
 			this.specialEnd = specialEnd;
 		}
+
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -96,11 +131,12 @@ public class MenuItem implements Serializable{
 			result = prime * result + menuId;
 			result = prime * result + menuItemId;
 			result = prime * result + ((specialDay == null) ? 0 : specialDay.hashCode());
-			result = prime * result + specialEnd;
+			result = prime * result + ((specialEnd == null) ? 0 : specialEnd.hashCode());
 			result = prime * result + ((specialPrice == null) ? 0 : specialPrice.hashCode());
-			result = prime * result + specialStart;
+			result = prime * result + ((specialStart == null) ? 0 : specialStart.hashCode());
 			return result;
 		}
+
 		@Override
 		public boolean equals(Object obj) {
 			if (this == obj)
@@ -129,40 +165,31 @@ public class MenuItem implements Serializable{
 					return false;
 			} else if (!specialDay.equals(other.specialDay))
 				return false;
-			if (specialEnd != other.specialEnd)
+			if (specialEnd == null) {
+				if (other.specialEnd != null)
+					return false;
+			} else if (!specialEnd.equals(other.specialEnd))
 				return false;
 			if (specialPrice == null) {
 				if (other.specialPrice != null)
 					return false;
 			} else if (!specialPrice.equals(other.specialPrice))
 				return false;
-			if (specialStart != other.specialStart)
+			if (specialStart == null) {
+				if (other.specialStart != null)
+					return false;
+			} else if (!specialStart.equals(other.specialStart))
 				return false;
 			return true;
 		}
+
 		@Override
 		public String toString() {
 			return "MenuItem [menuItemId=" + menuItemId + ", menuId=" + menuId + ", itemName=" + itemName
 					+ ", itemPrice=" + itemPrice + ", specialPrice=" + specialPrice + ", specialDay=" + specialDay
 					+ ", specialStart=" + specialStart + ", specialEnd=" + specialEnd + "]";
 		}
-		public MenuItem(int menuItemId, int menuId, String itemName, Double itemPrice, Double specialPrice,
-				Long specialDay, int specialStart, int specialEnd) {
-			super();
-			this.menuItemId = menuItemId;
-			this.menuId = menuId;
-			this.itemName = itemName;
-			this.itemPrice = itemPrice;
-			this.specialPrice = specialPrice;
-			this.specialDay = specialDay;
-			this.specialStart = specialStart;
-			this.specialEnd = specialEnd;
-		}
-		public MenuItem() {
-			super();
-			// TODO Auto-generated constructor stub
-		} 
-	
+	    
 	    
 
 }
