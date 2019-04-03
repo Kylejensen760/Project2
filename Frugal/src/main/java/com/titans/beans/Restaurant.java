@@ -1,6 +1,5 @@
 package com.titans.beans;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="restaurant")
 public class Restaurant{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
