@@ -8,12 +8,12 @@
 		<property name="hibernate.connection.password">p4ssw0rd</property>
 		<property name="hibernate.connection.pool_size">35</property>
 		
-	    <mapping class="com.revature.beans.Customer"></mapping>
-		<mapping class="com.revature.beans.Menu"></mapping>
-		<mapping class="com.revature.beans.MenuItem"></mapping>
-		<mapping class="com.revature.beans.Restaurant"></mapping>
-		<mapping class="com.revature.beans.Review"></mapping>
-		<mapping class="com.revature.beans.Tag"></mapping>
+	    <mapping class="com.titans.beans.Customer"></mapping>
+		<mapping class="com.titans.beans.Menu"></mapping>
+		<mapping class="com.titans.beans.MenuItem"></mapping>
+		<mapping class="com.titans.beans.Restaurant"></mapping>
+		<mapping class="com.titans.beans.Review"></mapping>
+		<mapping class="com.titans.beans.Tag"></mapping>
 
     </session-factory>
 </hibernate-configuration>
