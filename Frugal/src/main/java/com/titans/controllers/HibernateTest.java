@@ -6,6 +6,8 @@ import org.hibernate.Session;
 
 import com.titans.beans.Customer;
 import com.titans.util.HibernateUtil;
+import com.titans.data.CustomerDao;
+import com.titans.data.CustomerHibernate;
 
 public class HibernateTest {
 
@@ -13,12 +15,10 @@ public class HibernateTest {
 		// TODO Auto-generated method stub
 		
 		
-		Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        
+	
         //Add new Employee object
         Customer cust = new Customer();
-        
+        CustomerDao ch = new CustomerHibernate();
     	
 	    cust.setFirstName("Karl");
 	 	
@@ -33,15 +33,10 @@ public class HibernateTest {
 	    cust.setEmail("test@test.gov");
 	 	
 	 	
-         
-        //Save the employee in database
-        session.save(cust);
- 
-        //Commit the transaction
-        session.getTransaction().commit();
-        HibernateUtil.shutdown();
+       System.out.println(cust);
+       ch.saveCustomer(cust);
 
-		
+		System.out.println("done");
 		
 	}
 

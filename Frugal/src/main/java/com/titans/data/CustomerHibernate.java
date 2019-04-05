@@ -3,13 +3,15 @@ package com.titans.data;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Component;
 
+import com.titans.util.HibernateUtil;
 import com.titans.beans.Customer;
 
 @Component
 public class CustomerHibernate implements CustomerDao {
-	
+	private static HibernateUtil hu = HibernateUtil.getInstance();
 	private Session s;
 	
 	public void setSession(Session s) {
@@ -26,9 +28,14 @@ public class CustomerHibernate implements CustomerDao {
 	}
 
 	@Override
-	public Customer saveCustomer(Customer c) {
+	public void saveCustomer(Customer c) {
+		Session s = hu.getSession();
+		Transaction tx = s.beginTransaction();
 		s.save(c);
-		return c;
+		tx.commit();
+		s.close();
+		
+	
 	}
 
 	@Override
