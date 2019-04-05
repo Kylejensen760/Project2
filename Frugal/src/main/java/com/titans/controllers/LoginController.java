@@ -25,8 +25,7 @@ public class LoginController {
 	@RequestMapping(method=RequestMethod.POST)
 	public String login(HttpSession session, String username,  String password) {
 		Customer c = cs.login(username, password);
-		System.out.println(username);
-		System.out.println(password);
+		System.out.println(c);
 		if(c != null) {
 			session.setAttribute("user", c);
 

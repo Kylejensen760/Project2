@@ -1,18 +1,24 @@
 package com.titans.data;
 
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import com.titans.util.HibernateUtil;
+import com.titans.services.CustomerService;
 import com.titans.beans.Customer;
+import com.titans.util.HibernateUtil;
 
-@Component
-public class CustomerHibernate implements CustomerDao {
-	private static HibernateUtil hu = HibernateUtil.getInstance();
-	private Session s;
+@Service
+public class CustomerHibernate implements CustomerService {
+//	@Autowired
+//	private CustomerDao cd;
+	
+	private static HibernateUtil hu = new HibernateUtil();
+    private Session s;
 	
 	public void setSession(Session s) {
 		this.s = s;
@@ -20,7 +26,7 @@ public class CustomerHibernate implements CustomerDao {
 	
 	@Override
 	public Customer login(String username, String password) {
-		for(Customer c : getAllCustomers()) {
+		for(Customer c : getCustomers()) {
 			if(c.getUsername().equals(username) && c.getPassword().equals(password))
 				return c;
 		}
@@ -28,33 +34,38 @@ public class CustomerHibernate implements CustomerDao {
 	}
 
 	@Override
-	public void saveCustomer(Customer c) {
-		Session s = hu.getSession();
-		Transaction tx = s.beginTransaction();
-		s.save(c);
-		tx.commit();
-		s.close();
+	public Customer getCustomerById(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Customer> getCustomers() {
+		return (List<Customer>) s.createQuery("From com.titans.beans.Customer", Customer.class).list();
+	}
+
+	@Override
+	public void deleteCustomer(Customer cust) {
+		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void updateCustomer(Customer cust) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void newCustomer(Customer cust) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
-	}
-
-	@Override
-	public Customer updateCustomer(Customer c) {
-		s.update(c);
-		return c;
-	}
-
-	@Override
-	public void deleteCustomer(Customer c) {
-		s.delete(c);
-	}
-
-	@Override
-	public List<Customer> getAllCustomers() {
-		return (List<Customer>) s.createQuery("From com.revature.beans.Customer", Customer.class).list();
-	}
 
 	
 	
 	
 }
+

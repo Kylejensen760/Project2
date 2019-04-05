@@ -1,3 +1,4 @@
+
 package com.titans.util;
 
 import org.hibernate.Session;
@@ -7,23 +8,17 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.springframework.stereotype.Component;
 
+@Component
 public class HibernateUtil {
-	private static HibernateUtil hu;
 	private static SessionFactory sessionFactory;
 	
-	private HibernateUtil() {
+	public HibernateUtil() {
 		super();
 	}
 	
-	public synchronized static HibernateUtil getInstance() {
-		if(hu==null) {
-			hu=new HibernateUtil();
-		}
-		return hu;
-	}
-	
-	public synchronized static SessionFactory getSessionFactory() {
+	public synchronized SessionFactory getSessionFactory() {
 		if(sessionFactory==null) {
 			StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
 					.configure().build();
@@ -39,9 +34,5 @@ public class HibernateUtil {
 	public Session getSession() {
 		return this.getSessionFactory().openSession();
 	}
-	
-	 public static void shutdown() {
-	        // Close caches and connection pools
-	        getSessionFactory().close();
-	    }
 }
+
