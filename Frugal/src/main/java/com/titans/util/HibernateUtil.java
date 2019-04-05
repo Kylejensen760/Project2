@@ -23,7 +23,7 @@ public class HibernateUtil {
 		return hu;
 	}
 	
-	public synchronized SessionFactory getSessionFactory() {
+	public synchronized static SessionFactory getSessionFactory() {
 		if(sessionFactory==null) {
 			StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
 					.configure().build();
@@ -39,4 +39,9 @@ public class HibernateUtil {
 	public Session getSession() {
 		return this.getSessionFactory().openSession();
 	}
+	
+	 public static void shutdown() {
+	        // Close caches and connection pools
+	        getSessionFactory().close();
+	    }
 }
