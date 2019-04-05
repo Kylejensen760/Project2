@@ -6,11 +6,12 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    NavbarComponent
+    NavbarComponent, CarouselComponent
   ],
   imports: [
     BrowserModule,
