@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-      <!--    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Book</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password"></property>
-        <property name="hibernate.connection.pool_size">1</property>
-        <property name="hibernate.current_session_context_class">thread</property>
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>  -->
+    	<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+		<property name="hibernate.connection.username">frugal</property>
+		<property name="hibernate.connection.password">p4ssw0rd</property>
+		<property name="hibernate.connection.pool_size">35</property>
+		
+	    <mapping class="com.revature.beans.Customer"></mapping>
+		<mapping class="com.revature.beans.Menu"></mapping>
+		<mapping class="com.revature.beans.MenuItem"></mapping>
+		<mapping class="com.revature.beans.Restaurant"></mapping>
+		<mapping class="com.revature.beans.Review"></mapping>
+		<mapping class="com.revature.beans.Tag"></mapping>
 
-        <mapping resource="book.hbm.xml" />
     </session-factory>
 </hibernate-configuration>
