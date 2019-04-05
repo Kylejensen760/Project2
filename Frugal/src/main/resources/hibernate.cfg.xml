@@ -19,11 +19,11 @@
 		<!-- <mapping resource="HoneyPot.hbm.xml"/> -->
 		
 		<!-- JPA Annotations -->
-		<mapping class="com.revature.beans.Customer"></mapping>
-		<mapping class="com.revature.beans.Menu"></mapping>
-		<mapping class="com.revature.beans.MenuItem"></mapping>
-		<mapping class="com.revature.beans.Restaurant"></mapping>
-		<mapping class="com.revature.beans.Review"></mapping>
-		<mapping class="com.revature.beans.Tag"></mapping>
+		<mapping class="com.titans.beans.Customer"></mapping>
+		<mapping class="com.titans.beans.Menu"></mapping>
+		<mapping class="com.titans.beans.MenuItem"></mapping>
+		<mapping class="com.titans.beans.Restaurant"></mapping>
+		<mapping class="com.titans.beans.Review"></mapping>
+		<mapping class="com.titans.beans.Tag"></mapping>
 	</session-factory>
 </hibernate-configuration>
