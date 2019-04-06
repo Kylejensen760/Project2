@@ -18,8 +18,8 @@ public class Restaurant{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@OneToMany(mappedBy = "menu")
-	private List<Menu> Menus = new ArrayList<Menu>();
+//	@OneToMany(mappedBy = "menu")
+//	private List<Menu> Menus = new ArrayList<Menu>();
 	
 	@Column(name = "restaurant_name")
 	private String name;
