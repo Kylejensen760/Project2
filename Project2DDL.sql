@@ -1,3 +1,4 @@
+connect frugal/p4ssw0rd;
 --select 'drop table ' || table_name || ' cascade constraints;' from user_tables;
 drop table CUSTOMER cascade constraints;
 drop table RESTAURANT cascade constraints;
@@ -61,8 +62,15 @@ create table menu_item(
     menu_id number(20) not null,
     item_name varchar(150),
     item_price number(5, 2), 
+    isSpecial number(1),
     special_price number(5, 2),
-    special_day number(1),
+    monday number(1),
+    tuesday number(1),
+    wednesday number(1),
+    thursday number(1),
+    friday number(1),
+    saturday number(1),
+    sunday number(1),
     special_start number(30),
     special_end number(30)
 );
@@ -77,6 +85,8 @@ create table restaurant_tags(
     tag_id number(30)
 );
 
+insert into customer
+    values(1, 'Kyle', 'Jensen', 'KJen', '760', 'kjen@760.com', '555-555-5555');
 
 
 
