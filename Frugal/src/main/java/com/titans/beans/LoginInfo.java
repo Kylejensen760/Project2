@@ -64,7 +64,6 @@ public class LoginInfo {
 		builder.append("LoginInfo [cust=");
 		builder.append(customer);
 		builder.append(", emp=");
-		builder.append(employee);
 		builder.append("]");
 		return builder.toString();
 	}

@@ -11,6 +11,5 @@ public interface CustomerService {
 	public void deleteCustomer(Customer cust);
 	public void updateCustomer(Customer cust);
 	public void newCustomer(Customer cust);
-	public Customer getCustomer(String username, String password);
 	
 }
