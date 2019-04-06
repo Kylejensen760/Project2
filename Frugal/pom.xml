@@ -1,4 +1,4 @@
-  <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" >
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.titans</groupId>
@@ -15,36 +15,7 @@
   	<failOnMissingWebXml>false</failOnMissingWebXml>
   </properties>
   
-<<<<<<< HEAD
-  <repositories>
-		<repository>
-			<id>my-nexus</id>
-			<name>Nexus</name>
-			<url>http://nexus.titans.tech/nexus/content/groups/public</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>my-nexus</id>
-			<name>Nexus</name>
-			<url>http://nexus.titans.tech/nexus/content/groups/public</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
-=======
   
->>>>>>> ec0a9a6e43213db078a4fd4869653f874bcf3f72
   
   <dependencyManagement>
 		<dependencies>

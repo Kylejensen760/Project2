@@ -44,7 +44,7 @@ public class CustomerHibernate implements CustomerDao {
 
 	@Override
 	public List<Customer> getAllCustomers() {
-		return (List<Customer>) s.createQuery("From com.revature.beans.Customer", Customer.class).list();
+		return (List<Customer>) s.createQuery("From com.titans.beans.Customer", Customer.class).list();
 	}
 
 	

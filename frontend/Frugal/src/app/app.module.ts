@@ -2,11 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { NgModule} from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { UrlService } from './shared/url.service';
+import { UserService } from './shared/user/user.service';
 
 @NgModule({
   declarations: [
@@ -16,11 +20,13 @@ import { CarouselComponent } from './carousel/carousel.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    FormsModule,
+    HttpClientModule
 
   ],
 
-  providers: [],
+  providers: [UrlService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

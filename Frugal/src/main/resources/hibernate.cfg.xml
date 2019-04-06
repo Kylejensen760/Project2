@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
@@ -6,7 +5,8 @@
 		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
 		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
 		<property name="hibernate.connection.username">frugal</property>
-		<property name="hibernate.connection.password">password</property>
+		<property name="hibernate.connection.password">p4ssw0rd</property>
+		<property name="hibernate.connection.pool_size">35</property>
 		
 		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
 		
@@ -27,24 +27,5 @@
 		<mapping class="com.titans.beans.Review"></mapping>
 		<mapping class="com.titans.beans.Tag"></mapping>
 	</session-factory>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-<hibernate-configuration>
-    <session-factory>
-    	<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
-		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
-		<property name="hibernate.connection.username">frugal</property>
-		<property name="hibernate.connection.password">p4ssw0rd</property>
-		<property name="hibernate.connection.pool_size">35</property>
-		
-	    <mapping class="com.titans.beans.Customer"></mapping>
-		<mapping class="com.titans.beans.Menu"></mapping>
-		<mapping class="com.titans.beans.MenuItem"></mapping>
-		<mapping class="com.titans.beans.Restaurant"></mapping>
-		<mapping class="com.titans.beans.Review"></mapping>
-		<mapping class="com.titans.beans.Tag"></mapping>
 
-    </session-factory>
->>>>>>> ec0a9a6e43213db078a4fd4869653f874bcf3f72
 </hibernate-configuration>
