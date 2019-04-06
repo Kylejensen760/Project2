@@ -26,14 +26,12 @@ public class LoginController {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public LoginInfo login(HttpSession session) {
-		System.out.println("Get motherfucker");
 		return (LoginInfo) session.getAttribute("loggedUser");
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public LoginInfo login(@RequestParam("user") String username, 
 			@RequestParam("pass") String password, HttpSession session) {
-		System.out.println("POST Malone motherfucker");
 		Customer c = cs.login(username,  password);
 		if(c==null) {
 			return null;
