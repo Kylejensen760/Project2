@@ -4,8 +4,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.titans.beans.Customer;
@@ -14,30 +16,31 @@ import com.titans.beans.LoginInfo;
 import com.titans.services.CustomerService;
 //import com.titans.services.RestaurantService;
 
-@Controller
+@RestController
 @RequestMapping(value="/login")
+@CrossOrigin(origins="http://localhost:4200")
 public class LoginController {
 
 	@Autowired
 	private CustomerService cs;
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String goLogin(HttpSession session) {
-		if(session.getAttribute("user")!=null)
-			return "redirect:home";
-		return "static/login.html";
+	public LoginInfo login(HttpSession session) {
+		System.out.println("Get motherfucker");
+		return (LoginInfo) session.getAttribute("loggedUser");
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public String login(HttpSession session, String username,  String password) {
-		Customer c = cs.login(username, password);
-		System.out.println("============== login list " + c);
-		if(c != null) {
-			session.setAttribute("user", c);
-
-			return "redirect:home";
+	public LoginInfo login(@RequestParam("user") String username, 
+			@RequestParam("pass") String password, HttpSession session) {
+		System.out.println("POST Malone motherfucker");
+		Customer c = cs.login(username,  password);
+		if(c==null) {
+			return null;
 		}
-		return "redirect:login";
+		LoginInfo loggedUser = new LoginInfo(c);
+		session.setAttribute("loggedUser", loggedUser);
+		return loggedUser;
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE)
