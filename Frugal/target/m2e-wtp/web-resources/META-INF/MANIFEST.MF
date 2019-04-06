@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: frang
 Build-Jdk: 1.8.0_201
 Created-By: Maven Integration for Eclipse
 
+=======
+Manifest-Version: 1.0
+Built-By: Kyle Jensen
+Build-Jdk: 1.8.0_201
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> 96ec55b3e78cc34250cb20cbc2be285f7c326700

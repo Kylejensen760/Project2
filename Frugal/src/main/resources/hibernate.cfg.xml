@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
+<<<<<<< HEAD
 	<session-factory>
 		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+=======
+    <session-factory>
+    	<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+>>>>>>> 96ec55b3e78cc34250cb20cbc2be285f7c326700
 		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
 		<property name="hibernate.connection.username">frugal</property>
 		<property name="hibernate.connection.password">p4ssw0rd</property>
@@ -10,6 +15,7 @@
 		
 		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
 		
+<<<<<<< HEAD
 		<!-- Hibernate specific properties (optional) -->
 		<property name="show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
@@ -21,11 +27,24 @@
 		
 		<!-- JPA Annotations -->
 		<mapping class="com.titans.beans.Customer"></mapping>
+=======
+		<property name="show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<!-- Backwards compatibility for id generation -->
+		<property name="hibernate.id.new_generator_mappings">true</property>
+		
+	    <mapping class="com.titans.beans.Customer"></mapping>
+>>>>>>> 96ec55b3e78cc34250cb20cbc2be285f7c326700
 		<mapping class="com.titans.beans.Menu"></mapping>
 		<mapping class="com.titans.beans.MenuItem"></mapping>
 		<mapping class="com.titans.beans.Restaurant"></mapping>
 		<mapping class="com.titans.beans.Review"></mapping>
 		<mapping class="com.titans.beans.Tag"></mapping>
+<<<<<<< HEAD
 	</session-factory>
+=======
+
+    </session-factory>
+>>>>>>> 96ec55b3e78cc34250cb20cbc2be285f7c326700
 
 </hibernate-configuration>
