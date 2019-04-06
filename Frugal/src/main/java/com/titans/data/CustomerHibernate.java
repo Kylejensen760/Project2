@@ -17,8 +17,7 @@ public class CustomerHibernate implements CustomerService {
 //	@Autowired
 //	private CustomerDao cd;
 	
-	private static HibernateUtil hu = new HibernateUtil();
-    private Session s;
+	private Session s;
 	
 	public void setSession(Session s) {
 		this.s = s;
