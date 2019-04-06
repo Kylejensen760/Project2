@@ -62,6 +62,12 @@ public class CustomerHibernate implements CustomerService {
 		
 	}
 
+	@Override
+	public Customer getCustomer(String username, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 	
