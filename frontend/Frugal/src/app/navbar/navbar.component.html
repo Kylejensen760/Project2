@@ -1,11 +1,10 @@
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark purple lighten-1" [containerInside]="false">
-
+<ng-container *ngIf="!loggedUser; else display">
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark purple lighten-1" [containerInside]="false">
     <!-- Navbar brand -->
     <mdb-navbar-brand><a class="navbar-brand" href="#">Frugal</a></mdb-navbar-brand>
   
     <!-- Collapsible content -->
     <links>
-  
       <!-- Links -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -40,9 +39,9 @@
         </li>
         <form action="login" method="post" class="form-inline waves-light" mdbWavesEffect>
             <div class="md-form my-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Username" name="username">
-              <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password">
-              <button mdbBtn outline="true" size="sm" class="my-0 waves-light" type="submit" mdbWavesEffect>Login</button>
+              <input class="form-control mr-sm-2" type="text" placeholder="Username" name="username" [(ngModel)]="username">
+              <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password" [(ngModel)]="password" (keyup.enter)="login()">
+              <button mdbBtn outline="true" size="sm" class="my-0 waves-light" type="submit" mdbWavesEffect (click)="login()">Login</button>
             </div>
           </form>
         <li class="nav-item avatar dropdown" dropdown>
@@ -56,5 +55,8 @@
       </ul>
     </links>
     <!-- Collapsible content -->
-  
   </mdb-navbar>
+</ng-container>
+<ng-template #display>
+  logged in
+</ng-template>
