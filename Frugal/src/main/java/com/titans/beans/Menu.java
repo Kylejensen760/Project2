@@ -16,7 +16,7 @@ public class Menu {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	//@ManyToOne(fetch=FetchType.LAZY)
 	@Column(name = "restaurant_id")
 	private Long restaurantId;
 	

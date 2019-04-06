@@ -1,3 +1,4 @@
+
 package com.titans.util;
 
 import org.hibernate.Session;
@@ -34,3 +35,4 @@ public class HibernateUtil {
 		return this.getSessionFactory().openSession();
 	}
 }
+
