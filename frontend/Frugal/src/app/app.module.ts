@@ -11,12 +11,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UrlService } from './shared/url.service';
 import { UserService } from './shared/user/user.service';
 import { LoginComponent } from './core/login/login.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

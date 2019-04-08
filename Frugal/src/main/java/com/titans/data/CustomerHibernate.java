@@ -56,8 +56,9 @@ public class CustomerHibernate implements CustomerDao {
 	}
 
 	@Override
-	public void saveCustomer(Customer c) {
+	public Customer saveCustomer(String firstName, String lastName, String username, String password, String phone, String email) {
 		// TODO Auto-generated method stub
+		
 		
 	}
 

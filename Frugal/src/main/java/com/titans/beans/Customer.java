@@ -154,5 +154,8 @@ public class Customer implements Serializable{
 			super();
 			// TODO Auto-generated constructor stub
 		}
+		public Customer(Customer c) {
+			// TODO Auto-generated constructor stub
+		}
 
 }
