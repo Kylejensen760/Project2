@@ -10,19 +10,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.titans.beans.Customer;
-import com.titans.beans.Restaurant;
 import com.titans.beans.LoginInfo;
+import com.titans.beans.Restaurant;
 import com.titans.services.CustomerService;
 import com.titans.services.RestaurantService;
-//import com.titans.services.RestaurantService;
 
 @RestController
-@RequestMapping(value="/login")
+@RequestMapping(value="/restaurant")
 @CrossOrigin(origins="http://localhost:4200")
-public class LoginController {
-
-	@Autowired
-	private CustomerService cs;
+public class RestaurantController {
 	@Autowired
 	private RestaurantService rs;
 	
@@ -31,19 +27,17 @@ public class LoginController {
 		return (LoginInfo) session.getAttribute("loggedUser");
 	}
 	
-	@RequestMapping(method=RequestMethod.POST)
-	public LoginInfo login(@RequestParam("user") String username, 
-			@RequestParam("pass") String password, HttpSession session) {
-		System.out.println("=======================================");
-		Customer c = cs.login(username,  password);
-		Restaurant r = rs.login(username, password);
-		if(c==null&&r==null) {
-			return null;
-		}
-		LoginInfo loggedUser = new LoginInfo(c,r);
-		session.setAttribute("loggedUser", loggedUser);
-		return loggedUser;
-	}
+//	@RequestMapping(method=RequestMethod.POST)
+//	public LoginInfo login(@RequestParam("user") String username, 
+//			@RequestParam("pass") String password, HttpSession session) {
+//		Restaurant r = rs.login(username,  password);
+//		if(r==null) {
+//			return null;
+//		}
+//		LoginInfo loggedUser = new LoginInfo(r);
+//		session.setAttribute("loggedUser", loggedUser);
+//		return loggedUser;
+//	}
 	
 	@RequestMapping(method=RequestMethod.DELETE)
 	public void logout(HttpSession session) {

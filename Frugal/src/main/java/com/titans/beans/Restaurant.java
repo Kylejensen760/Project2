@@ -1,14 +1,18 @@
 package com.titans.beans;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,22 +22,21 @@ public class Restaurant{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-//	@OneToMany(mappedBy = "menu")
-//	private List<Menu> Menus = new ArrayList<Menu>();
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinTable(name="restaurant_tags",
+			joinColumns=@JoinColumn(name="restaurant_id"),
+			inverseJoinColumns=@JoinColumn(name="tag_id"))
+	private Set<Tag> tags = new HashSet<Tag>();
 	
 	@Column(name = "restaurant_name")
 	private String name;
 	
-	@Column(name = "username")
 	private String username;
 	
-	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "phone")
 	private String phone;
 	
-	@Column(name = "email")
 	private String email;
 	
 	@Column(name = "line_one")
@@ -42,14 +45,11 @@ public class Restaurant{
 	@Column(name = "line_two")
 	private String lineTwo;
 	
-	@Column(name = "city")
 	private String city;
 	
-	@Column(name = "state")
 	private String state;
 	
-	@Column(name = "zip")
-	private int zip;
+	private String zip;
 	
 	@Column(name = "website_url")
 	private String websiteUrl;
@@ -64,6 +64,27 @@ public class Restaurant{
 		super();
 	}
 	
+	public Restaurant(Long id, String name, String username, String password, String phone, String email,
+			String lineOne, String lineTwo, String city, String state, String zip, String websiteUrl, Long openingTime,
+			Long closingTime, Set<Tag> tags) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.username = username;
+		this.password = password;
+		this.phone = phone;
+		this.email = email;
+		this.lineOne = lineOne;
+		this.lineTwo = lineTwo;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.websiteUrl = websiteUrl;
+		this.openingTime = openingTime;
+		this.closingTime = closingTime;
+//		this.tags = tags;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -124,10 +145,10 @@ public class Restaurant{
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getZip() {
+	public String getZip() {
 		return zip;
 	}
-	public void setZip(int zip) {
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 	public String getWebsiteUrl() {
@@ -148,6 +169,13 @@ public class Restaurant{
 	public void setClosingTime(Long closingTime) {
 		this.closingTime = closingTime;
 	}
+	public Set<Tag> getTags() {
+		return tags;
+	}
+	public void setTags(Set<Tag> tags) {
+		this.tags = tags;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -163,11 +191,13 @@ public class Restaurant{
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
+//		result = prime * result + ((tags == null) ? 0 : tags.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		result = prime * result + ((websiteUrl == null) ? 0 : websiteUrl.hashCode());
-		result = prime * result + zip;
+		result = prime * result + ((zip == null) ? 0 : zip.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -232,6 +262,11 @@ public class Restaurant{
 				return false;
 		} else if (!state.equals(other.state))
 			return false;
+		if (tags == null) {
+			if (other.tags != null)
+				return false;
+		} else if (!tags.equals(other.tags))
+			return false;
 		if (username == null) {
 			if (other.username != null)
 				return false;
@@ -246,13 +281,16 @@ public class Restaurant{
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Restaurant [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
 				+ ", phone=" + phone + ", email=" + email + ", lineOne=" + lineOne + ", lineTwo=" + lineTwo + ", city="
 				+ city + ", state=" + state + ", zip=" + zip + ", websiteUrl=" + websiteUrl + ", openingTime="
-				+ openingTime + ", closingTime=" + closingTime + "]";
+				+ openingTime + ", closingTime=" + closingTime + ", tags=" + tags + "]";
 	}
+
+	
 	
 	
 }

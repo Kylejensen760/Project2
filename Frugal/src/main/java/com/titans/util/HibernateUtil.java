@@ -1,6 +1,4 @@
-
 package com.titans.util;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -11,28 +9,32 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.springframework.stereotype.Component;
 
 @Component
-public class HibernateUtil {
-	private static SessionFactory sessionFactory;
-	
-	public HibernateUtil() {
+public class HibernateUtil
+{
+	private SessionFactory sessionFactory;
+
+	public HibernateUtil()
+	{
 		super();
 	}
 	
-	public synchronized SessionFactory getSessionFactory() {
-		if(sessionFactory==null) {
-			StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
-					.configure().build();
+	public SessionFactory getSessionFactory()
+	{
+		if(sessionFactory==null)
+		{
+			StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder().configure().build();
 			Metadata meta = new MetadataSources(standardRegistry)
 					.getMetadataBuilder()
 					.applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)
 					.build();
-			sessionFactory = meta.getSessionFactoryBuilder().build();
+			sessionFactory = meta.getSessionFactoryBuilder()
+					.build();
 		}
 		return sessionFactory;
 	}
 	
-	public Session getSession() {
+	public Session getSession()
+	{
 		return this.getSessionFactory().openSession();
 	}
 }
-
