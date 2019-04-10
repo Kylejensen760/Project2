@@ -12,13 +12,15 @@ import { UrlService } from './shared/url.service';
 import { UserService } from './shared/user/user.service';
 import { LoginComponent } from './core/login/login.component';
 import { CreateComponent } from './create/create.component';
+import { AccountCreationComponent } from './shared/account-creation/account-creation.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     NavbarComponent,
     LoginComponent,
-    CreateComponent
+    CreateComponent,
+    AccountCreationComponent
   ],
   imports: [
     BrowserModule,

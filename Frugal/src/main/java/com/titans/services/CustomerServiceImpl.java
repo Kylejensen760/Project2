@@ -43,10 +43,14 @@ public class CustomerServiceImpl implements CustomerService{
 		
 	}
 
+	
+
+
 	@Override
-	public void newCustomer(Customer cust) {
+	public Customer saveCustomer(String firstName, String lastName, String username, String password, String phone,
+			String email) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	
