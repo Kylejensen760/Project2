@@ -39,8 +39,8 @@ public class HibernateAspect {
 		return obj;
 	}
 	
-	@Pointcut("execution(* com.revature.data..*(..)) && "
-			+" !execution(* com.revature.data..setSession(..))")
+	@Pointcut("execution(* com.titans.data..*(..)) && "
+			+" !execution(* com.titans.data..setSession(..))")
 	public void allDaoObjects() {}
 	
 }
