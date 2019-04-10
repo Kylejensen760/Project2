@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { Customer } from './customer';
 import { CurrentUser } from './current-user';
 import { UrlService } from '../url.service';
-
+import { Restaurant } from './restaurant';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +15,7 @@ export class UserService {
   private appUrl = this.urlSource.getURL() + '/login';
   private headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
   private customer: Customer;
+  private restaurant: Restaurant;
 
   constructor(private urlSource: UrlService, private http: HttpClient) { }
   login(username: string, password: string): Observable<CurrentUser> {
@@ -28,7 +29,7 @@ export class UserService {
           const user: CurrentUser = resp as CurrentUser;
           if (user) {
             this.customer = user.customer;
-            //this.restaurant = user.restaurant;
+            this.restaurant = user.restaurant;
           }
           return user;
         }));
@@ -39,22 +40,31 @@ export class UserService {
           const user: CurrentUser = resp as CurrentUser;
           if (user) {
             this.customer = user.customer;
+            this.restaurant = user.restaurant;
           }
           return user;
         }));
     }
   }
-
+  logout(): Observable<Object> {
+    return this.http.delete(this.appUrl, { withCredentials: true }).pipe(
+      map(success=> {
+        this.restaurant = null;
+        this.customer = null;
+        return success;
+      })
+    );
+  }
   getCustomer(): Customer {
     return this.customer;
   }
-  // getRestaurant(): Restaurant {
-  //   return this.restaurant;
-  // }
+  getRestaurant(): Restaurant {
+    return this.restaurant;
+  }
   isCustomer(): boolean {
     return (this.customer!==undefined && this.customer!==null);
   }
-  // isRestaurant(): boolean {
-  //   return (this.restaurant!== undefined && this.restaurant!== null);
-  // }
+  isRestaurant(): boolean {
+    return (this.restaurant!== undefined && this.restaurant!== null);
+  }
 }

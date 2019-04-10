@@ -13,10 +13,6 @@ public class LoginInfo {
 		this.restaurant = rest;
 	}
 	
-	public LoginInfo(Customer customer) {
-		super();
-		this.customer = customer;
-	}
 	public Customer getCustomer() {
 		return customer;
 	}
