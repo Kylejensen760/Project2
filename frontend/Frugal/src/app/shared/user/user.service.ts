@@ -5,21 +5,22 @@ import { Observable, pipe, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Customer } from './customer';
+import { Restaurant } from './restaurant';
 import { CurrentUser } from './current-user';
 import { UrlService } from '../url.service';
-import { Restaurant } from './restaurant';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private appUrl = this.urlSource.getURL() + '/login';
   private headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
-  private customer: Customer;
   private restaurant: Restaurant;
+  private customer: Customer;
 
   constructor(private urlSource: UrlService, private http: HttpClient) { }
+
   login(username: string, password: string): Observable<CurrentUser> {
-    //console.log(username+' '+password);
+    console.log(username+' '+password);
     if(username&&password) {
       // we need to login.
       const body = `user=${username}&pass=${password}`;
@@ -28,6 +29,7 @@ export class UserService {
         .pipe(map(resp => {
           const user: CurrentUser = resp as CurrentUser;
           if (user) {
+            this.restaurant = user.restaurant;
             this.customer = user.customer;
             this.restaurant = user.restaurant;
           }
@@ -39,6 +41,7 @@ export class UserService {
         .pipe(map(resp => {
           const user: CurrentUser = resp as CurrentUser;
           if (user) {
+            this.restaurant = user.restaurant;
             this.customer = user.customer;
             this.restaurant = user.restaurant;
           }
