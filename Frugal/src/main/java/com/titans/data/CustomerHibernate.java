@@ -76,6 +76,7 @@ public class CustomerHibernate implements CustomerDao {
 
 	@Override
 	public List<Customer> getAllCustomers() {
+
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,3 +1,4 @@
+
 package com.titans.controllers;
 
 import javax.servlet.http.HttpSession;
@@ -14,7 +15,6 @@ import com.titans.beans.Restaurant;
 import com.titans.beans.LoginInfo;
 import com.titans.services.CustomerService;
 import com.titans.services.RestaurantService;
-//import com.titans.services.RestaurantService;
 
 @RestController
 @RequestMapping(value="/login")
@@ -28,14 +28,12 @@ public class LoginController {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public LoginInfo login(HttpSession session) {
-		System.out.println("This is Get");
 		return (LoginInfo) session.getAttribute("loggedUser");
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public LoginInfo login(@RequestParam("user") String username, 
 			@RequestParam("pass") String password, HttpSession session) {
-
 		Customer c = cs.login(username,  password);
 		Restaurant r = rs.login(username, password);
 		if(c==null&&r==null) {
@@ -51,3 +49,4 @@ public class LoginController {
 		session.invalidate();
 	}
 }
+
