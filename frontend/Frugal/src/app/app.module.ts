@@ -11,12 +11,18 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UrlService } from './shared/url.service';
 import { UserService } from './shared/user/user.service';
 import { LoginComponent } from './core/login/login.component';
+import { MenuitemtableComponent } from './menuitemtable/menuitemtable.component';
+import { MenuComponent } from './menu/menu.component';
+import { CarouselComponent } from './core/carousel/carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    MenuitemtableComponent,
+    MenuComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
