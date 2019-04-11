@@ -8,7 +8,6 @@ import { Customer } from './customer';
 import { Restaurant } from './restaurant';
 import { CurrentUser } from './current-user';
 import { UrlService } from '../url.service';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +31,7 @@ export class UserService {
           if (user) {
             this.restaurant = user.restaurant;
             this.customer = user.customer;
+            this.restaurant = user.restaurant;
           }
           return user;
         }));
@@ -43,6 +43,7 @@ export class UserService {
           if (user) {
             this.restaurant = user.restaurant;
             this.customer = user.customer;
+            this.restaurant = user.restaurant;
           }
           return user;
         }));
@@ -60,13 +61,13 @@ export class UserService {
   getCustomer(): Customer {
     return this.customer;
   }
-  getEmployee(): Restaurant {
+  getRestaurant(): Restaurant {
     return this.restaurant;
   }
   isCustomer(): boolean {
     return (this.customer!==undefined && this.customer!==null);
   }
-  isEmployee(): boolean {
+  isRestaurant(): boolean {
     return (this.restaurant!== undefined && this.restaurant!== null);
   }
 }

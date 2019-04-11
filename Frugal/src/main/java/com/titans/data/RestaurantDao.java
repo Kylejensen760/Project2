@@ -1,16 +1,21 @@
 package com.titans.data;
 
 import java.util.List;
+import java.util.Set;
 
 import com.titans.beans.Restaurant;
+import com.titans.beans.Tag;
 
 public interface RestaurantDao {
 	
+	Restaurant login(String username, String password);
+	
 	Restaurant getRestaurant(String s); // ** we need to change this line 
-
-	void saveRestaurant(Restaurant m);
-	void updateRestaurantu(Restaurant m);
-	void deleteRestaurant(Restaurant m);
-	List<Restaurant> getRestaurant();
-
+	Restaurant getRestaurantById(int id);
+	Restaurant saveRestaurant(Restaurant m);
+	Restaurant updateRestaurant(Restaurant m);
+	Restaurant deleteRestaurant(Restaurant m);
+	public List<Restaurant> getRestaurants();
+	public Set<Tag> getRestaurantTags();
+	public void setRestaurantTags(Set<Tag> tags);
 }
