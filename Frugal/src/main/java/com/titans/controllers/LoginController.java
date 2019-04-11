@@ -35,12 +35,7 @@ public class LoginController {
 	@RequestMapping(method=RequestMethod.POST)
 	public LoginInfo login(@RequestParam("user") String username, 
 			@RequestParam("pass") String password, HttpSession session) {
-<<<<<<< HEAD
-		
-		System.out.println("this is post");
-=======
-		System.out.println("=======================================");
->>>>>>> f0dc60d8ad394301ad0aeb1543aa075e9276f0dc
+
 		Customer c = cs.login(username,  password);
 		Restaurant r = rs.login(username, password);
 		if(c==null&&r==null) {

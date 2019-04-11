@@ -1,48 +1,76 @@
+<!-- Extended material form grid -->
+<form>
+  <!-- Grid row -->
+  <div class="form-row">
+    <!-- Grid column -->
+    <div class="col-md-6">
+      <!-- Material input -->
+      <div class="md-form form-group">
+        <input mdbInput type="text" class="form-control" id="inputFirstName4MD" placeholder="First Name">
+        <label for="inputFirstName4MD">First Name</label>
+      </div>
+    </div>
+    <!-- Grid column -->
 
-<html>
-<head>
-<meta charset="UTF-8">
+    <!-- Grid column -->
+    <div class="col-md-6">
+      <!-- Material input -->
+      <div class="md-form form-group">
+        <input mdbInput type="text" class="form-control" id="inputLastName4MD" placeholder="Last Name">
+        <label for="inputLastName4MD">Password</label>
+      </div>
+    </div>
+    <!-- Grid column -->
+  </div>
+  <!-- Grid row -->
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
+  <!-- Grid row -->
+  <div class="row">
+    <!-- Grid column -->
+    <div class="col-md-12">
+      <!-- Material input -->
+      <div class="md-form form-group">
+        <input mdbInput type="text" class="form-control" id="inputUsernameMD" placeholder="Username">
+        <label for="inputUsernameMD">Address</label>
+      </div>
+    </div>
+    <!-- Grid column -->
 
-</head>
-<body>
-	<div class="container border">
-		<h4>Create</h4>
-		<p class="lead">Enter User Information</p>
-		<hr class="my-4">
-		<form action="create" method="post">
-			<div class="form-group">
-				<label for="inputFirstName">First Name</label>
-				<input class="form-control mr-sm-2" type="text" placeholder="First Name" name="firstName" [(ngModel)]="firstName">
-			</div>
-			<div class="form-group">
-				<label for="inputLastName">Last Name</label>
-				<input class="form-control mr-sm-2" type="text" placeholder="Last Name" name="lastName" [(ngModel)]="lastName">
-			</div>
-			<div class="form-group">
-				<label for="inputUsername">Username</label>
-				<input class="form-control mr-sm-2" type="text" placeholder="Username" name="username" [(ngModel)]="username">
-			</div>
-			<div class="form-group">
-				<label for="inputPassword">Password</label>
-				<input class="form-control mr-sm-2" type="text" placeholder="Password" name="password" [(ngModel)]="password">
-			</div>
-			<div class="form-group">
-				<label for="inputPhone">Phone<label>
-          <input class="form-control mr-sm-2" type="text" placeholder="Phone" name="phone" [(ngModel)]="phone">
-			</div>
-			<div class="form-group">
-				<label for="inputEmail">Email</label>
-				<input class="form-control mr-sm-2" type="text" placeholder="Email" name="email" [(ngModel)]="email">
-			</div>
-		
-			<input type="submit" value="Submit" class="btn btn-primary"/>
-			
-		</form>
-		
-	</div>
-</body>
+    <!-- Grid column -->
+    <div class="col-md-12">
+      <!-- Material input -->
+      <div class="md-form form-group">
+        <input mdbInput type="password" class="form-control" id="inputPassword2MD" placeholder="">
+        <label for="inputPassword2MD">Address 2</label>
+      </div>
+    </div>
+    <!-- Grid column -->
+  </div>
+  <!-- Grid row -->
+
+  <!-- Grid row -->
+  <div class="form-row">
+    <!-- Grid column -->
+    <div class="col-md-6">
+      <!-- Material input -->
+      <div class="md-form form-group">
+        <input mdbInput type="text" class="form-control" id="inputPhoneMD" placeholder="">
+        <label for="inputCityMD">City</label>
+      </div>
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-6">
+      <!-- Material input -->
+      <div class="md-form form-group">
+        <input mdbInput type="text" class="form-control" id="inputEmailMD" placeholder="">
+        <label for="inputEmailMD">Zip</label>
+      </div>
+    </div>
+    <!-- Grid column -->
+  </div>
+  <!-- Grid row -->
+  <button type="submit" class="btn btn-primary btn-md">Submit</button>
+</form>
+<!-- Extended material form grid -->
