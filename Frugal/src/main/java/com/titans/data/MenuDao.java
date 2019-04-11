@@ -6,9 +6,9 @@ import com.titans.beans.Menu;
 
 public interface MenuDao {
 	
-	Menu getMenu(String s); // ** we need to change this line 
-
-	void saveMenu(Menu m);
+	Menu getMenu(int id); // ** we need to change this line 
+	Menu addMenu(Menu m);
+	Menu saveMenu(Menu m);
 	void updateMenu(Menu m);
 	void deleteMenu(Menu m);
 	List<Menu> getMenu();
