@@ -14,7 +14,6 @@ import com.titans.beans.Restaurant;
 import com.titans.beans.LoginInfo;
 import com.titans.services.CustomerService;
 import com.titans.services.RestaurantService;
-//import com.titans.services.RestaurantService;
 
 @RestController
 @RequestMapping(value="/login")
@@ -34,7 +33,6 @@ public class LoginController {
 	@RequestMapping(method=RequestMethod.POST)
 	public LoginInfo login(@RequestParam("user") String username, 
 			@RequestParam("pass") String password, HttpSession session) {
-		System.out.println("=======================================");
 		Customer c = cs.login(username,  password);
 		Restaurant r = rs.login(username, password);
 		if(c==null&&r==null) {
@@ -50,3 +48,4 @@ public class LoginController {
 		session.invalidate();
 	}
 }
+
