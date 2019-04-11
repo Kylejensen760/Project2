@@ -13,7 +13,7 @@ import com.titans.beans.Customer;
 import com.titans.beans.Restaurant;
 import com.titans.beans.LoginInfo;
 import com.titans.services.CustomerService;
-import com.titans.services.RestaurantService;\
+import com.titans.services.RestaurantService;
 
 @RestController
 @RequestMapping(value="/login")
