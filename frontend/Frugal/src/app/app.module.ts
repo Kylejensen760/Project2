@@ -13,6 +13,7 @@ import { UserService } from './shared/user/user.service';
 import { LoginComponent } from './core/login/login.component';
 import { MenuitemtableComponent } from './menuitemtable/menuitemtable.component';
 import { MenuComponent } from './menu/menu.component';
+import { CarouselComponent } from './core/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MenuComponent } from './menu/menu.component';
     NavbarComponent,
     LoginComponent,
     MenuitemtableComponent,
-    MenuComponent
+    MenuComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
