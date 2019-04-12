@@ -50,6 +50,8 @@ public class CustomerServiceImpl implements CustomerService{
 	public Customer saveCustomer(String firstName, String lastName, String username, String password, String phone,
 			String email) {
 		// TODO Auto-generated method stub
+		System.out.println("save customer method in customer service");
+		cd.saveCustomer(firstName, lastName, username, password, phone, email);
 		return null;
 	}
 

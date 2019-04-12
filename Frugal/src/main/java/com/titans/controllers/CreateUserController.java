@@ -14,6 +14,8 @@ import com.titans.beans.Customer;
 import com.titans.beans.Restaurant;
 import com.titans.beans.LoginInfo;
 import com.titans.services.CustomerService;
+import com.titans.data.CustomerDao;
+import com.titans.data.CustomerHibernate;
 //import com.titans.services.RestaurantService;
 
 @RestController
@@ -23,11 +25,12 @@ public class CreateUserController {
 
 	@Autowired
 	private CustomerService cs;
+	private CustomerHibernate ch;
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public LoginInfo login(HttpSession session) {
 		System.out.println("This is Get");
-		return (LoginInfo) session.getAttribute("User");
+		return null;
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
@@ -35,7 +38,10 @@ public class CreateUserController {
 			@RequestParam("pass") String password, @RequestParam("phone") String phone, @RequestParam("email") String email, HttpSession session) {
 		
 		System.out.println("this is post");
+		
+		System.out.println(firstName + lastName + username + password + phone + email);
 		Customer c = cs.saveCustomer(firstName, lastName, username, password, phone, email);
+		
 		if(c==null) {
 			return null;
 		}

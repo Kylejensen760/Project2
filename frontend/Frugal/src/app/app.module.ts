@@ -15,6 +15,7 @@ import { LoginComponent } from './core/login/login.component';
 import { MenuitemtableComponent } from './menuitemtable/menuitemtable.component';
 import { MenuComponent } from './menu/menu.component';
 import { CarouselComponent } from './core/carousel/carousel.component';
+import { AccountCreationComponent } from './shared/account-creation/account-creation.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CarouselComponent } from './core/carousel/carousel.component';
     LoginComponent,
     MenuitemtableComponent,
     MenuComponent,
-    CarouselComponent
+    CarouselComponent,
+    AccountCreationComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@
     <div class="col-md-6">
       <!-- Material input -->
       <div class="md-form form-group">
-        <input mdbInput type="text" class="form-control" id="inputFirstName4MD" placeholder="First Name">
+        <input mdbInput type="text" class="form-control" placeholder="First Name" [(ngModel)]="firstName" name="first">
         <label for="inputFirstName4MD">First Name</label>
       </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="col-md-6">
       <!-- Material input -->
       <div class="md-form form-group">
-        <input mdbInput type="text" class="form-control" id="inputLastName4MD" placeholder="Last Name">
+        <input mdbInput type="text" class="form-control" placeholder="Last Name" [(ngModel)]="lastName" name="last">
         <label for="inputLastName4MD">Password</label>
       </div>
     </div>
@@ -30,8 +30,8 @@
     <div class="col-md-12">
       <!-- Material input -->
       <div class="md-form form-group">
-        <input mdbInput type="text" class="form-control" id="inputUsernameMD" placeholder="Username">
-        <label for="inputUsernameMD">Address</label>
+        <input mdbInput type="text" class="form-control" placeholder="Username" [(ngModel)]="username" name="user">
+        <label for="inputUsernameMD">Username</label>
       </div>
     </div>
     <!-- Grid column -->
@@ -40,8 +40,8 @@
     <div class="col-md-12">
       <!-- Material input -->
       <div class="md-form form-group">
-        <input mdbInput type="password" class="form-control" id="inputPassword2MD" placeholder="">
-        <label for="inputPassword2MD">Address 2</label>
+        <input mdbInput type="password" class="form-control" placeholder="password"[(ngModel)]="password" name="last">
+        <label for="inputPassword2MD">Password</label>
       </div>
     </div>
     <!-- Grid column -->
@@ -54,8 +54,8 @@
     <div class="col-md-6">
       <!-- Material input -->
       <div class="md-form form-group">
-        <input mdbInput type="text" class="form-control" id="inputPhoneMD" placeholder="">
-        <label for="inputCityMD">City</label>
+        <input mdbInput type="text" class="form-control" placeholder="Phone" [(ngModel)]="phone" name="phone">
+        <label for="inputCityMD">Phone</label>
       </div>
     </div>
     <!-- Grid column -->
@@ -64,13 +64,15 @@
     <div class="col-md-6">
       <!-- Material input -->
       <div class="md-form form-group">
-        <input mdbInput type="text" class="form-control" id="inputEmailMD" placeholder="">
-        <label for="inputEmailMD">Zip</label>
+        <input mdbInput type="text" class="form-control" placeholder="Email" [(ngModel)]="email" name="email">
+        <label for="inputEmailMD">Email</label>
       </div>
     </div>
     <!-- Grid column -->
   </div>
   <!-- Grid row -->
-  <button type="submit" class="btn btn-primary btn-md">Submit</button>
+  <button type="submit" class="btn btn-primary btn-md" mdbWavesEffect (click)="create()">Submit</button>
+  
+
 </form>
 <!-- Extended material form grid -->

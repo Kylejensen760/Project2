@@ -18,15 +18,19 @@ export class AccountCreationComponent implements OnInit {
   public email: string;
   constructor(private createUser: CreateUser) { }
 
-  
+  // ShowCreateCustomerForm(): void {
+  //   window.open("/account-creation.component.html")
+  // }
   ngOnInit() {
-    this.createUser.create(null,null,null,null,null,null).subscribe(
-      user=> {
-        this.User=user;
-      }
+    // this.createUser.create(null,null,null,null,null,null).subscribe(
+    //   user=> {
+    //     this.User=user;
+    //   }
       
-    )
+    // )
   }
+
+  
   create(): void {
     this.createUser.create(this.firstName, this.lastName, this.username, this.password, this.phone, this.email).subscribe(
       user=> {
