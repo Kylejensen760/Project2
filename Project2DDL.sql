@@ -90,33 +90,6 @@ insert into menu_item values(4, 1, 'chorizo', 5, 2, 5, 1 ,1,1,0,0,0,0,1,1);
 insert into menu_item values(5, 1, 'pizza', 5, 2, 5, 1 ,1,1,0,0,0,0,1,1); 
 insert into menu_item values(6, 1, 'wings', 5, 2, 5, 1 ,1,1,0,0,0,0,1,1); 
 
-
-
-
-insert into customer values(1, 'harris', 'sam', 'sam', 'harris', '3333', 's@gmail.com');
-
-    special_price number(5, 2),
-    monday number(1),
-    tuesday number(1),
-    wednesday number(1),
-    thursday number(1),
-    friday number(1),
-    saturday number(1),
-    sunday number(1),
-    special_start number(30),
-    special_end number(30)
-);
-
-create table tag(
-    id number(30),
-    name varchar(150)
-);
-
-create table restaurant_tags(
-    restaurant_id number(20),
-    tag_id number(30)
-);
-
 insert into customer
     values(1, 'Kyle', 'Jensen', 'KJen', '760', 'kjen@760.com', '555-555-5555');
 commit;
