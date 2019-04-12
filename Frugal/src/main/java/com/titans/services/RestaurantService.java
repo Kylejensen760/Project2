@@ -9,9 +9,9 @@ public interface RestaurantService {
 	public Restaurant login(String username, String password);
 	public Restaurant getRestaurantById(int i);
 	public Set<Restaurant> getRestaurant();
-	public void deleteRestaurant(Restaurant cust);
-	public void updateRestaurant(Restaurant cust);
-	public void newRestaurant(Restaurant cust);
+	public void deleteRestaurant(Restaurant rest);
+	public Restaurant updateRestaurant(Restaurant rest);
+	public void newRestaurant(Restaurant rest);
 	public Set<Tag> getRestaurantTags();
 	public void setRestaurantTags(Set<Tag> tags);
 }

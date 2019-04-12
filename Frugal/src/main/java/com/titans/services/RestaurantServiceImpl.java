@@ -33,19 +33,18 @@ public class RestaurantServiceImpl implements RestaurantService{
 	}
 
 	@Override
-	public void deleteRestaurant(Restaurant cust) {
+	public void deleteRestaurant(Restaurant rest) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateRestaurant(Restaurant cust) {
-		// TODO Auto-generated method stub
-		
+	public Restaurant updateRestaurant(Restaurant rest) {
+		return rd.updateRestaurant(rest);
 	}
 
 	@Override
-	public void newRestaurant(Restaurant cust) {
+	public void newRestaurant(Restaurant rest) {
 		// TODO Auto-generated method stub
 		
 	}
