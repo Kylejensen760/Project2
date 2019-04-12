@@ -48,5 +48,5 @@ public class LoginController {
 	public void logout(HttpSession session) {
 		session.invalidate();
 	}
-}
 
+}
