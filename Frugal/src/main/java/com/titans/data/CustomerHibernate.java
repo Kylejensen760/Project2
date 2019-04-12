@@ -57,19 +57,12 @@ public class CustomerHibernate implements CustomerDao {
 	}
 
 	@Override
-	public Customer saveCustomer(String firstName, String lastName, String username, String password, String phone, String email) {
+	public Customer saveCustomer(Customer cust) {
 		// TODO Auto-generated method stub
 		
 		System.out.println("save customer method in Customer Hibernate");
 		Session s = hu.getSession();
-		Customer cust = new Customer();
 		Transaction t = s.beginTransaction();
-		cust.setFirstName(firstName);
-		cust.setLastName(lastName);
-		cust.setUsername(username);
-		cust.setPassword(password);
-		cust.setPhone(phone);
-		cust.setEmail(email);
 		
 		s.save(cust);
 		t.commit();

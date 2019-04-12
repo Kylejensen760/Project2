@@ -8,7 +8,7 @@ public interface CustomerDao {
 	
 	Customer login(String username, String password);
 
-	Customer saveCustomer(String firstName, String lastName, String username, String password, String phone, String email);
+	Customer saveCustomer(Customer c);
 	Customer updateCustomer(Customer c);
 	void deleteCustomer(Customer c);
 	List<Customer> getAllCustomers();

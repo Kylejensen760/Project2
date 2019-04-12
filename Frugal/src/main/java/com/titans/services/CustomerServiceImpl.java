@@ -47,11 +47,10 @@ public class CustomerServiceImpl implements CustomerService{
 
 
 	@Override
-	public Customer saveCustomer(String firstName, String lastName, String username, String password, String phone,
-			String email) {
+	public Customer saveCustomer(Customer c) {
 		// TODO Auto-generated method stub
 		System.out.println("save customer method in customer service");
-		cd.saveCustomer(firstName, lastName, username, password, phone, email);
+		cd.saveCustomer(c);
 		return null;
 	}
 
