@@ -26,6 +26,9 @@ public class RestaurantController {
 		return (LoginInfo) session.getAttribute("loggedUser");
 	}
 	
+//	@RequestMapping(method=RequestMethod.POST)
+//	public createAccount
+	
 	@RequestMapping(method=RequestMethod.PUT)
 	public Restaurant saveTags(@RequestBody Restaurant r, HttpSession session) {
 		LoginInfo loggedUser = (LoginInfo) session.getAttribute(USER);
