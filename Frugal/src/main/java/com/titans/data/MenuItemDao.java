@@ -6,12 +6,12 @@ import com.titans.beans.MenuItem;
 
 public interface MenuItemDao {
 	
-	MenuItem getMenuItem(int id); //**we need to change this line and add stuff
+	MenuItem getMenuItem(String s); //**we need to change this line and add stuff
 
 	void saveMenuItem(MenuItem mi);
 	void updateMenuItem(MenuItem mi);
 	void deleteMenuItem(MenuItem mi);
-	List<MenuItem> getMenuItem();
+	List<MenuItem> getAll();
 
 }
 
