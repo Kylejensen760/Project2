@@ -8,13 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 @Entity
 public class Customer implements Serializable{
 	
 	 	@Id
-	 	@SequenceGenerator(name="customers_seq" , sequenceName="customers_seq")
-	 	@GeneratedValue(generator="customers_seq", strategy=GenerationType.SEQUENCE)
+	 	@GeneratedValue(strategy = GenerationType.AUTO)
 	 	@Column(name = "id")
 	  	private int customerId;
 	 	
@@ -154,9 +152,6 @@ public class Customer implements Serializable{
 		}
 		public Customer() {
 			super();
-			// TODO Auto-generated constructor stub
-		}
-		public Customer(Customer c) {
 			// TODO Auto-generated constructor stub
 		}
 

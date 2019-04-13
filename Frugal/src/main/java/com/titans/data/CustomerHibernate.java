@@ -3,7 +3,6 @@ package com.titans.data;
 import java.util.List;
 
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -57,21 +56,9 @@ public class CustomerHibernate implements CustomerDao {
 	}
 
 	@Override
-	public Customer saveCustomer(Customer cust) {
+	public void saveCustomer(Customer c) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("save customer method in Customer Hibernate");
-		Session s = hu.getSession();
-		Transaction t = s.beginTransaction();
-		
-		s.save(cust);
-		t.commit();
-		
-		System.out.println("finished SaveCustomerHibernate");
-		System.out.println(cust);
-		s.close();
-		
-		return cust;
 	}
 
 

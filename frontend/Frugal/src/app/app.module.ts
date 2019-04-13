@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 
 import { NgModule} from '@angular/core';
@@ -15,7 +14,6 @@ import { LoginComponent } from './core/login/login.component';
 import { MenuitemtableComponent } from './menuitemtable/menuitemtable.component';
 import { MenuComponent } from './menu/menu.component';
 import { CarouselComponent } from './core/carousel/carousel.component';
-import { AccountCreationComponent } from './shared/account-creation/account-creation.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +22,7 @@ import { AccountCreationComponent } from './shared/account-creation/account-crea
     LoginComponent,
     MenuitemtableComponent,
     MenuComponent,
-    CarouselComponent,
-    AccountCreationComponent
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -40,4 +37,3 @@ import { AccountCreationComponent } from './shared/account-creation/account-crea
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
