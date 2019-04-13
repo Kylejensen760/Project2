@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/user/user';
+
 import { CreateUser } from 'src/app/shared/user/create-user.service';
 
 @Component({
