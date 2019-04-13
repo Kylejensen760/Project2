@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MenuitemtableComponent } from './menuitemtable/menuitemtable.component';
 import { MenuComponent } from './menu/menu.component';
 import { CarouselComponent } from './core/carousel/carousel.component';
+import { RestaurantComponent } from './restaurant/restaurant.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,9 @@ const routes: Routes = [
   {
     path: 'menu',
     component: MenuComponent
-  }
+  },
+  {path: 'restaurant',
+  component: RestaurantComponent}
 ];
 
 @NgModule({

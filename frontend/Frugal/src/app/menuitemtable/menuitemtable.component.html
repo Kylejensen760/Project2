@@ -8,64 +8,64 @@
     <!-- Grid column -->
     <div class="col">
       <!-- Default input -->
-      <input mdbInput type="text" class="form-control" placeholder="Item Name">
+      <input mdbInput type="text" class="form-control" placeholder="Item Name" [(ngModel)]="itemName">
     </div>
     <!-- Grid column -->
 
     <!-- Grid column -->
     <div class="col">
       <!-- Default input -->
-      <input mdbInput type="text" class="form-control" placeholder="Item Price">
+      <input mdbInput type="text" class="form-control" placeholder="Item Price" [(ngModel)]="itemPrice">
     </div>
     <!-- Grid column -->
     <div class="col">
       <!-- Default input -->
-      <input mdbInput type="text" class="form-control" placeholder="Special Price">
+      <input mdbInput type="text" class="form-control" placeholder="Special Price" [(ngModel)]="specialPrice">
     </div>
     <!-- Grid column -->
     <div class="col">
       <!-- Default input -->
-      <input mdbInput type="text" class="form-control" placeholder="Special Start">
+      <input mdbInput type="text" class="form-control" placeholder="Special Start" [(ngModel)]="specialStart">
     </div>
     <!-- Grid column -->
     <div class="col">
       <!-- Default input -->
-      <input mdbInput type="text" class="form-control" placeholder="Special End">
+      <input mdbInput type="text" class="form-control" placeholder="Special End" [(ngModel)]="specialEnd">
     </div>
     <!-- Grid column -->
     <div class="col">
       <!-- Default input -->
-      <input mdbInput type="text" class="form-control" placeholder="Mon">
+      <input mdbInput type="text" class="form-control" placeholder="Mon" [(ngModel)]="mon">
     </div>
     <!-- Grid column -->
     <div class="col">
       <!-- Default input -->
-      <input mdbInput type="text" class="form-control" placeholder="Tue">
+      <input mdbInput type="text" class="form-control" placeholder="Tue" [(ngModel)]="tue">
     </div>
     <!-- Grid column -->
     <div class="col">
       <!-- Default input -->
-      <input mdbInput type="text" class="form-control" placeholder="Wed">
+      <input mdbInput type="text" class="form-control" placeholder="Wed" [(ngModel)]="wed">
     </div>
     <!-- Grid column -->
     <div class="col">
       <!-- Default input -->
-      <input mdbInput type="text" class="form-control" placeholder="Thu">
+      <input mdbInput type="text" class="form-control" placeholder="Thu" [(ngModel)]="thu">
     </div>
     <!-- Grid column -->
     <div class="col">
       <!-- Default input -->
-      <input mdbInput type="text" class="form-control" placeholder="Fri">
+      <input mdbInput type="text" class="form-control" placeholder="Fri" [(ngModel)]="fri">
     </div>
     <!-- Grid column -->
     <div class="col">
       <!-- Default input -->
-      <input mdbInput type="text" class="form-control" placeholder="Sat">
+      <input mdbInput type="text" class="form-control" placeholder="Sat" [(ngModel)]="sat">
     </div>
     <!-- Grid column -->
     <div class="col">
       <!-- Default input -->
-      <input mdbInput type="text" class="form-control" placeholder="Sun">
+      <input mdbInput type="text" class="form-control" placeholder="Sun" [(ngModel)]="sun">
     </div>
     <!-- Grid column -->
   </div>
@@ -94,6 +94,7 @@
           <th class="text-center">Sat</th>
           <th class="text-center">Sun</th>
           <th class="text-center">Remove</th>
+          <th class="text-center">Save</th>
         </tr>
         <tr *ngFor="let person of personList; let id = index">
           <td>
@@ -137,6 +138,11 @@
               <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>
             </span>
           </td>
+          <td>
+              <span class="table-remove">
+                <button type="button" mdbBtn color="success" rounded="true" size="sm" class="my-0" (click)="remove(id)">Save</button>
+              </span>
+            </td>
         </tr>
       </table>
     </div>
