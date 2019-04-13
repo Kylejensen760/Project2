@@ -3,6 +3,7 @@ package com.titans.data;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -39,15 +40,19 @@ public class CustomerHibernate implements CustomerDao {
 	}
 
 	@Override
-	public void deleteCustomer(Customer cust) {
+	public Customer deleteCustomer(Customer cust) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
 	public Customer updateCustomer(Customer cust) {
+		Session s = hu.getSession();
+		Transaction tx = s.beginTransaction();
+		s.update(cust);
+		tx.commit();
+		s.close();
 		return cust;
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void newCustomer(Customer cust) {
@@ -56,7 +61,8 @@ public class CustomerHibernate implements CustomerDao {
 	}
 
 	@Override
-	public void saveCustomer(Customer c) {
+	public Customer saveCustomer(Customer c) {
+		return c;
 		// TODO Auto-generated method stub
 		
 	}
