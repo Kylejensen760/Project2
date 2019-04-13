@@ -40,15 +40,19 @@ public class CustomerHibernate implements CustomerDao {
 	}
 
 	@Override
-	public void deleteCustomer(Customer cust) {
+	public Customer deleteCustomer(Customer cust) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
 	public Customer updateCustomer(Customer cust) {
+		Session s = hu.getSession();
+		Transaction tx = s.beginTransaction();
+		s.update(cust);
+		tx.commit();
+		s.close();
 		return cust;
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void newCustomer(Customer cust) {
@@ -57,21 +61,21 @@ public class CustomerHibernate implements CustomerDao {
 	}
 
 	@Override
-	public Customer saveCustomer(Customer cust) {
+	public Customer saveCustomer(Customer c) {
 		// TODO Auto-generated method stub
-		
+
 		System.out.println("save customer method in Customer Hibernate");
 		Session s = hu.getSession();
 		Transaction t = s.beginTransaction();
-		
-		s.save(cust);
+
+		s.save(c);
 		t.commit();
-		
+
 		System.out.println("finished SaveCustomerHibernate");
-		System.out.println(cust);
+		System.out.println(c);
 		s.close();
-		
-		return cust;
+
+		return c;
 	}
 
 

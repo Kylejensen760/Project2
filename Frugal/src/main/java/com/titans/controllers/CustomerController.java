@@ -12,37 +12,23 @@ import org.springframework.web.bind.annotation.RestController;
 import com.titans.beans.Customer;
 import com.titans.beans.LoginInfo;
 import com.titans.services.CustomerService;
-//import com.titans.services.RestaurantService;
 
 @RestController
-@RequestMapping(value="/create")
+@RequestMapping(value="/customer")
 @CrossOrigin(origins="http://localhost:4200")
-public class CreateUserController {
-
+public class CustomerController {
+	
+	private static final String USER = "loggedUser";
 	@Autowired
 	private CustomerService cs;
-
-	@RequestMapping(method=RequestMethod.GET)
-	public LoginInfo login(HttpSession session) {
-		System.out.println("This is Get");
-		return null;
-	}
-
-	@RequestMapping(method=RequestMethod.POST)
-	public Customer customer(@RequestBody Customer c, HttpSession session) {
-
-		System.out.println("this is post");
-		System.out.println(c);		
-		if(c==null) {
-			return null;
+	
+	@RequestMapping(method=RequestMethod.PUT)
+	public Customer saveTags(@RequestBody Customer c, HttpSession session) {
+		LoginInfo loggedUser = (LoginInfo) session.getAttribute(USER);
+		if(loggedUser.getCustomer() != null) {
+			loggedUser.setCustomer(c);
+			cs.updateCustomer(c);
 		}
-		cs.saveCustomer(c);
-		session.setAttribute("created", c);
 		return c;
-	}
-
-	@RequestMapping(method=RequestMethod.DELETE)
-	public void logout(HttpSession session) {
-		session.invalidate();
 	}
 }

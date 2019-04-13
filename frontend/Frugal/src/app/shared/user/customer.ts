@@ -1,4 +1,3 @@
-import { User } from './user';
 
 export class Customer {
     customerId: string;
@@ -8,5 +7,4 @@ export class Customer {
     password: string;
     phone: string;
     email: string;
-
 }

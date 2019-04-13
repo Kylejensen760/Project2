@@ -10,11 +10,11 @@ public interface RestaurantDao {
 	
 	Restaurant login(String username, String password);
 	
-	Restaurant getRestaurant(String s); // ** we need to change this line 
+	Restaurant getRestaurant(String username); // ** we need to change this line 
 	Restaurant getRestaurantById(int id);
-	Restaurant saveRestaurant(Restaurant m);
-	Restaurant updateRestaurant(Restaurant m);
-	Restaurant deleteRestaurant(Restaurant m);
+	Restaurant saveRestaurant(Restaurant r);
+	Restaurant updateRestaurant(Restaurant r);
+	Restaurant deleteRestaurant(Restaurant r);
 	public List<Restaurant> getRestaurants();
 	public Set<Tag> getRestaurantTags();
 	public void setRestaurantTags(Set<Tag> tags);

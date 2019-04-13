@@ -10,7 +10,7 @@ public interface CustomerDao {
 
 	Customer saveCustomer(Customer c);
 	Customer updateCustomer(Customer c);
-	void deleteCustomer(Customer c);
+	Customer deleteCustomer(Customer c);
 	List<Customer> getAllCustomers();
 
 }

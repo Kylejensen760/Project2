@@ -31,7 +31,6 @@ export class UserService {
           if (user) {
             this.restaurant = user.restaurant;
             this.customer = user.customer;
-            
           }
           return user;
         }));

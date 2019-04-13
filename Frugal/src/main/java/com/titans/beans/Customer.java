@@ -1,22 +1,30 @@
 package com.titans.beans;
 
-	
-import java.io.Serializable;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.SequenceGenerator;
 @Entity
-public class Customer implements Serializable{
+public class Customer{
 	
 	 	@Id
 	 	@SequenceGenerator(name="customers_seq" , sequenceName="customers_seq")
 	 	@GeneratedValue(generator="customers_seq", strategy=GenerationType.SEQUENCE)
 	 	@Column(name = "id")
 	  	private int customerId;
+	 	
+//	 	@JoinTable(name="favorited_restaurant",
+//				joinColumns=@JoinColumn(name="customer_id"),
+//				inverseJoinColumns=@JoinColumn(name="restaurant_id"))
+//		private Set<Restaurant> favoritedRestaurants = new HashSet<Restaurant>();
 	 	
 	 	@Column(name = "first_name")
 	    private String firstName;
@@ -36,13 +44,35 @@ public class Customer implements Serializable{
 	 	@Column(name = "email")
 	    private String email;
 	 	
-	 	
+		public Customer() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+		public Customer(int customerId, Set<Restaurant> favoritedRestaurants, String firstName, String lastName,
+				String username, String password, String phone, String email) {
+			super();
+			this.customerId = customerId;
+//			this.favoritedRestaurants = favoritedRestaurants;
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.username = username;
+			this.password = password;
+			this.phone = phone;
+			this.email = email;
+		}
 		public int getCustomerId() {
 			return customerId;
 		}
 		public void setCustomerId(int customerId) {
 			this.customerId = customerId;
 		}
+		
+//		public Set<Restaurant> getFavoritedRestaurants() {
+//			return favoritedRestaurants;
+//		}
+//		public void setFavoritedRestaurants(Set<Restaurant> favoritedRestaurants) {
+//			this.favoritedRestaurants = favoritedRestaurants;
+//		}
 		public String getFirstName() {
 			return firstName;
 		}
@@ -85,6 +115,7 @@ public class Customer implements Serializable{
 			int result = 1;
 			result = prime * result + customerId;
 			result = prime * result + ((email == null) ? 0 : email.hashCode());
+//			result = prime * result + ((favoritedRestaurants == null) ? 0 : favoritedRestaurants.hashCode());
 			result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 			result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 			result = prime * result + ((password == null) ? 0 : password.hashCode());
@@ -108,6 +139,11 @@ public class Customer implements Serializable{
 					return false;
 			} else if (!email.equals(other.email))
 				return false;
+//			if (favoritedRestaurants == null) {
+//				if (other.favoritedRestaurants != null)
+//					return false;
+//			} else if (!favoritedRestaurants.equals(other.favoritedRestaurants))
+//				return false;
 			if (firstName == null) {
 				if (other.firstName != null)
 					return false;
@@ -137,27 +173,10 @@ public class Customer implements Serializable{
 		}
 		@Override
 		public String toString() {
-			return "Customer [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName
-					+ ", username=" + username + ", password=" + password + ", phone=" + phone + ", email=" + email
-					+ "]";
+			return "Customer [customerId=" + customerId + ", favoritedRestaurants=" + "favoritedRestaurants"
+					+ ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + ", password="
+					+ password + ", phone=" + phone + ", email=" + email + "]";
 		}
-		public Customer(int customerId, String firstName, String lastName, String username, String password,
-				String phone, String email) {
-			super();
-			this.customerId = customerId;
-			this.firstName = firstName;
-			this.lastName = lastName;
-			this.username = username;
-			this.password = password;
-			this.phone = phone;
-			this.email = email;
-		}
-		public Customer() {
-			super();
-			// TODO Auto-generated constructor stub
-		}
-		public Customer(Customer c) {
-			// TODO Auto-generated constructor stub
-		}
-
+		
+		
 }

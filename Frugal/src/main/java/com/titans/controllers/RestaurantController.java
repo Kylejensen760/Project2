@@ -1,5 +1,7 @@
 package com.titans.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,18 @@ public class RestaurantController {
 	@RequestMapping(method=RequestMethod.GET)
 	public LoginInfo login(HttpSession session) {
 		return (LoginInfo) session.getAttribute("loggedUser");
+	}
+	
+	@RequestMapping(method=RequestMethod.POST)
+	public Restaurant createAccount(@RequestBody Restaurant r, HttpSession session) {
+		List<Restaurant> restaurants = rs.getRestaurants();
+		for(Restaurant rest : restaurants) {
+			if(rest.getName().equals(r.getName())) {
+				return null;
+			}
+		}
+		rs.newRestaurant(r);
+		return r;
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT)
