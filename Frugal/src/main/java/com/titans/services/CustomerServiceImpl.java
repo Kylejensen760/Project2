@@ -43,10 +43,15 @@ public class CustomerServiceImpl implements CustomerService{
 		
 	}
 
+	
+
+
 	@Override
-	public void newCustomer(Customer cust) {
+	public Customer saveCustomer(Customer c) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("save customer method in customer service");
+		cd.saveCustomer(c);
+		return null;
 	}
 
 	
