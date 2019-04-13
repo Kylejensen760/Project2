@@ -14,6 +14,7 @@ import { LoginComponent } from './core/login/login.component';
 import { MenuitemtableComponent } from './menuitemtable/menuitemtable.component';
 import { MenuComponent } from './menu/menu.component';
 import { CarouselComponent } from './core/carousel/carousel.component';
+import { RestaurantViewComponent } from './restaurantView/restaurant-view/restaurant-view.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CarouselComponent } from './core/carousel/carousel.component';
     LoginComponent,
     MenuitemtableComponent,
     MenuComponent,
-    CarouselComponent
+    CarouselComponent,
+    RestaurantViewComponent
   ],
   imports: [
     BrowserModule,
