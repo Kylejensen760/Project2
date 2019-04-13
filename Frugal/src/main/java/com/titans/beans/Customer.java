@@ -11,18 +11,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.SequenceGenerator;
 @Entity
 public class Customer{
 	
 	 	@Id
-	 	@GeneratedValue(strategy = GenerationType.AUTO)
+	 	@SequenceGenerator(name="customers_seq" , sequenceName="customers_seq")
+	 	@GeneratedValue(generator="customers_seq", strategy=GenerationType.SEQUENCE)
 	 	@Column(name = "id")
 	  	private int customerId;
 	 	
-	 	@JoinTable(name="favorited_restaurant",
-				joinColumns=@JoinColumn(name="customer_id"),
-				inverseJoinColumns=@JoinColumn(name="restaurant_id"))
-		private Set<Restaurant> favoritedRestaurants = new HashSet<Restaurant>();
+//	 	@JoinTable(name="favorited_restaurant",
+//				joinColumns=@JoinColumn(name="customer_id"),
+//				inverseJoinColumns=@JoinColumn(name="restaurant_id"))
+//		private Set<Restaurant> favoritedRestaurants = new HashSet<Restaurant>();
 	 	
 	 	@Column(name = "first_name")
 	    private String firstName;
@@ -50,7 +52,7 @@ public class Customer{
 				String username, String password, String phone, String email) {
 			super();
 			this.customerId = customerId;
-			this.favoritedRestaurants = favoritedRestaurants;
+//			this.favoritedRestaurants = favoritedRestaurants;
 			this.firstName = firstName;
 			this.lastName = lastName;
 			this.username = username;
@@ -65,12 +67,12 @@ public class Customer{
 			this.customerId = customerId;
 		}
 		
-		public Set<Restaurant> getFavoritedRestaurants() {
-			return favoritedRestaurants;
-		}
-		public void setFavoritedRestaurants(Set<Restaurant> favoritedRestaurants) {
-			this.favoritedRestaurants = favoritedRestaurants;
-		}
+//		public Set<Restaurant> getFavoritedRestaurants() {
+//			return favoritedRestaurants;
+//		}
+//		public void setFavoritedRestaurants(Set<Restaurant> favoritedRestaurants) {
+//			this.favoritedRestaurants = favoritedRestaurants;
+//		}
 		public String getFirstName() {
 			return firstName;
 		}
@@ -113,7 +115,7 @@ public class Customer{
 			int result = 1;
 			result = prime * result + customerId;
 			result = prime * result + ((email == null) ? 0 : email.hashCode());
-			result = prime * result + ((favoritedRestaurants == null) ? 0 : favoritedRestaurants.hashCode());
+//			result = prime * result + ((favoritedRestaurants == null) ? 0 : favoritedRestaurants.hashCode());
 			result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 			result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 			result = prime * result + ((password == null) ? 0 : password.hashCode());
@@ -137,11 +139,11 @@ public class Customer{
 					return false;
 			} else if (!email.equals(other.email))
 				return false;
-			if (favoritedRestaurants == null) {
-				if (other.favoritedRestaurants != null)
-					return false;
-			} else if (!favoritedRestaurants.equals(other.favoritedRestaurants))
-				return false;
+//			if (favoritedRestaurants == null) {
+//				if (other.favoritedRestaurants != null)
+//					return false;
+//			} else if (!favoritedRestaurants.equals(other.favoritedRestaurants))
+//				return false;
 			if (firstName == null) {
 				if (other.firstName != null)
 					return false;
@@ -171,7 +173,7 @@ public class Customer{
 		}
 		@Override
 		public String toString() {
-			return "Customer [customerId=" + customerId + ", favoritedRestaurants=" + favoritedRestaurants
+			return "Customer [customerId=" + customerId + ", favoritedRestaurants=" + "favoritedRestaurants"
 					+ ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + ", password="
 					+ password + ", phone=" + phone + ", email=" + email + "]";
 		}

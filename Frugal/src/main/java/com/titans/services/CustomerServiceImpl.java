@@ -42,8 +42,10 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public Customer newCustomer(Customer cust) {
-		return cust;
+	public Customer saveCustomer(Customer cust) {
+		System.out.println("save customer method in customer service");
+		cd.saveCustomer(cust);
+		return null;
 	}
 
 	

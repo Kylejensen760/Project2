@@ -83,6 +83,20 @@ create table restaurant_tags(
     tag_id number(30)
 );
 
+CREATE SEQUENCE customers_seq START WITH 1;
+CREATE OR REPLACE TRIGGER customers_bir 
+BEFORE INSERT ON Customer 
+FOR EACH ROW
+
+BEGIN
+  SELECT customers_seq.NEXTVAL
+  INTO   :new.id
+  FROM   dual;
+
+
+END;
+/
+
 insert into menu_item values(1, 1, 'hotdog', 5, 2, 1, 1 ,1,1,0,0,0,0,1,1); 
 insert into menu_item values(2, 1, 'burger', 5, 3, 1, 1 ,1,1,0,0,0,0,1,1); 
 insert into menu_item values(3, 1, 'quesadilla', 5, 4, 1, 1 ,1,1,0,0,0,0,1,1); 

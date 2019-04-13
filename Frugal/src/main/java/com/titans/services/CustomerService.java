@@ -10,6 +10,6 @@ public interface CustomerService {
 	public List<Customer> getCustomers();
 	public Customer deleteCustomer(Customer cust);
 	public Customer updateCustomer(Customer cust);
-	public Customer newCustomer(Customer cust);
+	public Customer saveCustomer(Customer cust);
 	
 }

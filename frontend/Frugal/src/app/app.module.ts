@@ -15,6 +15,7 @@ import { MenuitemtableComponent } from './menuitemtable/menuitemtable.component'
 import { MenuComponent } from './menu/menu.component';
 import { CarouselComponent } from './core/carousel/carousel.component';
 import { RestaurantViewComponent } from './restaurantView/restaurant-view/restaurant-view.component';
+import { AccountCreationComponent } from './shared/account-creation/account-creation.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RestaurantViewComponent } from './restaurantView/restaurant-view/restau
     MenuitemtableComponent,
     MenuComponent,
     CarouselComponent,
-    RestaurantViewComponent
+    RestaurantViewComponent,
+    AccountCreationComponent
   ],
   imports: [
     BrowserModule,
