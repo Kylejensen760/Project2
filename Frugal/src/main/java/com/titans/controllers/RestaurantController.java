@@ -1,5 +1,7 @@
 package com.titans.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.titans.beans.LoginInfo;
+import com.titans.beans.MenuItem;
 import com.titans.beans.Restaurant;
 import com.titans.services.RestaurantService;
 
@@ -22,8 +25,9 @@ public class RestaurantController {
 	private RestaurantService rs;
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public LoginInfo login(HttpSession session) {
-		return (LoginInfo) session.getAttribute("loggedUser");
+	public List<Restaurant> getRestaurants() {
+		System.out.println("this is get for restaurants");
+		return rs.getRestaurants();
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT)

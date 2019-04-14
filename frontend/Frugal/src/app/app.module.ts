@@ -13,7 +13,9 @@ import { UserService } from './shared/user/user.service';
 import { LoginComponent } from './core/login/login.component';
 import { MenuitemtableComponent } from './menuitemtable/menuitemtable.component';
 import { MenuComponent } from './menu/menu.component';
-import { CarouselComponent } from './core/carousel/carousel.component';
+import { CarouselComponent } from './core/homepage/carousel/carousel.component';
+import { RestaurantListComponent } from './core/restaurant-list/restaurant-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,15 +24,18 @@ import { CarouselComponent } from './core/carousel/carousel.component';
     LoginComponent,
     MenuitemtableComponent,
     MenuComponent,
-    CarouselComponent
+    CarouselComponent,
+    RestaurantListComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
 
   providers: [UrlService, UserService],

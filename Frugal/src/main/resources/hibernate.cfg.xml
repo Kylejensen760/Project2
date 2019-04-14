@@ -20,7 +20,6 @@
 	    <mapping class="com.titans.beans.Customer"></mapping>
 	    
 	    
-		<mapping class="com.titans.beans.Menu"></mapping>
 		<mapping class="com.titans.beans.MenuItem"></mapping>
 		<mapping class="com.titans.beans.Restaurant"></mapping>
 		<mapping class="com.titans.beans.Review"></mapping>

@@ -1,5 +1,6 @@
 package com.titans.services;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,8 @@ public class RestaurantServiceImpl implements RestaurantService{
 	}
 
 	@Override
-	public Set<Restaurant> getRestaurant() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Restaurant> getRestaurants() {
+		return rd.getRestaurants();
 	}
 
 	@Override
