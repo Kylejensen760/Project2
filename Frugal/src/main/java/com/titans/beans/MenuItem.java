@@ -14,7 +14,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="menu_item")
@@ -32,10 +34,7 @@ public class MenuItem implements Serializable{
 //	 	@Column(name = "restaurant_id")
 //	 	private String restaurantId;
 	 	
-	 	@ManyToOne(fetch=FetchType.EAGER)
-	 	@JoinColumn(name = "restaurant_id", insertable=false, updatable=false)
-	 	@JsonIgnore
-	    private Restaurant restaurant;
+	 	
 	 	
 	 	@Column(name = "item_name")
 	    private String itemName;
@@ -46,11 +45,13 @@ public class MenuItem implements Serializable{
 	 	@Column(name = "special_price")
 	    private Double specialPrice;
 	 	
-	 	@Column(name = "special_day")
-	    private Long specialDay;
-	 	
 	 	@Column(name = "special_start")
 	    private Long specialStart;
+	 	
+	 	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	 	@JoinColumn(name = "restaurant_id")
+	    @JsonBackReference
+	    private Restaurant restaurant;
 	 	
 	 	@Column(name = "special_end")
 	    private Long specialEnd;
@@ -92,14 +93,6 @@ public class MenuItem implements Serializable{
 			this.specialPrice = specialPrice;
 		}
 
-		public Long getSpecialDay() {
-			return specialDay;
-		}
-
-		public void setSpecialDay(Long specialDay) {
-			this.specialDay = specialDay;
-		}
-
 		public Long getSpecialStart() {
 			return specialStart;
 		}
@@ -133,7 +126,6 @@ public class MenuItem implements Serializable{
 			result = prime * result + ((itemName == null) ? 0 : itemName.hashCode());
 			result = prime * result + ((itemPrice == null) ? 0 : itemPrice.hashCode());
 			result = prime * result + ((restaurant == null) ? 0 : restaurant.hashCode());
-			result = prime * result + ((specialDay == null) ? 0 : specialDay.hashCode());
 			result = prime * result + ((specialEnd == null) ? 0 : specialEnd.hashCode());
 			result = prime * result + ((specialPrice == null) ? 0 : specialPrice.hashCode());
 			result = prime * result + ((specialStart == null) ? 0 : specialStart.hashCode());
@@ -169,11 +161,6 @@ public class MenuItem implements Serializable{
 					return false;
 			} else if (!restaurant.equals(other.restaurant))
 				return false;
-			if (specialDay == null) {
-				if (other.specialDay != null)
-					return false;
-			} else if (!specialDay.equals(other.specialDay))
-				return false;
 			if (specialEnd == null) {
 				if (other.specialEnd != null)
 					return false;
@@ -195,7 +182,7 @@ public class MenuItem implements Serializable{
 		@Override
 		public String toString() {
 			return "MenuItem [id=" + id + ", itemName=" + itemName + ", itemPrice="
-					+ itemPrice + ", specialPrice=" + specialPrice + ", specialDay=" + specialDay + ", specialStart="
+					+ itemPrice + ", specialPrice=" + specialPrice + ", specialStart="
 					+ specialStart + ", specialEnd=" + specialEnd + "]";
 		}
 

@@ -21,6 +21,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="restaurant")
 public class Restaurant implements Serializable{
@@ -34,10 +38,11 @@ public class Restaurant implements Serializable{
 //	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 //	@JoinColumn(name="restaurant_id")
 //	
-   @OneToMany(fetch=FetchType.EAGER, mappedBy="restaurant") 
+   @OneToMany(fetch=FetchType.EAGER, mappedBy="restaurant",cascade=CascadeType.ALL) 
+   @JsonManagedReference
    private Set<MenuItem> menuItem = new HashSet<MenuItem>();
 	
-	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="restaurant_tags",
 			joinColumns=@JoinColumn(name="restaurant_id"),
 			inverseJoinColumns=@JoinColumn(name="tag_id"))
