@@ -4,13 +4,14 @@
   <mdb-carousel-item *ngFor="let item of slides; let i = index">
     <div class="col-md-4" [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let card of item; let cardIndex = index">
       <mdb-card class="my-1">
-        <!-- <mdb-card-img [src]="card.img" alt="Card image cap"></mdb-card-img> -->
+        <mdb-card-img [src]="'https://media-cdn.tripadvisor.com/media/photo-s/0e/a8/f0/64/angus-co-wings-burger.jpg'" alt="Card image cap"></mdb-card-img>
         <mdb-card-body>
           <mdb-card-title>
             <h4>{{card.itemName}}</h4>
           </mdb-card-title>
-          <p>{{card.itemPrice}}</p>
-          <img src="https://media-cdn.tripadvisor.com/media/photo-s/0e/a8/f0/64/angus-co-wings-burger.jpg" width="350" height="350"> 
+          <p>{{card.specialPrice}}</p>
+          <!-- <p>{{card.menu.restaurant.name}}</p> -->
+          <!-- <img src="https://media-cdn.tripadvisor.com/media/photo-s/0e/a8/f0/64/angus-co-wings-burger.jpg" width="300" height="300">  -->
           <a href="#" mdbBtn color="red" class="waves-light" mdbWavesEffect>{{card.buttonText}}</a>
         </mdb-card-body>
       </mdb-card>
