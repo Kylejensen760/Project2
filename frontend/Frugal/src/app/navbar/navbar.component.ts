@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
     this.userService.login(null,null).subscribe(
       user=> {
         this.loggedUser=user;
+        this.userService.setCreatingRestaurant(false);
       }
 
     )
@@ -34,6 +35,9 @@ export class NavbarComponent implements OnInit {
     this.loggedUser=null;
     this.username=null;
     this.password=null;
+  }
+  setRestaurant(): void{
+    this.userService.setCreatingRestaurant(true);
   }
 
 }

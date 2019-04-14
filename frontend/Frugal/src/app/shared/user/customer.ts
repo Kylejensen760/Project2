@@ -1,10 +1,7 @@
+import { User } from './user';
 
-export class Customer {
-    customerId: string;
+export class Customer extends User{
     firstName: string;
     lastName: string;
-    username: string;
-    password: string;
-    phone: string;
-    email: string;
+    
 }
