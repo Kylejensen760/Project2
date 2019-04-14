@@ -13,13 +13,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="restaurant")
 public class Restaurant{
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@SequenceGenerator(name="restaurant_seq" , sequenceName="restaurant_seq")
+ 	@GeneratedValue(generator="restaurant_seq", strategy=GenerationType.SEQUENCE)
 	private Long id;
 	
 	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)

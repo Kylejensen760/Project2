@@ -7,6 +7,8 @@ drop table TAG cascade constraints;
 drop table REVIEWS cascade constraints;
 drop table RESTAURANT_TAGS cascade constraints;
 
+--select 'drop sequence ' || sequence_name || ';' from user_sequences;
+
 create table customer(
     id number(20) primary key,
     first_name varchar2(60) not null,
@@ -84,12 +86,38 @@ create table restaurant_tags(
 );
 
 CREATE SEQUENCE customers_seq START WITH 1;
+create sequence restaurant_seq START WITH 1;
+
 CREATE OR REPLACE TRIGGER customers_bir 
 BEFORE INSERT ON Customer 
 FOR EACH ROW
 
 BEGIN
   SELECT customers_seq.NEXTVAL
+  INTO   :new.id
+  FROM   dual;
+
+
+END;
+/
+create or replace trigger restaurant_pk_trig
+before insert or update on restaurant
+for each row
+begin
+    if INSERTING then
+        select restaurant_seq.nextVal into :new.id from dual;
+    elsif UPDATING then
+        select :old.id into :new.id from dual;
+    end if;
+end;
+/
+CREATE SEQUENCE restaurant_seq START WITH 1;
+CREATE OR REPLACE TRIGGER customers_bir 
+BEFORE INSERT ON restaurant 
+FOR EACH ROW
+
+BEGIN
+  SELECT restaurant_seq_seq.NEXTVAL
   INTO   :new.id
   FROM   dual;
 
