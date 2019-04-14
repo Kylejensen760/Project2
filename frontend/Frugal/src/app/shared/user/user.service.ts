@@ -16,6 +16,7 @@ export class UserService {
   private headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
   private restaurant: Restaurant;
   private customer: Customer;
+  private creatingRestaurant: boolean;
 
   constructor(private urlSource: UrlService, private http: HttpClient) { }
 
@@ -67,5 +68,11 @@ export class UserService {
   }
   isRestaurant(): boolean {
     return (this.restaurant!== undefined && this.restaurant!== null);
+  }
+  setCreatingRestaurant(isRestaurant: boolean) {
+    this.creatingRestaurant = isRestaurant;
+  }
+  getCreatingRestaurant(): boolean {
+    return this.creatingRestaurant;
   }
 }
