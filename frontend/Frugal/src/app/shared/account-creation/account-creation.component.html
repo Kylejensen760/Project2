@@ -1,0 +1,165 @@
+<!-- Extended material form grid -->
+<form>
+  <div class="container">
+    <ng-container *ngIf="!isRestaurant; else showRestaurant"
+      <!-- Grid row -->
+      <div class="form-row">
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input mdbInput type="text" class="form-control" placeholder="First Name" [(ngModel)]="firstName" name="first">
+            <label for="inputFirstName4MD">First Name</label>
+          </div>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input mdbInput type="text" class="form-control" placeholder="Last Name" [(ngModel)]="lastName" name="last">
+            <label for="inputLastName4MD">Password</label>
+          </div>
+        </div>
+        <!-- Grid column -->
+      </div>
+    </ng-container>
+    <!-- Grid row -->
+
+    <ng-template #showRestaurant>
+        <div class="row">
+            <div class="col-md-12">
+                <span class="badge badge-pill badge-light">Primary</span>
+                <span class="badge badge-pill badge-light">
+                    Dismissable badge
+                    <button type="button" class="close" aria-label="Dismiss">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </span>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Material input -->
+            <div class="md-form form-group">
+              <input mdbInput type="text" class="form-control" placeholder="Restaurant Name" [(ngModel)]="name" name="name">
+              <label for="inputLastName4MD">Restaurant Name</label>
+            </div>
+          </div>
+        </div>
+    </ng-template>
+
+    <!-- Grid row -->
+    <div class="row">
+      <!-- Grid column -->
+      <div class="col-md-6">
+        <!-- Material input -->
+        <div class="md-form form-group">
+          <input mdbInput type="text" class="form-control" placeholder="Username" [(ngModel)]="username" name="user">
+          <label for="inputUsernameMD">Username</label>
+        </div>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-6">
+        <!-- Material input -->
+        <div class="md-form form-group">
+          <input mdbInput type="password" class="form-control" placeholder="password"[(ngModel)]="password" name="pass">
+          <label for="inputPassword2MD">Password</label>
+        </div>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+
+    <!-- Grid row -->
+    <div class="form-row">
+      <!-- Grid column -->
+      <div class="col-md-6">
+        <!-- Material input -->
+        <div class="md-form form-group">
+          <input mdbInput type="text" class="form-control" placeholder="Phone" [(ngModel)]="phone" name="phone">
+          <label for="inputCityMD">Phone</label>
+        </div>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-6">
+        <!-- Material input -->
+        <div class="md-form form-group">
+          <input mdbInput type="text" class="form-control" placeholder="Email" [(ngModel)]="email" name="email">
+          <label for="inputEmailMD">Email</label>
+        </div>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+
+    <ng-container *ngIf="isRestaurant">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="md-form form-group">
+              <input mdbInput type="text" class="form-control" placeholder="Address Line One"[(ngModel)]="lineOne" name="addressLineOne">
+              <label for="inputLineOne4MD">Address Line One</label>
+            </div>
+          </div>
+    
+          <div class="col-md-6">
+              <div class="md-form form-group">
+                <input mdbInput type="text" class="form-control" placeholder="Address Line Two"[(ngModel)]="lineTwo" name="addressLineTwo">
+                <label for="inputLineTwo4MD">Address Line Two</label>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+              <div class="md-form form-group">
+                <input mdbInput type="text" class="form-control" placeholder="City"[(ngModel)]="city" name="city">
+                <label for="inputCity4MD">City</label>
+              </div>
+          </div>
+          <div class="col-md-3">
+              <div class="md-form form-group">
+                <input mdbInput type="text" class="form-control" placeholder="State"[(ngModel)]="state" name="state">
+                <label for="inputState4MD">State</label>
+              </div>
+          </div>
+          <div class="col-md-3">
+              <div class="md-form form-group">
+                <input mdbInput type="text" class="form-control" placeholder="Zip"[(ngModel)]="zip" name="zip">
+                <label for="inputZip4MD">Zip</label>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+              <div class="md-form form-group">
+                <input mdbInput type="text" class="form-control" placeholder="Website URL"[(ngModel)]="websiteUrl" name="websiteUrl">
+                <label for="inputWebsiteUrl4MD">Website URL</label>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+              <div class="md-form form-group">
+                <input mdbInput type="text" class="form-control" placeholder="Opening Time"[(ngModel)]="openingTime" name="openingTime">
+                <label for="inputOpeningTime4MD">Opening Time</label>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="md-form form-group">
+                <input mdbInput type="text" class="form-control" placeholder="Closing Time"[(ngModel)]="closingTime" name="closingTime">
+                <label for="inputClosingTime4MD">Closing Time</label>
+              </div>
+          </div>
+        </div>
+      </ng-container>
+
+    <button type="submit" class="btn btn-primary btn-md" mdbWavesEffect (click)="create()">Submit</button>
+  </div>
+
+</form>
+<!-- Extended material form grid -->

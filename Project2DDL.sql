@@ -7,6 +7,8 @@ drop table TAG cascade constraints;
 drop table REVIEWS cascade constraints;
 drop table RESTAURANT_TAGS cascade constraints;
 
+--select 'drop sequence ' || sequence_name || ';' from user_sequences;
+
 create table customer(
     id number(20) primary key,
     first_name varchar2(60) not null,
@@ -71,6 +73,7 @@ create table tag(
 );
 
 
+<<<<<<< HEAD
 
 create table restaurant_tags(
     restaurant_id number(20),
@@ -98,6 +101,62 @@ insert into restaurant values(107, 'Chicos fat', 'chicos', 'chicospass', '304-24
 insert into restaurant values(108, 'Jasmine Grill', 'jasmine', 'jasminepass', '304-291-7878', '', '330 High Street', '', 'MorganTown', 'WV', 26505, 'jasminegrillwv.com', 39600000, 67500000);
 insert into restaurant values(109, 'Panera Bread', 'panera', 'panerapass', '304-291-6240', '', '207 Willey Street', '', 'MorganTown', 'WV', 26505, 'locations.panerabread.com', 25200000, 75600000);
 insert into restaurant values(110, 'The Grind', 'grind', 'grindpass', '304-296-5297', '', '5531, 168 Willey Street', '', 'MorganTown', 'WV', 26505, 'thegrindwv.com', 28800000, 61200000);
+=======
+CREATE SEQUENCE customers_seq START WITH 1;
+create sequence restaurant_seq START WITH 1;
+
+CREATE OR REPLACE TRIGGER customers_bir 
+BEFORE INSERT ON Customer 
+FOR EACH ROW
+
+BEGIN
+  SELECT customers_seq.NEXTVAL
+  INTO   :new.id
+  FROM   dual;
+
+
+END;
+/
+create or replace trigger restaurant_pk_trig
+before insert or update on restaurant
+for each row
+begin
+    if INSERTING then
+        select restaurant_seq.nextVal into :new.id from dual;
+    elsif UPDATING then
+        select :old.id into :new.id from dual;
+    end if;
+end;
+/
+CREATE SEQUENCE restaurant_seq START WITH 1;
+CREATE OR REPLACE TRIGGER customers_bir 
+BEFORE INSERT ON restaurant 
+FOR EACH ROW
+
+BEGIN
+  SELECT restaurant_seq_seq.NEXTVAL
+  INTO   :new.id
+  FROM   dual;
+
+
+END;
+/
+
+insert into menu_item values(1, 1, 'hotdog', 5, 2, 1, 1 ,1,1,0,0,0,0,1,1); 
+insert into menu_item values(2, 1, 'burger', 5, 3, 1, 1 ,1,1,0,0,0,0,1,1); 
+insert into menu_item values(3, 1, 'quesadilla', 5, 4, 1, 1 ,1,1,0,0,0,0,1,1); 
+insert into menu_item values(4, 1, 'chorizo', 5, 2, 5, 1 ,1,1,0,0,0,0,1,1); 
+insert into menu_item values(5, 1, 'pizza', 5, 2, 5, 1 ,1,1,0,0,0,0,1,1); 
+insert into menu_item values(6, 1, 'wings', 5, 2, 5, 1 ,1,1,0,0,0,0,1,1); 
+
+insert into customer
+    values(1, 'Kyle', 'Jensen', 'KJen', '760', 'kjen@760.com', '555-555-5555');
+commit;
+
+
+
+
+>>>>>>> 814528feb3b23d6de44e2b8addc8e5fe16f6604a
 
 insert into customer values(1, 'harris', 'sam', 'sam', 'harris', '3333', 's@gmail.com');
 commit;

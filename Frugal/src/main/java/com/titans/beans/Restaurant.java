@@ -16,21 +16,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="restaurant")
 public class Restaurant implements Serializable{
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	//@Column(name ="restaurant_id")
+	@SequenceGenerator(name="restaurant_seq" , sequenceName="restaurant_seq")
+	@GeneratedValue(generator="restaurant_seq", strategy=GenerationType.SEQUENCE)
 	private Long restaurant_id; 
 	
 	

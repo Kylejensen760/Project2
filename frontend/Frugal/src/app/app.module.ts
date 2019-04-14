@@ -16,6 +16,8 @@ import { MenuComponent } from './menu/menu.component';
 import { CarouselComponent } from './core/homepage/carousel/carousel.component';
 import { RestaurantListComponent } from './core/restaurant-list/restaurant-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RestaurantViewComponent } from './restaurantView/restaurant-view/restaurant-view.component';
+import { AccountCreationComponent } from './shared/account-creation/account-creation.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MenuComponent,
     CarouselComponent,
     RestaurantListComponent,
-    
-    
+    RestaurantViewComponent,
+    AccountCreationComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CurrentUser } from 'src/app/shared/user/current-user';
 import { UserService } from 'src/app/shared/user/user.service';
 import { MenuItemService} from 'src/app/core/menuItem/menuItem.service';
+import {AccountCreationComponent} from 'src/app/shared/account-creation/account-creation.component';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnInit {
     this.userService.login(null,null).subscribe(
       user=> {
         this.loggedUser=user;
+        this.userService.setCreatingRestaurant(false);
       }
 
     )
@@ -33,6 +35,9 @@ export class NavbarComponent implements OnInit {
     this.loggedUser=null;
     this.username=null;
     this.password=null;
+  }
+  setRestaurant(): void{
+    this.userService.setCreatingRestaurant(true);
   }
 
 }

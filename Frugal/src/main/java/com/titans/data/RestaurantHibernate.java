@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -29,8 +30,12 @@ public class RestaurantHibernate implements RestaurantDao{
 	}
 
 	@Override
-	public Restaurant getRestaurant(String s) {
-		// TODO Auto-generated method stub
+	public Restaurant getRestaurant(String username) {
+		List<Restaurant> lr = getRestaurants();
+		for(Restaurant r : lr) {
+			if(r.getUsername().equals(username))
+				return r;
+		}
 		return null;
 	}
 	
@@ -41,26 +46,29 @@ public class RestaurantHibernate implements RestaurantDao{
 	}
 
 	@Override
-	public Restaurant saveRestaurant(Restaurant m) {
-		return null;
-		//TODO
+	public Restaurant saveRestaurant(Restaurant r) {
+		Session s = hu.getSession();
+		Transaction t = s.beginTransaction();
+		s.save(r);
+		t.commit();
+		s.close();
+		return r;
 	}
 	
 	@Override
-	public Restaurant updateRestaurant(Restaurant m) {
+	public Restaurant updateRestaurant(Restaurant r) {
 		return null;
 		//TODO
 	}
 
 	@Override
-	public Restaurant deleteRestaurant(Restaurant m) {
+	public Restaurant deleteRestaurant(Restaurant r) {
 		//TODO
 		return null;
 	}
 
 	@Override
 	public List<Restaurant> getRestaurants() {
-		System.out.println(hu);
 		Session s = hu.getSession();
 		List<Restaurant> temp = (List<Restaurant>) s.createQuery("From com.titans.beans.Restaurant", Restaurant.class).list();
 		s.close();

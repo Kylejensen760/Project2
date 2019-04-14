@@ -15,7 +15,7 @@
 		<property name="show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 		<!-- Backwards compatibility for id generation -->
-		<property name="hibernate.id.new_generator_mappings">true</property>
+		<property name="hibernate.id.new_generator_mappings">false</property>
 		
 	    <mapping class="com.titans.beans.Customer"></mapping>
 	    

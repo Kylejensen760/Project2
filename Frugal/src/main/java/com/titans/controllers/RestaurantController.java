@@ -30,6 +30,18 @@ public class RestaurantController {
 		return rs.getRestaurants();
 	}
 	
+	@RequestMapping(method=RequestMethod.POST)
+	public Restaurant createAccount(@RequestBody Restaurant r, HttpSession session) {
+		List<Restaurant> restaurants = rs.getRestaurants();
+		for(Restaurant rest : restaurants) {
+			if(rest.getName().equals(r.getName())) {
+				return null;
+			}
+		}
+		rs.newRestaurant(r);
+		return r;
+	}
+	
 	@RequestMapping(method=RequestMethod.PUT)
 	public Restaurant saveTags(@RequestBody Restaurant r, HttpSession session) {
 		LoginInfo loggedUser = (LoginInfo) session.getAttribute(USER);

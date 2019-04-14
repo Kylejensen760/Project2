@@ -44,9 +44,8 @@ public class RestaurantServiceImpl implements RestaurantService{
 	}
 
 	@Override
-	public void newRestaurant(Restaurant rest) {
-		// TODO Auto-generated method stub
-		
+	public Restaurant newRestaurant(Restaurant rest) {
+		return rd.saveRestaurant(rest);
 	}
 
 	@Override
@@ -57,6 +56,11 @@ public class RestaurantServiceImpl implements RestaurantService{
 	@Override
 	public void setRestaurantTags(Set<Tag> tags) {
 		rd.setRestaurantTags(tags);
+	}
+
+	@Override
+	public Restaurant getRestaurant(String username) {
+		return rd.getRestaurant(username);
 	}
 	
 	
