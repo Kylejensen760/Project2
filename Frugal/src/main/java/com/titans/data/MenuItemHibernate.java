@@ -3,6 +3,7 @@ package com.titans.data;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -29,9 +30,13 @@ public class MenuItemHibernate implements MenuItemDao{
 	}
 
 	@Override
-	public void saveMenuItem(MenuItem mi) {
-		// TODO Auto-generated method stub
-		
+	public MenuItem saveMenuItem(MenuItem mi) {
+		Session s = hu.getSession();
+		Transaction t = s.beginTransaction();
+		s.save(mi);
+		t.commit();
+		s.close();
+		return mi;
 	}
 
 	@Override

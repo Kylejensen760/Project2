@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItemComponent } from '../core/menuitem/menuitem'
+import { menuItem } from '../core/menuitem/menuitem'
 
 @Component({
   selector: 'app-menuitemtable',
@@ -35,7 +35,7 @@ export class MenuitemtableComponent implements OnInit {
     }
 
     add() {
-
+      
      /* if (this.awaitingPersonList.length > 0) {
        const person = this.awaitingPersonList[0];
         this.personList.push(person);

@@ -1,6 +1,8 @@
 package com.titans.beans;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -13,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +23,11 @@ import javax.persistence.Table;
 public class Restaurant{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="restaurant_id")
 	private Long id;
+	
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "restaurant")
+	private List<MenuItem> menuItem = new ArrayList<MenuItem>();
 	
 	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="restaurant_tags",
@@ -63,117 +70,133 @@ public class Restaurant{
 	public Restaurant() {
 		super();
 	}
-	
-	public Restaurant(Long id, String name, String username, String password, String phone, String email,
-			String lineOne, String lineTwo, String city, String state, String zip, String websiteUrl, Long openingTime,
-			Long closingTime, Set<Tag> tags) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.username = username;
-		this.password = password;
-		this.phone = phone;
-		this.email = email;
-		this.lineOne = lineOne;
-		this.lineTwo = lineTwo;
-		this.city = city;
-		this.state = state;
-		this.zip = zip;
-		this.websiteUrl = websiteUrl;
-		this.openingTime = openingTime;
-		this.closingTime = closingTime;
-//		this.tags = tags;
-	}
 
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+
+	public List<MenuItem> getMenuItem() {
+		return menuItem;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setMenuItem(List<MenuItem> menuItem) {
+		this.menuItem = menuItem;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getLineOne() {
-		return lineOne;
-	}
-	public void setLineOne(String lineOne) {
-		this.lineOne = lineOne;
-	}
-	public String getLineTwo() {
-		return lineTwo;
-	}
-	public void setLineTwo(String lineTwo) {
-		this.lineTwo = lineTwo;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public String getZip() {
-		return zip;
-	}
-	public void setZip(String zip) {
-		this.zip = zip;
-	}
-	public String getWebsiteUrl() {
-		return websiteUrl;
-	}
-	public void setWebsiteUrl(String websiteUrl) {
-		this.websiteUrl = websiteUrl;
-	}
-	public Long getOpeningTime() {
-		return openingTime;
-	}
-	public void setOpeningTime(Long openingTime) {
-		this.openingTime = openingTime;
-	}
-	public Long getClosingTime() {
-		return closingTime;
-	}
-	public void setClosingTime(Long closingTime) {
-		this.closingTime = closingTime;
-	}
+
 	public Set<Tag> getTags() {
 		return tags;
 	}
+
 	public void setTags(Set<Tag> tags) {
 		this.tags = tags;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getLineOne() {
+		return lineOne;
+	}
+
+	public void setLineOne(String lineOne) {
+		this.lineOne = lineOne;
+	}
+
+	public String getLineTwo() {
+		return lineTwo;
+	}
+
+	public void setLineTwo(String lineTwo) {
+		this.lineTwo = lineTwo;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getZip() {
+		return zip;
+	}
+
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
+
+	public String getWebsiteUrl() {
+		return websiteUrl;
+	}
+
+	public void setWebsiteUrl(String websiteUrl) {
+		this.websiteUrl = websiteUrl;
+	}
+
+	public Long getOpeningTime() {
+		return openingTime;
+	}
+
+	public void setOpeningTime(Long openingTime) {
+		this.openingTime = openingTime;
+	}
+
+	public Long getClosingTime() {
+		return closingTime;
+	}
+
+	public void setClosingTime(Long closingTime) {
+		this.closingTime = closingTime;
 	}
 
 	@Override
@@ -186,12 +209,13 @@ public class Restaurant{
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((lineOne == null) ? 0 : lineOne.hashCode());
 		result = prime * result + ((lineTwo == null) ? 0 : lineTwo.hashCode());
+		result = prime * result + ((menuItem == null) ? 0 : menuItem.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((openingTime == null) ? 0 : openingTime.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
-//		result = prime * result + ((tags == null) ? 0 : tags.hashCode());
+		result = prime * result + ((tags == null) ? 0 : tags.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		result = prime * result + ((websiteUrl == null) ? 0 : websiteUrl.hashCode());
 		result = prime * result + ((zip == null) ? 0 : zip.hashCode());
@@ -237,6 +261,11 @@ public class Restaurant{
 				return false;
 		} else if (!lineTwo.equals(other.lineTwo))
 			return false;
+		if (menuItem == null) {
+			if (other.menuItem != null)
+				return false;
+		} else if (!menuItem.equals(other.menuItem))
+			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -277,19 +306,45 @@ public class Restaurant{
 				return false;
 		} else if (!websiteUrl.equals(other.websiteUrl))
 			return false;
-		if (zip != other.zip)
+		if (zip == null) {
+			if (other.zip != null)
+				return false;
+		} else if (!zip.equals(other.zip))
 			return false;
 		return true;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Restaurant [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
-				+ ", phone=" + phone + ", email=" + email + ", lineOne=" + lineOne + ", lineTwo=" + lineTwo + ", city="
-				+ city + ", state=" + state + ", zip=" + zip + ", websiteUrl=" + websiteUrl + ", openingTime="
-				+ openingTime + ", closingTime=" + closingTime + ", tags=" + tags + "]";
+		return "Restaurant [id=" + id + ", tags=" + tags + ", name=" + name + ", username=" + username + ", password="
+				+ password + ", phone=" + phone + ", email=" + email + ", lineOne=" + lineOne + ", lineTwo=" + lineTwo
+				+ ", city=" + city + ", state=" + state + ", zip=" + zip + ", websiteUrl=" + websiteUrl
+				+ ", openingTime=" + openingTime + ", closingTime=" + closingTime + "]";
 	}
 
+	public Restaurant(Long id, List<MenuItem> menuItem, Set<Tag> tags, String name, String username, String password,
+			String phone, String email, String lineOne, String lineTwo, String city, String state, String zip,
+			String websiteUrl, Long openingTime, Long closingTime) {
+		super();
+		this.id = id;
+		this.menuItem = menuItem;
+		this.tags = tags;
+		this.name = name;
+		this.username = username;
+		this.password = password;
+		this.phone = phone;
+		this.email = email;
+		this.lineOne = lineOne;
+		this.lineTwo = lineTwo;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.websiteUrl = websiteUrl;
+		this.openingTime = openingTime;
+		this.closingTime = closingTime;
+	}
 	
 	
 	

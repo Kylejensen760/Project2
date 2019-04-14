@@ -14,7 +14,12 @@ import { LoginComponent } from './core/login/login.component';
 import { MenuitemtableComponent } from './menuitemtable/menuitemtable.component';
 import { MenuComponent } from './menu/menu.component';
 import { CarouselComponent } from './core/carousel/carousel.component';
+<<<<<<< HEAD
 import { RestaurantComponent } from './restaurant/restaurant.component';
+=======
+import { RestaurantViewComponent } from './restaurantView/restaurant-view/restaurant-view.component';
+import { AccountCreationComponent } from './shared/account-creation/account-creation.component';
+>>>>>>> 16787d186775f8b64df4dd94c9eeb417fb237fb5
 
 @NgModule({
   declarations: [
@@ -24,7 +29,12 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
     MenuitemtableComponent,
     MenuComponent,
     CarouselComponent,
+<<<<<<< HEAD
     RestaurantComponent
+=======
+    RestaurantViewComponent,
+    AccountCreationComponent
+>>>>>>> 16787d186775f8b64df4dd94c9eeb417fb237fb5
   ],
   imports: [
     BrowserModule,
