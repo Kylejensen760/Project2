@@ -2,12 +2,21 @@ package com.titans.beans;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="menu_item")
@@ -15,12 +24,17 @@ public class MenuItem implements Serializable{
 	//add an annotation because MenuItem is named differently from the table
 		
 	 	@Id
-	 	@GeneratedValue(strategy = GenerationType.AUTO)
+	 	//@GeneratedValue(strategy = GenerationType.AUTO)
 	 	@Column(name = "id")
-	 	private int menuItemId;
+	 	private Long id;
 	 	
-	 	@Column(name = "menu_id")
-	    private int menuId;
+//	 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+//		@JoinColumn(name="cave_id")
+	 	
+//	 	@Column(name = "restaurant_id")
+//	 	private String restaurantId;
+	 	
+	 	
 	 	
 	 	@Column(name = "item_name")
 	    private String itemName;
@@ -31,11 +45,13 @@ public class MenuItem implements Serializable{
 	 	@Column(name = "special_price")
 	    private Double specialPrice;
 	 	
-	 	@Column(name = "special_day")
-	    private Long specialDay;
-	 	
 	 	@Column(name = "special_start")
 	    private Long specialStart;
+	 	
+	 	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	 	@JoinColumn(name = "restaurant_id")
+	    @JsonBackReference
+	    private Restaurant restaurant;
 	 	
 	 	@Column(name = "special_end")
 	    private Long specialEnd;
@@ -45,33 +61,12 @@ public class MenuItem implements Serializable{
 			// TODO Auto-generated constructor stub
 		}
 
-		public MenuItem(int menuItemId, int menuId, String itemName, Double itemPrice, Double specialPrice,
-				Long specialDay, Long specialStart, Long specialEnd) {
-			super();
-			this.menuItemId = menuItemId;
-			this.menuId = menuId;
-			this.itemName = itemName;
-			this.itemPrice = itemPrice;
-			this.specialPrice = specialPrice;
-			this.specialDay = specialDay;
-			this.specialStart = specialStart;
-			this.specialEnd = specialEnd;
+		public Restaurant getRestaurant() {
+			return restaurant;
 		}
 
-		public int getMenuItemId() {
-			return menuItemId;
-		}
-
-		public void setMenuItemId(int menuItemId) {
-			this.menuItemId = menuItemId;
-		}
-
-		public int getMenuId() {
-			return menuId;
-		}
-
-		public void setMenuId(int menuId) {
-			this.menuId = menuId;
+		public void setRestaurant(Restaurant restaurant) {
+			this.restaurant = restaurant;
 		}
 
 		public String getItemName() {
@@ -98,14 +93,6 @@ public class MenuItem implements Serializable{
 			this.specialPrice = specialPrice;
 		}
 
-		public Long getSpecialDay() {
-			return specialDay;
-		}
-
-		public void setSpecialDay(Long specialDay) {
-			this.specialDay = specialDay;
-		}
-
 		public Long getSpecialStart() {
 			return specialStart;
 		}
@@ -122,15 +109,23 @@ public class MenuItem implements Serializable{
 			this.specialEnd = specialEnd;
 		}
 
+
+		public Long getId() {
+			return id;
+		}
+
+		public void setId(Long id) {
+			this.id = id;
+		}
+
 		@Override
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
+			result = prime * result + ((id == null) ? 0 : id.hashCode());
 			result = prime * result + ((itemName == null) ? 0 : itemName.hashCode());
 			result = prime * result + ((itemPrice == null) ? 0 : itemPrice.hashCode());
-			result = prime * result + menuId;
-			result = prime * result + menuItemId;
-			result = prime * result + ((specialDay == null) ? 0 : specialDay.hashCode());
+			result = prime * result + ((restaurant == null) ? 0 : restaurant.hashCode());
 			result = prime * result + ((specialEnd == null) ? 0 : specialEnd.hashCode());
 			result = prime * result + ((specialPrice == null) ? 0 : specialPrice.hashCode());
 			result = prime * result + ((specialStart == null) ? 0 : specialStart.hashCode());
@@ -146,6 +141,11 @@ public class MenuItem implements Serializable{
 			if (getClass() != obj.getClass())
 				return false;
 			MenuItem other = (MenuItem) obj;
+			if (id == null) {
+				if (other.id != null)
+					return false;
+			} else if (!id.equals(other.id))
+				return false;
 			if (itemName == null) {
 				if (other.itemName != null)
 					return false;
@@ -156,14 +156,10 @@ public class MenuItem implements Serializable{
 					return false;
 			} else if (!itemPrice.equals(other.itemPrice))
 				return false;
-			if (menuId != other.menuId)
-				return false;
-			if (menuItemId != other.menuItemId)
-				return false;
-			if (specialDay == null) {
-				if (other.specialDay != null)
+			if (restaurant == null) {
+				if (other.restaurant != null)
 					return false;
-			} else if (!specialDay.equals(other.specialDay))
+			} else if (!restaurant.equals(other.restaurant))
 				return false;
 			if (specialEnd == null) {
 				if (other.specialEnd != null)
@@ -185,10 +181,13 @@ public class MenuItem implements Serializable{
 
 		@Override
 		public String toString() {
-			return "MenuItem [menuItemId=" + menuItemId + ", menuId=" + menuId + ", itemName=" + itemName
-					+ ", itemPrice=" + itemPrice + ", specialPrice=" + specialPrice + ", specialDay=" + specialDay
-					+ ", specialStart=" + specialStart + ", specialEnd=" + specialEnd + "]";
+			return "MenuItem [id=" + id + ", itemName=" + itemName + ", itemPrice="
+					+ itemPrice + ", specialPrice=" + specialPrice + ", specialStart="
+					+ specialStart + ", specialEnd=" + specialEnd + "]";
 		}
+
+	
+
 	    
 	    
 

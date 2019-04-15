@@ -5,6 +5,7 @@ export class Restaurant extends User{
     name: string;
     tags: Tag[];
     lineOne: string;
+    email: string; 
     lineTwo: string;
     city: string;
     state: string;
