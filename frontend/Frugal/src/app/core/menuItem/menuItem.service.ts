@@ -12,12 +12,12 @@ import { menuItem } from './menuItem';
 })
 export class MenuItemService {
   private appUrl = this.urlSource.getURL() + '/menuItem';
-  private headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
+  private headers = new HttpHeaders({'Content-Type': 'application/json'});
   private menuItem: menuItem;
-
   constructor(private urlSource: UrlService, private http: HttpClient) { }
-
+  // let menuItemListJson = JSON.parse(menuItem)
   fetch(): Observable<menuItem[]> {
+         console.log(menuItem)
 
         return this.http.get(this.appUrl, {withCredentials: true})
         .pipe(map(resp => resp as menuItem[]

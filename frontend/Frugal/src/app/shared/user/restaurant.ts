@@ -13,4 +13,5 @@ export class Restaurant extends User{
     websiteUrl: string;
     openingTime: string;
     closingTime: string;
+    imageLink: string;
 }

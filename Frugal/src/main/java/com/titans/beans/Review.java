@@ -7,13 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="review")
 public class Review implements Serializable{
+	 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+ 	@SequenceGenerator(name="customers_seq" , sequenceName="customers_seq")
+ 	@GeneratedValue(generator="customers_seq", strategy=GenerationType.SEQUENCE)
 	@Column(name = "id")
 	private int reviewId;
 	
@@ -27,7 +30,7 @@ public class Review implements Serializable{
     private int rating;
 	
 	@Column(name = "review_date")
-    private Long reviewDate;
+    private String reviewDate;
 	
 	@Column(name = "review")
     private String review;
@@ -56,10 +59,10 @@ public class Review implements Serializable{
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
-	public Long getReviewDate() {
+	public String getReviewDate() {
 		return reviewDate;
 	}
-	public void setReviewDate(Long reviewDate) {
+	public void setReviewDate(String reviewDate) {
 		this.reviewDate = reviewDate;
 	}
 	public String getReview() {
@@ -114,7 +117,7 @@ public class Review implements Serializable{
 		return "Review [reviewId=" + reviewId + ", restaurantId=" + restaurantId + ", customerId=" + customerId
 				+ ", rating=" + rating + ", reviewDate=" + reviewDate + ", review=" + review + "]";
 	}
-	public Review(int reviewId, int restaurantId, int customerId, int rating, Long reviewDate, String review) {
+	public Review(int reviewId, int restaurantId, int customerId, int rating, String reviewDate, String review) {
 		super();
 		this.reviewId = reviewId;
 		this.restaurantId = restaurantId;
