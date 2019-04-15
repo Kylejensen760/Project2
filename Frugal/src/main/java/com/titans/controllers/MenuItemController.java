@@ -35,14 +35,13 @@ public class MenuItemController {
 	private MenuItemService cs;
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public MenuItem getAll() throws JsonProcessingException, IOException {
+	public List<MenuItem> getAll() throws JsonProcessingException, IOException {
 		System.out.println("this is the other get");
-		String x = cs.getMenuItems().toString();
+		List<MenuItem> x = cs.getMenuItems();
 		System.out.println(x);
 		
-		ObjectMapper mapper = new ObjectMapper();
-		MenuItem jsonString = mapper.readValue(x, MenuItem.class);
-		return jsonString;
+
+		return x;
 	}
 	
 //	@RequestMapping(method=RequestMethod.POST)

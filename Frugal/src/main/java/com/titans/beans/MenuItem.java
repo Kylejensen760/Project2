@@ -48,6 +48,9 @@ public class MenuItem implements Serializable{
 	 	@Column(name = "special_start")
 	    private Long specialStart;
 	 	
+	 	@Column(name = "image_link")
+	 	private String imageLink;
+	 	
 	 	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	 	@JoinColumn(name = "restaurant_id")
 	    @JsonBackReference
@@ -61,12 +64,12 @@ public class MenuItem implements Serializable{
 			// TODO Auto-generated constructor stub
 		}
 
-		public Restaurant getRestaurant() {
-			return restaurant;
+		public Long getId() {
+			return id;
 		}
 
-		public void setRestaurant(Restaurant restaurant) {
-			this.restaurant = restaurant;
+		public void setId(Long id) {
+			this.id = id;
 		}
 
 		public String getItemName() {
@@ -101,6 +104,22 @@ public class MenuItem implements Serializable{
 			this.specialStart = specialStart;
 		}
 
+		public String getImageLink() {
+			return imageLink;
+		}
+
+		public void setImageLink(String imageLink) {
+			this.imageLink = imageLink;
+		}
+
+		public Restaurant getRestaurant() {
+			return restaurant;
+		}
+
+		public void setRestaurant(Restaurant restaurant) {
+			this.restaurant = restaurant;
+		}
+
 		public Long getSpecialEnd() {
 			return specialEnd;
 		}
@@ -109,20 +128,12 @@ public class MenuItem implements Serializable{
 			this.specialEnd = specialEnd;
 		}
 
-
-		public Long getId() {
-			return id;
-		}
-
-		public void setId(Long id) {
-			this.id = id;
-		}
-
 		@Override
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
 			result = prime * result + ((id == null) ? 0 : id.hashCode());
+			result = prime * result + ((imageLink == null) ? 0 : imageLink.hashCode());
 			result = prime * result + ((itemName == null) ? 0 : itemName.hashCode());
 			result = prime * result + ((itemPrice == null) ? 0 : itemPrice.hashCode());
 			result = prime * result + ((restaurant == null) ? 0 : restaurant.hashCode());
@@ -145,6 +156,11 @@ public class MenuItem implements Serializable{
 				if (other.id != null)
 					return false;
 			} else if (!id.equals(other.id))
+				return false;
+			if (imageLink == null) {
+				if (other.imageLink != null)
+					return false;
+			} else if (!imageLink.equals(other.imageLink))
 				return false;
 			if (itemName == null) {
 				if (other.itemName != null)
@@ -182,11 +198,9 @@ public class MenuItem implements Serializable{
 		@Override
 		public String toString() {
 			return "MenuItem [id=" + id + ", itemName=" + itemName + ", itemPrice=" + itemPrice + ", specialPrice="
-					+ specialPrice + ", specialStart=" + specialStart + ", restaurant=" + restaurant.getName() + ", specialEnd="
-					+ specialEnd + "]";
+					+ specialPrice + ", specialStart=" + specialStart + ", imageLink=" + imageLink + ", restaurant="
+					+ restaurant + ", specialEnd=" + specialEnd + "]";
 		}
-
-
 
 	
 

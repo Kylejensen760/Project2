@@ -14,4 +14,5 @@ export class menuItem {
     fri?: number;
     sat?: number;
     sun?: number;
+    imageLink: string;
 }

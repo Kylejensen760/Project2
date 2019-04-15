@@ -4,10 +4,11 @@ import { MenuitemtableComponent } from './menuitemtable/menuitemtable.component'
 import { MenuComponent } from './menu/menu.component';
 import { CarouselComponent } from './core/homepage/carousel/carousel.component';
 import { AccountCreationComponent } from './shared/account-creation/account-creation.component';
+import { HomepageComponent } from './core/homepage/homepage.component';
 
 const routes: Routes = [
   {
-    path: 'menuitems',
+    path: 'menuItems',
     component: MenuitemtableComponent
   },
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'create',
     component: AccountCreationComponent
+  },
+  {
+    path: '',
+    component: HomepageComponent
   }
 ];
 

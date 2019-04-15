@@ -18,7 +18,7 @@ import { RestaurantListComponent } from './core/restaurant-list/restaurant-list.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestaurantViewComponent } from './restaurantView/restaurant-view/restaurant-view.component';
 import { AccountCreationComponent } from './shared/account-creation/account-creation.component';
-
+import { HomepageComponent} from './core/homepage/homepage.component'
 @NgModule({
   declarations: [
     AppComponent, 
@@ -29,7 +29,8 @@ import { AccountCreationComponent } from './shared/account-creation/account-crea
     CarouselComponent,
     RestaurantListComponent,
     RestaurantViewComponent,
-    AccountCreationComponent
+    AccountCreationComponent, 
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,17 @@
 <!-- Jumbotron -->
-<div class="jumbotron p-0" *ngFor="let item of slides; let i = index">
 
+
+<div class="jumbotron p-0" *ngFor="let item of slides; let i = index">
+    
+ 
+    
   <!-- Card image -->
   <div *ngFor="let card of item; let cardIndex = index" >
 
-    <div class="view overlay rounded-top waves-light d-flex justify-content-center" mdbWavesEffect>
-
-
-        <img src="{{card.imageLink}}" class="img-fluid" alt="centered image" >      
+    <div class="view overlay rounded-top waves-light d-flex justify-content-center" mdbWavesEffect> 
+       
+        
+        <img src="{{card.imageLink}}"  alt="centered image" width="300" height="300" >      
       
       <a>
         <div class="mask rgba-white-slight"></div>
@@ -38,4 +42,5 @@
     </div>
   </div>
 </div>
+
 <!-- Jumbotron -->
