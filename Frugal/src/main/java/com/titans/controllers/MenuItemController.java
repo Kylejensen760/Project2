@@ -42,9 +42,16 @@ public class MenuItemController {
 		return mi;
 	}
 	
+	@RequestMapping(value="{id}", method=RequestMethod.PUT)
+	public MenuItem updateMenu(@PathVariable("id") Long id, @RequestBody MenuItem mi) {
+		cs.updateMenuItem(cs.getMenuItemById(id));
+		return mi;
+	}
+
+	
 	@RequestMapping(value="{id}", method=RequestMethod.DELETE)
-	public void deleteMenuItem(@PathVariable("id") int id, @RequestBody MenuItem mi) {
-		cs.deleteCustomer(mi);
+	public void deleteMenuItem(@PathVariable("id") Long id, @RequestBody MenuItem mi) {
+		cs.deleteMenuItem(cs.getMenuItemById(id));
 	}
 
 	

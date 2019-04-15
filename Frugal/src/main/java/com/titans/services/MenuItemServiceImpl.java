@@ -32,8 +32,20 @@ public class MenuItemServiceImpl implements MenuItemService{
 
 
 	@Override
-	public void deleteCustomer(MenuItem mi) {
+	public void deleteMenuItem(MenuItem mi) {
 		mid.deleteMenuItem(mi);		
+	}
+
+
+	@Override
+	public MenuItem getMenuItemById(Long id) {
+		return mid.getMenuItemById(id);
+	}
+
+
+	@Override
+	public MenuItem updateMenuItem(MenuItem mi) {
+		return mid.updateMenuItem(mi);
 	}
 
 //	@Override

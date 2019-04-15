@@ -61,8 +61,25 @@ export class MenuitemtableComponent implements OnInit {
         }
       )
     }
-    updateList(id: number, property: string, event: any) {
-
+    update(menu: any) {
+      let mi = new menuItem();
+      mi.id = menu.id;
+      mi.itemName = menu.itemName;
+      mi.itemPrice = menu.itemPrice;
+      mi.specialPrice = menu.specialPrice;
+      mi.specialPrice = menu.specialPrice;
+      mi.specialStart = menu.specialStart;
+      mi.specialEnd = menu.specialEnd;
+      mi.mon = menu.mon;
+      mi.tue = menu.tue;
+      mi.wed = menu.wed;
+      mi.thu = menu.thu;
+      mi.fri = menu.fri;
+      mi.sat = menu.sat;
+      mi.sun = menu.sun;
+      mi.restaurant_id = this.userService.getRestaurant().restaurant_id;
+      console.log(mi);
+      this.menuService.update(mi);
     }
 
     remove(menu: any) {

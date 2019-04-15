@@ -49,7 +49,6 @@ public class Restaurant implements Serializable{
 	@Column(name = "restaurant_name")
 	private String name;
 	
-
 	
 	private String username;
 	

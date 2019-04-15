@@ -102,7 +102,7 @@ insert into restaurant values(109, 'Panera Bread', 'panera', 'panerapass', '304-
 insert into restaurant values(110, 'The Grind', 'grind', 'grindpass', '304-296-5297', '', '5531, 168 Willey Street', '', 'MorganTown', 'WV', 26505, 'thegrindwv.com', 28800000, 61200000);
 
 CREATE SEQUENCE customers_seq START WITH 1;
-create sequence restaurant_seq START WITH 1;
+CREATE SEQUENCE menuitem_seq  START WITH 1;
 CREATE SEQUENCE restaurant_seq START WITH 1;
 
 
