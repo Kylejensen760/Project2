@@ -33,12 +33,13 @@ public class MenuItemController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public List<MenuItem> saveMenuItem(@RequestBody MenuItem mi) {
+	public MenuItem saveMenuItem(@RequestBody MenuItem mi, HttpSession session) {
+		System.out.println(mi);
 		cs.saveMenuItem(mi);
-		return cs.getMenuItems();
+		return mi;
 	}
 	
-	
+
 	
 //	@RequestMapping(method=RequestMethod.POST)
 //	public LoginInfo login(@RequestParam("user") String username, 

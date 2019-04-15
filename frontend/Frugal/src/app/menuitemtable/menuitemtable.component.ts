@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { menuItem } from '../core/menuitem/menuitem'
+import { User } from '../shared/user/user';
+import { MenuitemtableService } from './menuitemtable.service';
 
 @Component({
   selector: 'app-menuitemtable',
@@ -7,8 +9,21 @@ import { menuItem } from '../core/menuitem/menuitem'
   styleUrls: ['./menuitemtable.component.scss']
 })
 export class MenuitemtableComponent implements OnInit {
-
-  constructor() { }
+  public User : User;
+  public id: number;
+  public itemName: string;
+  public itemPrice: number;
+  public specialPrice: number;
+  public specialStart: number;
+  public specialEnd: number;
+  public mon: number;
+  public tue: number; 
+  public wed: number;
+  public thu: number;
+  public fri: number;
+  public sat: number;
+  public sun: number;
+  constructor(private menuService: MenuitemtableService) { }
 
   ngOnInit() {
   }
@@ -35,12 +50,24 @@ export class MenuitemtableComponent implements OnInit {
     }
 
     add() {
-      
-     /* if (this.awaitingPersonList.length > 0) {
-       const person = this.awaitingPersonList[0];
-        this.personList.push(person);
-        this.awaitingPersonList.splice(0, 1);
-      }*/
+             console.log("We outchea");
+            let mi = new menuItem();
+            mi.id = 7;
+            mi.itemName = this.itemName;
+            mi.itemPrice = this.itemPrice;
+            mi.specialPrice = this.specialPrice;
+            mi.specialPrice = this.specialPrice;
+            mi.specialStart = this.specialStart;
+            mi.specialEnd = this.specialEnd;
+            mi.mon = this.mon;
+            mi.tue = this.tue;
+            mi.wed = this.wed;
+            mi.thu = this.thu;
+            mi.fri = this.fri;
+            mi.sat = this.sat;
+            mi.sun = this.sun;
+            console.log(mi);
+            this.menuService.add(mi);
     }
 
     changeValue(id: number, property: string, event: any) {

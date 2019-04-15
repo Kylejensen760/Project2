@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MdbInputDirective } from 'angular-bootstrap-md';
-import { MenuItemService } from '../menuItem/menuItem.service';
-import { menuItem } from '../menuItem/menuItem';
+import { MenuItemService } from '../../menuItem/menuItem.service';
+import { menuItem } from '../../menuItem/menuItem';
 
 @Component({
   selector: 'app-carousel',

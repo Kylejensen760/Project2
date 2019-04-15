@@ -33,8 +33,7 @@
           Create Account<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
           <button class="dropdown-item waves-light" mdbWavesEffect routerLink="/create">Customer</button>
-
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Restaurant</a>
+          <button class="dropdown-item waves-light" (click)="setRestaurant()" mdbWavesEffect routerLink="/create">Restaurant</button>
         </div>
       </li>
 
@@ -65,9 +64,10 @@
         </li>
       </ul>
 
+
   </links>
   <!-- Collapsible content -->
 </mdb-navbar>
 <ng-template #display>
-<span>Welcome {{ loggedUser.customer.username }}</span>
+  <p class =  "waves-light" >Welcome {{ loggedUser.customer.username }}</p>
 </ng-template>

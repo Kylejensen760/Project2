@@ -5,25 +5,23 @@ import { Observable, pipe, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { UrlService } from 'src/app/shared/url.service';
-import { menuItem } from './menuItem';
+import { Restaurant } from '../../shared/user/restaurant';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MenuItemService {
-  private appUrl = this.urlSource.getURL() + '/menuItem';
+export class RestaurantService {
+  private appUrl = this.urlSource.getURL() + '/restaurant';
   private headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
-  private menuItem: menuItem;
+  private restaurant: Restaurant;
 
   constructor(private urlSource: UrlService, private http: HttpClient) { }
 
-  fetch(): Observable<menuItem[]> {
+  fetch(): Observable<Restaurant[]> {
 
         return this.http.get(this.appUrl, {withCredentials: true})
-        .pipe(map(resp => resp as menuItem[]
+        .pipe(map(resp => resp as Restaurant[]
         )); 
     }
 
-
 }
-

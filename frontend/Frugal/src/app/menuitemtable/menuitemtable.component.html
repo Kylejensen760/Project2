@@ -2,7 +2,7 @@
 <div class="card">
   <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Menu Items</h3>
   <!-- Default form row -->
-<form ngSubmit = "add()">
+
   <!-- Grd row -->
   <div class="form-row">
     <!-- Grid column -->
@@ -70,8 +70,8 @@
     <!-- Grid column -->
   </div>
   <!-- Grd row -->
-  <button mdbBtn type="submit" color="success" rounded="true" outline="true" mdbWavesEffect>Submit</button>
-</form>
+  <button mdbBtn type="submit" color="success" rounded="true" outline="true" mdbWavesEffect (click)="add()">Submit</button>
+
 <!-- Default form row -->
   <div class="card-body">
     <div id="table" class="table-editable">

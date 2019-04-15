@@ -13,13 +13,11 @@ import { UserService } from './shared/user/user.service';
 import { LoginComponent } from './core/login/login.component';
 import { MenuitemtableComponent } from './menuitemtable/menuitemtable.component';
 import { MenuComponent } from './menu/menu.component';
-import { CarouselComponent } from './core/carousel/carousel.component';
-<<<<<<< HEAD
-import { RestaurantComponent } from './restaurant/restaurant.component';
-=======
+import { CarouselComponent } from './core/homepage/carousel/carousel.component';
+import { RestaurantListComponent } from './core/restaurant-list/restaurant-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestaurantViewComponent } from './restaurantView/restaurant-view/restaurant-view.component';
 import { AccountCreationComponent } from './shared/account-creation/account-creation.component';
->>>>>>> 16787d186775f8b64df4dd94c9eeb417fb237fb5
 
 @NgModule({
   declarations: [
@@ -29,20 +27,17 @@ import { AccountCreationComponent } from './shared/account-creation/account-crea
     MenuitemtableComponent,
     MenuComponent,
     CarouselComponent,
-<<<<<<< HEAD
-    RestaurantComponent
-=======
+    RestaurantListComponent,
     RestaurantViewComponent,
     AccountCreationComponent
->>>>>>> 16787d186775f8b64df4dd94c9eeb417fb237fb5
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
 
   providers: [UrlService, UserService],

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/user/user';
 import { CreateUser } from 'src/app/shared/user/create-user.service';
+import { NavbarComponent } from 'src/app/navbar/navbar.component';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-account-create',
@@ -16,16 +18,40 @@ export class AccountCreationComponent implements OnInit {
   public password: string; 
   public phone: string;
   public email: string;
-  constructor(private createUser: CreateUser) { }
+  public isRestaurant: boolean;
+  public name: string;
+  public lineOne: string;
+  public lineTwo: string;
+  public city: string;
+  public state: string;
+  public zip: string;
+  public websiteUrl: string;
+  public openingTime: string;
+  public closingTime: string;
+
+  constructor(private createCustomer: CreateUser, private createRestaurant: CreateUser, private userService: UserService) { }
 
 
   ngOnInit() {
-    this.createUser.create(null,null,null,null,null,null).subscribe(
-      user=> {
-        this.User=user;
-      }
-
-    )
+    this.isRestaurant = this.userService.getCreatingRestaurant();
+    if(this.isRestaurant){
+      this.createRestaurant.createRestaurant(null,null,null,null,null,null,null,null,null,null,null,null,null).subscribe(
+        user=> {
+          this.User=user;
+        }
+        
+      )
+    }
+    else {
+      this.createCustomer.createCustomer(null,null,null,null,null,null).subscribe(
+        user=> {
+          this.User=user;
+        }
+        
+      )
+    }
+    
+    
   }
 
   ShowCreateCustomerForm(): void {
@@ -37,10 +63,21 @@ export class AccountCreationComponent implements OnInit {
 
 
   create(): void {
-    this.createUser.create(this.firstName, this.lastName, this.username, this.password, this.phone, this.email).subscribe(
-      user=> {
-        this.User=user;
-      }
-    )
+    if(this.isRestaurant) {
+      
+      this.createCustomer.createRestaurant(this.name, this.username, this.password, this.phone, this.email, this.lineOne, this.lineTwo,
+         this.city, this.state, this.zip, this.websiteUrl, this.openingTime, this.closingTime).subscribe(
+        user=> {
+          this.User=user;
+        }
+      )
+    }
+    else {
+      this.createCustomer.createCustomer(this.firstName, this.lastName, this.username, this.password, this.phone, this.email).subscribe(
+        user=> {
+          this.User=user;
+        }
+      )
+    }
   }
 }

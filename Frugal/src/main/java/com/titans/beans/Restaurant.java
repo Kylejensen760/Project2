@@ -1,5 +1,6 @@
 package com.titans.beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -16,18 +17,28 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="restaurant")
-public class Restaurant{
+public class Restaurant implements Serializable{
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="restaurant_id")
-	private Long id;
+	@SequenceGenerator(name="restaurant_seq" , sequenceName="restaurant_seq")
+	@GeneratedValue(generator="restaurant_seq", strategy=GenerationType.SEQUENCE)
+	private Long restaurant_id; 
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "restaurant")
-	private List<MenuItem> menuItem = new ArrayList<MenuItem>();
+	
+	
+//	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+//	@JoinColumn(name="restaurant_id")
+//	
+   @OneToMany(fetch=FetchType.EAGER, mappedBy="restaurant",cascade=CascadeType.ALL) 
+   @JsonManagedReference
+   private Set<MenuItem> menuItem = new HashSet<MenuItem>();
 	
 	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="restaurant_tags",
@@ -37,6 +48,8 @@ public class Restaurant{
 	
 	@Column(name = "restaurant_name")
 	private String name;
+	
+
 	
 	private String username;
 	
@@ -71,19 +84,19 @@ public class Restaurant{
 		super();
 	}
 
-	public Long getId() {
-		return id;
+	public Long getRestaurant_id() {
+		return restaurant_id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setRestaurant_id(Long restaurant_id) {
+		this.restaurant_id = restaurant_id;
 	}
 
-	public List<MenuItem> getMenuItem() {
+	public Set<MenuItem> getMenuItem() {
 		return menuItem;
 	}
 
-	public void setMenuItem(List<MenuItem> menuItem) {
+	public void setMenuItem(Set<MenuItem> menuItem) {
 		this.menuItem = menuItem;
 	}
 
@@ -206,14 +219,13 @@ public class Restaurant{
 		result = prime * result + ((city == null) ? 0 : city.hashCode());
 		result = prime * result + ((closingTime == null) ? 0 : closingTime.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((lineOne == null) ? 0 : lineOne.hashCode());
 		result = prime * result + ((lineTwo == null) ? 0 : lineTwo.hashCode());
-		result = prime * result + ((menuItem == null) ? 0 : menuItem.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((openingTime == null) ? 0 : openingTime.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
+		result = prime * result + ((restaurant_id == null) ? 0 : restaurant_id.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		result = prime * result + ((tags == null) ? 0 : tags.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
@@ -246,11 +258,6 @@ public class Restaurant{
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
 		if (lineOne == null) {
 			if (other.lineOne != null)
 				return false;
@@ -261,11 +268,7 @@ public class Restaurant{
 				return false;
 		} else if (!lineTwo.equals(other.lineTwo))
 			return false;
-		if (menuItem == null) {
-			if (other.menuItem != null)
-				return false;
-		} else if (!menuItem.equals(other.menuItem))
-			return false;
+		
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -285,6 +288,11 @@ public class Restaurant{
 			if (other.phone != null)
 				return false;
 		} else if (!phone.equals(other.phone))
+			return false;
+		if (restaurant_id == null) {
+			if (other.restaurant_id != null)
+				return false;
+		} else if (!restaurant_id.equals(other.restaurant_id))
 			return false;
 		if (state == null) {
 			if (other.state != null)
@@ -314,37 +322,17 @@ public class Restaurant{
 		return true;
 	}
 
-	
-
 	@Override
 	public String toString() {
-		return "Restaurant [id=" + id + ", tags=" + tags + ", name=" + name + ", username=" + username + ", password="
-				+ password + ", phone=" + phone + ", email=" + email + ", lineOne=" + lineOne + ", lineTwo=" + lineTwo
-				+ ", city=" + city + ", state=" + state + ", zip=" + zip + ", websiteUrl=" + websiteUrl
-				+ ", openingTime=" + openingTime + ", closingTime=" + closingTime + "]";
+		return "Restaurant [restaurant_id=" + restaurant_id + ",tags=" + tags + ", name="
+				+ name + ", username=" + username + ", password=" + password + ", phone=" + phone + ", email=" + email
+				+ ", lineOne=" + lineOne + ", lineTwo=" + lineTwo + ", city=" + city + ", state=" + state + ", zip="
+				+ zip + ", websiteUrl=" + websiteUrl + ", openingTime=" + openingTime + ", closingTime=" + closingTime
+				+ "]";
 	}
 
-	public Restaurant(Long id, List<MenuItem> menuItem, Set<Tag> tags, String name, String username, String password,
-			String phone, String email, String lineOne, String lineTwo, String city, String state, String zip,
-			String websiteUrl, Long openingTime, Long closingTime) {
-		super();
-		this.id = id;
-		this.menuItem = menuItem;
-		this.tags = tags;
-		this.name = name;
-		this.username = username;
-		this.password = password;
-		this.phone = phone;
-		this.email = email;
-		this.lineOne = lineOne;
-		this.lineTwo = lineTwo;
-		this.city = city;
-		this.state = state;
-		this.zip = zip;
-		this.websiteUrl = websiteUrl;
-		this.openingTime = openingTime;
-		this.closingTime = closingTime;
-	}
+	
+
 	
 	
 	
