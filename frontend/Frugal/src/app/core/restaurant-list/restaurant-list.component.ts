@@ -5,6 +5,9 @@ import { Restaurant } from '../../shared/user/restaurant'
 import { menuItem } from '../menuItem/menuItem';
 import {MenuItemService} from '../menuItem/menuItem.service'
 import { AddReviewService } from 'src/app/shared/review/add-review.service';
+import { RouterModule, Routes } from '@angular/router';
+
+
 @Component({
   selector: 'app-restaurant-list',
   templateUrl: './restaurant-list.component.html',

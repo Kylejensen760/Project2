@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.titans.beans.Customer;
 import com.titans.beans.MenuItem;
 
 import com.titans.data.MenuItemDao;
@@ -24,6 +23,18 @@ public class MenuItemServiceImpl implements MenuItemService{
 	public List<MenuItem> getMenuItems() {
 		return mid.getAll();
 
+	}
+
+
+	@Override
+	public MenuItem saveMenuItem(MenuItem mi) {
+		return mid.saveMenuItem(mi);
+	}
+
+
+	@Override
+	public void deleteCustomer(MenuItem mi) {
+		mid.deleteMenuItem(mi);		
 	}
 
 //	@Override

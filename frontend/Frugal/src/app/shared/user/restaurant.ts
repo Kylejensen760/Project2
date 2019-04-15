@@ -3,6 +3,7 @@ import { Review } from '../review/review';
 import { menuItem } from 'src/app/core/menuItem/menuItem';
 
 export class Restaurant extends User{
+    restaurant_id: number;
     name: string; 
     phone: string; 
     lineOne: string;
@@ -22,4 +23,5 @@ export class Restaurant extends User{
     specialPrice: number;
     specialStart: number;
     specialEnd: number;; 
+    imageLink: string;
 }

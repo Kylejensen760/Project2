@@ -8,7 +8,7 @@ public interface MenuItemDao {
 	
 	MenuItem getMenuItem(String s); //**we need to change this line and add stuff
 
-	void saveMenuItem(MenuItem mi);
+	MenuItem saveMenuItem(MenuItem mi);
 	void updateMenuItem(MenuItem mi);
 	void deleteMenuItem(MenuItem mi);
 	List<MenuItem> getAll();
