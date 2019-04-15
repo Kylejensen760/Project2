@@ -80,6 +80,9 @@ public class Restaurant implements Serializable{
 	@Column(name = "closing_time")
 	private Long closingTime;
 	
+	@Column(name = "image_link")
+	private String imageLink;
+	
 	public Restaurant() {
 		super();
 	}
@@ -211,6 +214,14 @@ public class Restaurant implements Serializable{
 	public void setClosingTime(Long closingTime) {
 		this.closingTime = closingTime;
 	}
+	
+	public String getImageLink() {
+		return imageLink;
+	}
+
+	public void setImageLink(String imageLink) {
+		this.imageLink = imageLink;
+	}
 
 	@Override
 	public int hashCode() {
@@ -231,6 +242,7 @@ public class Restaurant implements Serializable{
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		result = prime * result + ((websiteUrl == null) ? 0 : websiteUrl.hashCode());
 		result = prime * result + ((zip == null) ? 0 : zip.hashCode());
+		result = prime * result + ((imageLink == null) ? 0 : zip.hashCode());
 		return result;
 	}
 

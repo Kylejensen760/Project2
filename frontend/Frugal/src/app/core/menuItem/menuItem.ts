@@ -2,7 +2,6 @@ import { Menu } from 'src/app/menu/menu';
 
 export class menuItem {
     id: number;
-    menu: Menu;
     itemName: string;
     itemPrice: number;
     specialPrice: number;
@@ -15,4 +14,5 @@ export class menuItem {
     fri?: number;
     sat?: number;
     sun?: number;
+    imageLink: string;
 }
