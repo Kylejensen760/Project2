@@ -2,15 +2,13 @@ package com.titans.services;
 
 import java.util.List;
 
-import com.titans.beans.MenuItem;
+import com.titans.beans.Review;
 
-public interface MenuItemService {
+public interface ReviewService {
 
 		//public MenuItem getMenuItem(String itemName);
-		public List<MenuItem> getMenuItems();
+		public List<Review> getReviews();
 		
 		
 
 }
-
-

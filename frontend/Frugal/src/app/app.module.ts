@@ -19,6 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestaurantViewComponent } from './restaurantView/restaurant-view/restaurant-view.component';
 import { AccountCreationComponent } from './shared/account-creation/account-creation.component';
 import { HomepageComponent} from './core/homepage/homepage.component'
+import { ReviewComponent } from './shared/review/review.component';
+
 @NgModule({
   declarations: [
     AppComponent, 
@@ -30,7 +32,8 @@ import { HomepageComponent} from './core/homepage/homepage.component'
     RestaurantListComponent,
     RestaurantViewComponent,
     AccountCreationComponent, 
-    HomepageComponent
+    HomepageComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
