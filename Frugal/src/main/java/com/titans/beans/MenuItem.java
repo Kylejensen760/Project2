@@ -51,7 +51,7 @@ public class MenuItem implements Serializable{
 	 	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	 	@JoinColumn(name = "restaurant_id")
 	    @JsonBackReference
-	    private Restaurant restaurant;
+	    private Restaurant restaurant; 
 	 	
 	 	@Column(name = "special_end")
 	    private Long specialEnd;
@@ -181,10 +181,12 @@ public class MenuItem implements Serializable{
 
 		@Override
 		public String toString() {
-			return "MenuItem [id=" + id + ", itemName=" + itemName + ", itemPrice="
-					+ itemPrice + ", specialPrice=" + specialPrice + ", specialStart="
-					+ specialStart + ", specialEnd=" + specialEnd + "]";
+			return "MenuItem [id=" + id + ", itemName=" + itemName + ", itemPrice=" + itemPrice + ", specialPrice="
+					+ specialPrice + ", specialStart=" + specialStart + ", restaurant=" + restaurant.getName() + ", specialEnd="
+					+ specialEnd + "]";
 		}
+
+
 
 	
 

@@ -11,6 +11,7 @@ import { menuItem } from '../../menuItem/menuItem';
 export class CarouselComponent implements OnInit {
 
   constructor(private menuItemService: MenuItemService) { }
+
   @Input() cards: menuItem[]=[];
   slides: any = [[]];
   chunk(arr, chunkSize) {
@@ -20,8 +21,13 @@ export class CarouselComponent implements OnInit {
     }
     return R;
   }
+
   ngOnInit() {
+    console.log(menuItem)
+    // let menuItemListJson = JSON.parse(menuItem)
+
     this.menuItemService.fetch().subscribe(
+
       menuItemList=> {
         this.cards = menuItemList;
         console.log(this.cards);
