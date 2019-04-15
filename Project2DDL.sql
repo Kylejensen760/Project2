@@ -8,6 +8,9 @@ drop table REVIEWS cascade constraints;
 drop table RESTAURANT_TAGS cascade constraints;
 
 --select 'drop sequence ' || sequence_name || ';' from user_sequences;
+drop sequence CUSTOMERS_SEQ;
+drop sequence RESTAURANT_SEQ;
+drop sequence TAG_SEQ;
 
 create table customer(
     id number(20) primary key,
@@ -87,6 +90,7 @@ create table restaurant_tags(
 
 CREATE SEQUENCE customers_seq START WITH 1;
 create sequence restaurant_seq START WITH 1;
+create sequence tag_seq START WITH 1;
 
 CREATE OR REPLACE TRIGGER customers_bir 
 BEFORE INSERT ON Customer 
@@ -111,18 +115,16 @@ begin
     end if;
 end;
 /
-CREATE SEQUENCE restaurant_seq START WITH 1;
-CREATE OR REPLACE TRIGGER customers_bir 
-BEFORE INSERT ON restaurant 
-FOR EACH ROW
-
-BEGIN
-  SELECT restaurant_seq_seq.NEXTVAL
-  INTO   :new.id
-  FROM   dual;
-
-
-END;
+create or replace trigger tag_pk_trig
+before insert or update on tag
+for each row
+begin
+    if INSERTING then
+        select tag_seq.nextVal into :new.id from dual;
+    elsif UPDATING then
+        select :old.id into :new.id from dual;
+    end if;
+end;
 /
 
 insert into menu_item values(1, 1, 'hotdog', 5, 2, 1, 1 ,1,1,0,0,0,0,1,1); 
@@ -134,6 +136,23 @@ insert into menu_item values(6, 1, 'wings', 5, 2, 5, 1 ,1,1,0,0,0,0,1,1);
 
 insert into customer
     values(1, 'Kyle', 'Jensen', 'KJen', '760', 'kjen@760.com', '555-555-5555');
+    
+insert into tag
+    values(null, 'Pizza');
+insert into tag
+    values(null, 'Chinese');
+insert into tag
+    values(null, 'Wings');
+insert into tag
+    values(null, 'Burgers');
+insert into tag
+    values(null, 'Thai');
+insert into tag
+    values(null, 'Japanese');
+insert into tag
+    values(null, 'Sushi');
+insert into tag
+    values(null, 'Deli');
 commit;
 
 

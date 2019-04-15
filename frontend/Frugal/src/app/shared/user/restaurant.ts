@@ -1,7 +1,9 @@
 import { User } from './user';
+import { Tag } from 'src/app/restaurantView/tag';
 
 export class Restaurant extends User{
     name: string;
+    tags: Tag[];
     lineOne: string;
     lineTwo: string;
     city: string;

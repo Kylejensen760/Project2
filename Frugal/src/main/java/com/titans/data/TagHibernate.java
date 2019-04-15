@@ -25,9 +25,9 @@ public class TagHibernate implements TagDao{
 	}
 
 	@Override
-	public Set<Tag> getTag() {
+	public Set<Tag> getAllTags() {
 		Session s = hu.getSession();
-		String query = "from com.revature.beans.Bear";
+		String query = "from com.titans.beans.Tag";
 		Query<Tag> q = s.createQuery(query, Tag.class);
 		List<Tag> tagList = q.getResultList();
 		s.close();
