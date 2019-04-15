@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { menuItem } from '../core/menuitem/menuitem'
-import { User } from '../shared/user/user';
+import { CurrentUser } from 'src/app/shared/user/current-user';
 import { MenuitemtableService } from './menuitemtable.service';
+import { UserService } from 'src/app/shared/user/user.service';
+import { MenuItemService } from '../core/menuItem/menuItem.service';
+import { Restaurant } from '../shared/user/restaurant';
 
 @Component({
   selector: 'app-menuitemtable',
@@ -9,7 +12,7 @@ import { MenuitemtableService } from './menuitemtable.service';
   styleUrls: ['./menuitemtable.component.scss']
 })
 export class MenuitemtableComponent implements OnInit {
-  public User : User;
+  public user : CurrentUser;
   public id: number;
   public itemName: string;
   public itemPrice: number;
@@ -23,36 +26,71 @@ export class MenuitemtableComponent implements OnInit {
   public fri: number;
   public sat: number;
   public sun: number;
-  constructor(private menuService: MenuitemtableService) { }
+  public xyz: number;
+  public restaurants: Restaurant;
+  constructor(private menuService: MenuitemtableService, private userService : UserService,private menuItemService: MenuItemService) { }
 
+  @Input() menu: menuItem[]=[];
+  slides: any = [[]];
+  chunk(arr, chunkSize) {
+    let R = [];
+    for (let i = 0, len = arr.length; i < len; i += chunkSize) {
+      R.push(arr.slice(i, i + chunkSize));
+    }
+    return R;
+  }
   ngOnInit() {
+    this.menuItemService.fetch().subscribe(
+      menuItemList=> {
+        this.menu = menuItemList;
+        console.log(this.menu);
+        this.slides = this.chunk(this.menu, 1);
+      }
+    )
   }
   
   editField: string;
-    personList: Array<any> = [
-      { id: 1, name: 'Aurelia Vega', age: 30, companyName: 'Deepends', country: '1', city: '1' },
-
-    ];
-
-    awaitingPersonList: Array<any> = [
-      { id: 6, name: 'George Vega', age: 28, companyName: 'Classical', country: 'Russia', city: 'Moscow' },
-
-    ];
-
+  
+    show() {
+      this.xyz = this.userService.getRestaurant().restaurant_id;
+      this.menuItemService.fetch().subscribe(
+        menuItemList=> {
+          this.menu = menuItemList;
+          console.log(this.menu);
+          this.slides = this.chunk(this.menu, 1);
+        }
+      )
+    }
     updateList(id: number, property: string, event: any) {
-      const editField = event.target.textContent;
-      this.personList[id][property] = editField;
+
     }
 
-    remove(id: any) {
-      this.awaitingPersonList.push(this.personList[id]);
-      this.personList.splice(id, 1);
+    remove(menu: any) {
+      let mi = new menuItem();
+      mi.id = menu.id;
+      mi.itemName = menu.itemName;
+      mi.itemPrice = menu.itemPrice;
+      mi.specialPrice = menu.specialPrice;
+      mi.specialPrice = menu.specialPrice;
+      mi.specialStart = menu.specialStart;
+      mi.specialEnd = menu.specialEnd;
+      mi.mon = menu.mon;
+      mi.tue = menu.tue;
+      mi.wed = menu.wed;
+      mi.thu = menu.thu;
+      mi.fri = menu.fri;
+      mi.sat = menu.sat;
+      mi.sun = menu.sun;
+      mi.restaurant_id = this.userService.getRestaurant().restaurant_id;
+      console.log(mi);
+      this.menuService.remove(mi).subscribe();
     }
+
+  
 
     add() {
-             console.log("We outchea");
             let mi = new menuItem();
-            mi.id = 7;
+            mi.id = 11;
             mi.itemName = this.itemName;
             mi.itemPrice = this.itemPrice;
             mi.specialPrice = this.specialPrice;
@@ -66,6 +104,7 @@ export class MenuitemtableComponent implements OnInit {
             mi.fri = this.fri;
             mi.sat = this.sat;
             mi.sun = this.sun;
+            mi.restaurant_id = this.userService.getRestaurant().restaurant_id;
             console.log(mi);
             this.menuService.add(mi);
     }

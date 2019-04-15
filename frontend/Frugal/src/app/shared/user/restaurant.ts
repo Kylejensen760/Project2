@@ -1,6 +1,7 @@
 import { User } from './user';
 
 export class Restaurant extends User{
+    restaurant_id: number;
     name: string; 
     phone: string; 
     lineOne: string;

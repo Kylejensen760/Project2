@@ -9,8 +9,7 @@ public interface MenuItemService {
 		//public MenuItem getMenuItem(String itemName);
 		public List<MenuItem> getMenuItems();
 		MenuItem saveMenuItem(MenuItem mi);
-		
-//		public void deleteCustomer(Customer cust);
+		public void deleteCustomer(MenuItem mi);
 //		public void updateCustomer(Customer cust);
 //		public void newCustomer(Customer cust);
 		

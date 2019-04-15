@@ -15,15 +15,20 @@ export class MenuitemtableService {
 
   constructor(private urlSource: UrlService, private http: HttpClient) { }
 
-  add(mi: menuItem): Observable<menuItem> {
+  add(mi: menuItem){
     console.log(mi);
-    let mis = new menuItem();
-    mis = mi;
-    return this.http.post(this.appUrl, mis, {headers: this.headers, withCredentials: true})
-    .pipe(map(resp => {
-      console.log("Im not getting anything");
-      const menuItem :menuItem = resp as menuItem;
-      return menuItem;
-    }));
+    return this.http.post(this.appUrl, mi, {headers: this.headers, withCredentials: true})
+    .subscribe(
+      data => {
+        console.log("post was a success", data);
+      }
+    );
+  }
+
+  remove(mi: menuItem): Observable<{}> {
+    console.log(mi)
+    const url = this.appUrl + `/${mi.id}`;
+    const options = {headers: new HttpHeaders({'Content-Type': 'application/json'}), body:{mi}} ;
+    return this.http.delete(url, options)
   }
 }

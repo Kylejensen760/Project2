@@ -36,7 +36,7 @@ public class Restaurant implements Serializable{
 //	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 //	@JoinColumn(name="restaurant_id")
 //	
-   @OneToMany(fetch=FetchType.EAGER, mappedBy="restaurant",cascade=CascadeType.ALL) 
+   @OneToMany(fetch=FetchType.EAGER, mappedBy="restaurant",cascade=CascadeType.ALL, orphanRemoval=true) 
    @JsonManagedReference
    private Set<MenuItem> menuItem = new HashSet<MenuItem>();
 	

@@ -47,7 +47,13 @@ public class MenuItemHibernate implements MenuItemDao{
 
 	@Override
 	public void deleteMenuItem(MenuItem mi) {
-		// TODO Auto-generated method stub
-		
+		Session s = hu.getSession();
+		Transaction t = s.beginTransaction();
+		s.save(mi);
+		//s.load(mi, mi.getId());
+		s.delete(mi);
+		s.flush();
+		t.commit();
+		s.close();
 	}
 }

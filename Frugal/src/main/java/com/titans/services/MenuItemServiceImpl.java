@@ -30,6 +30,12 @@ public class MenuItemServiceImpl implements MenuItemService{
 		return mid.saveMenuItem(mi);
 	}
 
+
+	@Override
+	public void deleteCustomer(MenuItem mi) {
+		mid.deleteMenuItem(mi);		
+	}
+
 //	@Override
 //	public void deleteCustomer(Customer cust) {
 //		// TODO Auto-generated method stub

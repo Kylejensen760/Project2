@@ -1,8 +1,9 @@
-import { Menu } from 'src/app/menu/menu';
+import { Restaurant } from 'src/app/shared/user/restaurant';
 
 export class menuItem {
     id: number;
-    menu: Menu;
+    restaurant?: Restaurant;
+    restaurant_id: number;
     itemName: string;
     itemPrice: number;
     specialPrice: number;
@@ -15,4 +16,5 @@ export class menuItem {
     fri?: number;
     sat?: number;
     sun?: number;
+    
 }
