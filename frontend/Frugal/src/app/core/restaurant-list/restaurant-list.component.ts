@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 })
 export class RestaurantListComponent implements OnInit {
 
+  private favorite : boolean;
   constructor(private RestaurantService: RestaurantService, private AddReviewService: AddReviewService) { }
   @Input() lists: Restaurant[]=[];
   slides: any = [[]];
@@ -26,6 +27,7 @@ export class RestaurantListComponent implements OnInit {
     return R;
   }
   ngOnInit() {
+    this.favorite = false;
     this.RestaurantService.fetch().subscribe(
       RestaurantList=> {
         this.lists = RestaurantList;

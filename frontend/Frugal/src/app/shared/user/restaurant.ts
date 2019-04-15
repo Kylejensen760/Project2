@@ -1,10 +1,13 @@
 import { User } from './user';
+import { Tag } from 'src/app/restaurantView/tag';
 import { Review } from '../review/review';
 import { menuItem } from 'src/app/core/menuItem/menuItem';
 
 export class Restaurant extends User{
+    name: string;
+    tags: Tag[];
+
     restaurant_id: number;
-    name: string; 
     phone: string; 
     lineOne: string;
     email: string; 
@@ -22,6 +25,6 @@ export class Restaurant extends User{
     itemPrice: number;
     specialPrice: number;
     specialStart: number;
-    specialEnd: number;; 
+    specialEnd: number; 
     imageLink: string;
 }

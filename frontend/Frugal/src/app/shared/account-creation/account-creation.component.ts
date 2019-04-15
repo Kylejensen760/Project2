@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/shared/user/user';
 import { CreateUser } from 'src/app/shared/user/create-user.service';
 import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { UserService } from '../user/user.service';
+import { Tag } from 'src/app/restaurantView/tag';
+import { TagService } from './tag.service';
 
 @Component({
   selector: 'app-account-create',
@@ -28,18 +30,26 @@ export class AccountCreationComponent implements OnInit {
   public websiteUrl: string;
   public openingTime: string;
   public closingTime: string;
+  
 
-  constructor(private createCustomer: CreateUser, private createRestaurant: CreateUser, private userService: UserService) { }
-
+  constructor(private createCustomer: CreateUser, private createRestaurant: CreateUser, private userService: UserService, private tagService: TagService) { }
+  @Input() tags: Tag[]=[];
 
   ngOnInit() {
     this.isRestaurant = this.userService.getCreatingRestaurant();
     if(this.isRestaurant){
-      this.createRestaurant.createRestaurant(null,null,null,null,null,null,null,null,null,null,null,null,null).subscribe(
+      this.tagService.getTags().subscribe(
+        tags => {
+          this.tags = tags;
+          console.log(this.tags);
+        }
+      );
+      console.log(this.tags);
+      
+      this.createRestaurant.createRestaurant(null,null,null,null,null,null,null,null,null,null,null,null,null,null).subscribe(
         user=> {
           this.User=user;
         }
-        
       )
     }
     else {
@@ -47,11 +57,8 @@ export class AccountCreationComponent implements OnInit {
         user=> {
           this.User=user;
         }
-        
       )
     }
-    
-    
   }
 
   ShowCreateCustomerForm(): void {
@@ -60,12 +67,10 @@ export class AccountCreationComponent implements OnInit {
     console.log('this is show create customer form method')
   }
 
-
-
   create(): void {
     if(this.isRestaurant) {
       
-      this.createCustomer.createRestaurant(this.name, this.username, this.password, this.phone, this.email, this.lineOne, this.lineTwo,
+      this.createCustomer.createRestaurant(this.name, this.tags, this.username, this.password, this.phone, this.email, this.lineOne, this.lineTwo,
          this.city, this.state, this.zip, this.websiteUrl, this.openingTime, this.closingTime).subscribe(
         user=> {
           this.User=user;
@@ -79,5 +84,9 @@ export class AccountCreationComponent implements OnInit {
         }
       )
     }
+  }
+
+  select(): void {
+
   }
 }

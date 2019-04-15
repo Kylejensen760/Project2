@@ -7,6 +7,11 @@ drop table TAG cascade constraints;
 drop table REVIEWS cascade constraints;
 drop table RESTAURANT_TAGS cascade constraints;
 
+--select 'drop sequence ' || sequence_name || ';' from user_sequences;
+drop sequence CUSTOMERS_SEQ;
+drop sequence MENUITEM_SEQ;
+drop sequence RESTAURANT_SEQ;
+drop sequence TAG_SEQ;
 create table customer(
     id number(20) primary key,
     first_name varchar2(60) not null,
@@ -72,8 +77,6 @@ create table tag(
     name varchar(150)
 );
 
-
-
 create table restaurant_tags(
     restaurant_id number(20),
     tag_id number(30)
@@ -97,7 +100,6 @@ insert into menu_item values(1248, 103, 'Shoyu Ramen', 8.25, 8.25, 1, 1, 1, 1, 1
 insert into menu_item values(1249, 103, 'Spicy Tuna Roll', 10.75, 10.75, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/qhc9wmdfyx3dxon/Yama%20Spicy%20Tuna%20Roll.jpg?raw=1');
 insert into menu_item values(1250, 103, 'Pork Gyoza', 5.99, 5.99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/qy0bwcldsrch6an/YamaPorkGyoza.jpg?raw=1');
 insert into menu_item values(1251, 103, 'Takoyaki', 6.29, 6.29, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/82fkrc45q2x1yjd/Yama%20Takoyaki.jpg?raw=1');
-
 insert into menu_item values(121, 104, 'Fiesta Slice', 5.00, 5.00, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/y7zfvv0s338y3b7/BennyVelinosFiestaSlice.jpg?raw=1');
 insert into menu_item values(1252, 104, 'Pepperoni', 5.00, 5.00, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/ck8jb9ewpwzv2j0/BennyVelinosPepperoni.jpg?raw=1');
 insert into menu_item values(1253, 104, 'Cheese', 4.00, 4.00, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/oah0g3ig73rtgy9/BennyVelinosCheese.jpg?raw=1');
@@ -111,15 +113,7 @@ insert into menu_item values(1258, 106, 'Awaken W Bacon', 7.00, 7.00, 1, 1, 1, 1
 insert into menu_item values(1259, 106, 'Philly', 7.20, 7.20, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/1i1bwe0lbc5itu5/PitaPitPhilly.PNG?raw=1');
 insert into menu_item values(1260, 106, 'Buffalo Chicken', 6.85, 6.85, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/mp31il5v58j6ycb/PitaPitBuffaloChicken.PNG?raw=1');
 insert into menu_item values(1261, 106, 'Bacon Cheeseburger', 7.20, 7.20, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/814wlhatvu7esrm/PitaPitBaconCheeseBurger.PNG?raw=1');
-
-
-
-CREATE SEQUENCE customers_seq START WITH 1;
-CREATE SEQUENCE menuitem_seq  START WITH 1;
-CREATE SEQUENCE restaurant_seq START WITH 1;
-
-
-
+ 
 
 insert into restaurant values(101, 'Clutch Wings', 'Clutch', 'clutchpass', '304-212-5403', '', '444 High Street', '', 'MorganTown', 'WV', 26505, 'clutchwingshop.com', 39600000, 79200000, 'https://www.dropbox.com/s/602lqar4bf7p3d6/ClutchWings.webp?raw=1'); 
 insert into restaurant values(102, 'Tailpipes', 'tailpipes', 'tailpipespass', '304-225-2535', '', '417 High Street', '', 'MorganTown', 'WV', 26505, 'tailpipesmorgantown.com', 39600000, 0, 'https://www.dropbox.com/s/b2czwn86nhi8jvk/Tailpipes.jpg?raw=1');
@@ -132,10 +126,43 @@ insert into restaurant values(108, 'Jasmine Grill', 'jasmine', 'jasminepass', '3
 insert into restaurant values(109, 'Panera Bread', 'panera', 'panerapass', '304-291-6240', '', '207 Willey Street', '', 'MorganTown', 'WV', 26505, 'locations.panerabread.com', 25200000, 75600000, 'https://www.dropbox.com/s/san3rce60rn6vnt/paneraBread.jpg?raw=1');
 insert into restaurant values(110, 'The Grind', 'grind', 'grindpass', '304-296-5297', '', '5531, 168 Willey Street', '', 'MorganTown', 'WV', 26505, 'thegrindwv.com', 28800000, 61200000, 'https://www.dropbox.com/s/ujh37rak3v52j8y/TheGrind.jpg?raw=1');
 
+CREATE SEQUENCE customers_seq START WITH 1;
+create sequence restaurant_seq START WITH 1;
+create sequence tag_seq START WITH 1;
+CREATE SEQUENCE menuitem_seq  START WITH 1;
+
+insert into customer
+    values(1, 'Kyle', 'Jensen', 'KJen', '760', 'kjen@760.com', '555-555-5555');
+insert into customer
+    values(2, 'harris', 'sam', 'sam', 'harris', '3333', 's@gmail.com');
+    
+insert into tag
+    values(1, 'Pizza');
+insert into tag
+    values(2, 'Chinese');
+insert into tag
+    values(3, 'Wings');
+insert into tag
+    values(4, 'Burgers');
+insert into tag
+    values(5, 'Thai');
+insert into tag
+    values(6, 'Japanese');
+insert into tag
+    values(7, 'Sushi');
+insert into tag
+    values(8, 'Deli');
+    
+insert into reviews values(1, 101, 1, 5, '4/15/19', 'The Best');
+insert into reviews values(2, 101, 2, 3, '4/01/19', 'was Decent');
+insert into reviews values(3, 101, 1, 1, '3/05/19', 'The worst');
+insert into reviews values(4, 102, 2, 5, '4/12/19', 'The good good');
+insert into reviews values(5, 102, 1, 2, '5/13/19', 'Bad food');
+insert into reviews values(6, 103, 2, 1, '6/14/19', 'The dirty');
+insert into reviews values(7, 104, 1, 2, '7/15/19', 'The staff was mean');
+insert into reviews values(8, 105, 2, 5, '8/16/19', 'The lady was nice');
+insert into reviews values(9, 106, 1, 3, '9/17/19', 'bad service');
+insert into reviews values(10, 106, 2, 4, '10/15/19', 'The Best');
 
 
-insert into customer values(1, 'Kyle', 'Jensen', 'KJen', '760', 'kjen@760.com', '555-555-5555');
-
-
-insert into customer values(1, 'harris', 'sam', 'sam', 'harris', '3333', 's@gmail.com');
 commit;

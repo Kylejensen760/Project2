@@ -30,13 +30,8 @@
     <ng-template #showRestaurant>
         <div class="row">
             <div class="col-md-12">
-                <span class="badge badge-pill badge-light">Primary</span>
-                <span class="badge badge-pill badge-light">
-                    Dismissable badge
-                    <button type="button" class="close" aria-label="Dismiss">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </span>
+                <span *ngFor="let t of tags" class="tag" appTag>{{t.name}}</span>
+                
             </div>
         </div>
         <div class="row">

@@ -17,6 +17,7 @@ import { RestaurantListComponent } from './core/restaurant-list/restaurant-list.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestaurantViewComponent } from './restaurantView/restaurant-view/restaurant-view.component';
 import { AccountCreationComponent } from './shared/account-creation/account-creation.component';
+import { TagDirective } from './shared/account-creation/tag.directive';
 import { HomepageComponent} from './core/homepage/homepage.component'
 import { ReviewComponent } from './shared/review/review.component';
 import { Review } from './shared/review/review';
@@ -30,7 +31,8 @@ import { Review } from './shared/review/review';
     MenuComponent,
     CarouselComponent,
     RestaurantListComponent,
-    RestaurantViewComponent,
+    RestaurantViewComponent,,
+    TagDirective,
     AccountCreationComponent, 
     HomepageComponent,
     ReviewComponent

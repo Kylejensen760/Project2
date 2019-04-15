@@ -11,6 +11,7 @@ import { UrlService } from 'src/app/shared/url.service';
 import { Customer } from './customer';
 import { Restaurant } from './restaurant';
 import { UserService } from './user.service';
+import { Tag } from 'src/app/restaurantView/tag';
 
 @Injectable({
   providedIn: 'root'
@@ -59,7 +60,7 @@ export class CreateUser {
     }
   }  
 
-  createRestaurant(name: string, username: string, password: string, phone: string, email: string, lineOne: string, 
+  createRestaurant(name: string, tags: Tag[], username: string, password: string, phone: string, email: string, lineOne: string, 
     lineTwo: string, city: string, state: string, zip: string, websiteUrl: string, openingTime: string, closingTime: string): Observable<Restaurant> {
     
     this.isRestaurant = this.userService.getCreatingRestaurant();

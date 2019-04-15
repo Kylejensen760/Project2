@@ -7,6 +7,6 @@ import com.titans.beans.Tag;
 public interface TagDao {
 	
 	Tag getTag(String s);
-	Set<Tag> getTag();
+	Set<Tag> getAllTags();
 
 }
