@@ -1,10 +1,82 @@
 <!-- Editable table -->
 <div class="card">
   <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Menu Items</h3>
+  <!-- Default form row -->
+
+  <!-- Grd row -->
+  <div class="form-row">
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Default input -->
+      <input mdbInput type="text" class="form-control" placeholder="Item Name" [(ngModel)]="itemName">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Default input -->
+      <input mdbInput type="text" class="form-control" placeholder="Item Price" [(ngModel)]="itemPrice">
+    </div>
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Default input -->
+      <input mdbInput type="text" class="form-control" placeholder="Special Price" [(ngModel)]="specialPrice">
+    </div>
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Default input -->
+      <input mdbInput type="text" class="form-control" placeholder="Special Start" [(ngModel)]="specialStart">
+    </div>
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Default input -->
+      <input mdbInput type="text" class="form-control" placeholder="Special End" [(ngModel)]="specialEnd">
+    </div>
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Default input -->
+      <input mdbInput type="text" class="form-control" placeholder="Mon" [(ngModel)]="mon">
+    </div>
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Default input -->
+      <input mdbInput type="text" class="form-control" placeholder="Tue" [(ngModel)]="tue">
+    </div>
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Default input -->
+      <input mdbInput type="text" class="form-control" placeholder="Wed" [(ngModel)]="wed">
+    </div>
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Default input -->
+      <input mdbInput type="text" class="form-control" placeholder="Thu" [(ngModel)]="thu">
+    </div>
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Default input -->
+      <input mdbInput type="text" class="form-control" placeholder="Fri" [(ngModel)]="fri">
+    </div>
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Default input -->
+      <input mdbInput type="text" class="form-control" placeholder="Sat" [(ngModel)]="sat">
+    </div>
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Default input -->
+      <input mdbInput type="text" class="form-control" placeholder="Sun" [(ngModel)]="sun">
+    </div>
+    <!-- Grid column -->
+  </div>
+  <!-- Grd row -->
+  <button mdbBtn type="submit" color="success" rounded="true" outline="true" mdbWavesEffect (click)="add()">Submit</button>
+
+<!-- Default form row -->
   <div class="card-body">
     <div id="table" class="table-editable">
       <span class="table-add float-right mb-3 mr-2">
-        <a class="text-success" (click)="add()">
+        <a class="text-success" (click)="show()">
           <mdb-icon fas icon="plus" size="2x"></mdb-icon>
         </a>
       </span>
@@ -23,49 +95,55 @@
           <th class="text-center">Sat</th>
           <th class="text-center">Sun</th>
           <th class="text-center">Remove</th>
+          <th class="text-center">Save</th>
         </tr>
-        <tr *ngFor="let person of personList; let id = index">
+        <tr *ngFor="let menu of menu; let id = index">
           <td>
-            <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{person.name}}</span>
+            <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'itemName', $event)" contenteditable="true">{{menu.itemName}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'age', $event)" (blur)="updateList(id, 'age', $event)">{{person.age}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'itemPrice', $event)" (blur)="updateList(id, 'age', $event)">{{menu.itemPrice}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'companyName', $event)" (blur)="updateList(id, 'companyName', $event)">{{person.companyName}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'specialPrice', $event)" (blur)="updateList(id, 'companyName', $event)">{{menu.specialPrice}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'country', $event)" (blur)="updateList(id, 'country', $event)">{{person.country}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'specialStart', $event)" (blur)="updateList(id, 'country', $event)">{{menu.specialStart}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'specialEnd', $event)" (blur)="updateList(id, 'city', $event)">{{menu.specialEnd}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'mon', $event)" (blur)="updateList(id, 'city', $event)">{{menu.mon}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'tue', $event)" (blur)="updateList(id, 'city', $event)">{{menu.tue}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'wed', $event)" (blur)="updateList(id, 'city', $event)">{{menu.wed}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'thu', $event)" (blur)="updateList(id, 'city', $event)">{{menu.thu}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'fri', $event)" (blur)="updateList(id, 'city', $event)">{{menu.fri}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'sat', $event)" (blur)="updateList(id, 'city', $event)">{{menu.sat}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'sun', $event)" (blur)="updateList(id, 'city', $event)">{{menu.sun}}</span>
           </td>
           <td>
             <span class="table-remove">
-              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(menu)">Remove</button>
             </span>
           </td>
+          <td>
+              <span class="table-remove">
+                <button type="button" mdbBtn color="success" rounded="true" size="sm" class="my-0" (click)="remove(id)">Save</button>
+              </span>
+            </td>
         </tr>
       </table>
     </div>

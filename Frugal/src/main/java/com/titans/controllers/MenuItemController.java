@@ -8,8 +8,11 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,6 +34,7 @@ import com.titans.services.CustomerService;
 @RequestMapping(value="/menuItem")
 @CrossOrigin(origins="http://localhost:4200")
 public class MenuItemController {
+	Session session;
 	@Autowired
 	private MenuItemService cs;
 	
@@ -43,6 +47,19 @@ public class MenuItemController {
 
 		return x;
 	}
+	
+	@RequestMapping(method=RequestMethod.POST)
+	public MenuItem saveMenuItem(@RequestBody MenuItem mi, HttpSession session) {
+		System.out.println(mi);
+		cs.saveMenuItem(mi);
+		return mi;
+	}
+	
+	@RequestMapping(value="{id}", method=RequestMethod.DELETE)
+	public void deleteMenuItem(@PathVariable("id") int id, @RequestBody MenuItem mi) {
+		cs.deleteCustomer(mi);
+	}
+
 	
 //	@RequestMapping(method=RequestMethod.POST)
 //	public LoginInfo login(@RequestParam("user") String username, 
