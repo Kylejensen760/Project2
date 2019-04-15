@@ -13,7 +13,7 @@ export class TagService {
 
   private appUrl = this.urlSource.getURL() + '/tag';
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
-  private tags : Tag;
+  private tags : Tag[];
 
   constructor(private urlSource: UrlService, private http: HttpClient) { }
 
@@ -24,5 +24,13 @@ export class TagService {
           
           return tags;
         }));
+  }
+
+  setTags(tags: Tag[]) {
+    this.tags = tags;
+  }
+
+  getStoredTags() : Tag[]{
+    return this.tags;
   }
 }

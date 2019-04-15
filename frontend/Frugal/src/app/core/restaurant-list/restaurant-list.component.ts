@@ -9,6 +9,7 @@ import { Restaurant } from '../../shared/user/restaurant'
 })
 export class RestaurantListComponent implements OnInit {
 
+  private favorite : boolean;
   constructor(private RestaurantService: RestaurantService) { }
   @Input() lists: Restaurant[]=[];
   slides: any = [[]];
@@ -20,6 +21,7 @@ export class RestaurantListComponent implements OnInit {
     return R;
   }
   ngOnInit() {
+    this.favorite = false;
     this.RestaurantService.fetch().subscribe(
       RestaurantList=> {
         this.lists = RestaurantList;

@@ -114,20 +114,20 @@ insert into customer
     values(2, 'harris', 'sam', 'sam', 'harris', '3333', 's@gmail.com');
     
 insert into tag
-    values(null, 'Pizza');
+    values(1, 'Pizza');
 insert into tag
-    values(null, 'Chinese');
+    values(2, 'Chinese');
 insert into tag
-    values(null, 'Wings');
+    values(3, 'Wings');
 insert into tag
-    values(null, 'Burgers');
+    values(4, 'Burgers');
 insert into tag
-    values(null, 'Thai');
+    values(5, 'Thai');
 insert into tag
-    values(null, 'Japanese');
+    values(6, 'Japanese');
 insert into tag
-    values(null, 'Sushi');
+    values(7, 'Sushi');
 insert into tag
-    values(null, 'Deli');
+    values(8, 'Deli');
 
 commit;
