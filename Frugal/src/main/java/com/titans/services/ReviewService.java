@@ -8,6 +8,8 @@ public interface ReviewService {
 
 		//public MenuItem getMenuItem(String itemName);
 		public List<Review> getReviews();
+
+		public Review saveReview(Review re);
 		
 		
 

@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CollapseModule, WavesModule } from 'angular-bootstrap-md'
 import { RestaurantService } from './restaurant-list.service'
 import { Restaurant } from '../../shared/user/restaurant'
+import { menuItem } from '../menuItem/menuItem';
+import {MenuItemService} from '../menuItem/menuItem.service'
+import { AddReviewService } from 'src/app/shared/review/add-review.service';
 @Component({
   selector: 'app-restaurant-list',
   templateUrl: './restaurant-list.component.html',
@@ -9,7 +12,7 @@ import { Restaurant } from '../../shared/user/restaurant'
 })
 export class RestaurantListComponent implements OnInit {
 
-  constructor(private RestaurantService: RestaurantService) { }
+  constructor(private RestaurantService: RestaurantService, private AddReviewService: AddReviewService) { }
   @Input() lists: Restaurant[]=[];
   slides: any = [[]];
   chunk(arr, chunkSize) {

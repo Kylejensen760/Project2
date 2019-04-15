@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.titans.beans.Customer;
 import com.titans.beans.MenuItem;
-import com.titans.data.CustomerDao;
+
 import com.titans.data.MenuItemDao;
 
 @Service 

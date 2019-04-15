@@ -28,6 +28,7 @@ public class MenuItemController {
 	@RequestMapping(method=RequestMethod.GET)
 	public List<MenuItem> getAll() {
 		System.out.println("this is the other get");
+		
 		return cs.getMenuItems();
 	}
 	

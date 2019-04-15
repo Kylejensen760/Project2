@@ -8,7 +8,7 @@ public interface ReviewDao {
 	
 	Review getReview(String s); //**we need to change this line and add stuff
 
-	void saveReview(Review r);
+	Review saveReview(Review r);
 	void updateReview(Review r);
 	void deleteReview(Review r);
 	List<Review> getAll();

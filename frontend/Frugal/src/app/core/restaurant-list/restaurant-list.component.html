@@ -23,12 +23,51 @@
 
       <!-- Button -->
       <div>   <a mdbBtn gradient="purple" rounded="true" class="white-text mb-4" type="button" mdbWavesEffect (click)="test.toggle()">Menu</a>
-    
-        
-        <div mdbCollapse #test="bs-collapse">
-          <p>{{card.menu}}</p>
+        <div  mdbCollapse #test="bs-collapse">
+          <!-- <p *ngFor="let item of card.menuItem; let i =index" class="card-text py-2">  {{card.menuItem[i].itemName}} {{card.menuItem[i].itemPrice}} </p> -->
+          <table mdbTable class="z-depth-1">
+              <thead>
+              <tr>
+                <th [mdbTableSort]="card.menuItem" sortBy="card.menuItem.itemPrice">Price <mdb-icon fas icon="sort"></mdb-icon></th>
+                <th [mdbTableSort]="card.menuItem" sortBy="card.menuItem.itemName">Name</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of card.menuItem; let i = index">
+                <td scope="row">${{card.menuItem[i].itemPrice}}</td>
+                <td>{{card.menuItem[i].itemName}}</td>
+
+              </tr>
+              </tbody>
+            </table>
         </div> 
-    </div>
+      </div>
+
+      <div >   <a mdbBtn gradient="purple" rounded="true" class="white-text mb-4" type="button" mdbWavesEffect (click)="test1.toggle()">Review!</a>
+        <div mdbCollapse #test1="bs-collapse">
+
+            <app-review></app-review>
+
+
+            <table mdbTable class="z-depth-1">
+                <thead>
+                <tr>
+                  <th [mdbTableSort]="card.review" sortBy="card.review.reviewDate">Date <mdb-icon fas icon="sort"></mdb-icon></th>
+                  <th [mdbTableSort]="card.review" sortBy="card.review.review">Review</th>
+                  <th [mdbTableSort]="card.review" sortBy="card.review.rating">Rating <mdb-icon fas icon="star"></mdb-icon></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of card.review; let i = index">
+                  <td scope="row">{{card.review[i].reviewDate}}</td>
+                  <td>{{card.review[i].review}}</td>
+                  <td>{{card.review[i].rating}}</td>
+                </tr>
+                </tbody>
+              </table>
+          </div> 
+      </div>
 
     </div>
   </div>

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.titans.beans.Customer;
 import com.titans.beans.Review;
-import com.titans.data.CustomerDao;
+
 import com.titans.data.ReviewDao;
 
 @Service 
@@ -26,7 +26,12 @@ public class ReviewServiceImpl implements ReviewService{
 
 	}
 
-
+	@Override
+	public Review saveReview(Review rev) {
+		System.out.println("save review method in customer service");
+		rd.saveReview(rev);
+		return rev;
+	}
 
 
 //	@Override
