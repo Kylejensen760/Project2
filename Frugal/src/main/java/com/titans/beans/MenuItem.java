@@ -52,16 +52,23 @@ public class MenuItem implements Serializable{
 	 	@Column(name = "special_start")
 	    private Long specialStart;
 	 	
+
 	 	@Column(name = "restaurant_id")
 	 	private Long restaurant_id;
 	 	
 	 	@ManyToOne(fetch=FetchType.EAGER)
 	 	@JoinColumn(name = "restaurant_id", insertable=false, updatable=false, nullable=false)
+
 	    @JsonBackReference
-	    private Restaurant restaurant;
+	    private Restaurant restaurant; 
 	 	
 	 	@Column(name = "special_end")
 	    private Long specialEnd;
+	 	
+	 	
+
+	 	@Column(name = "image_link")
+	 	private String imageLink;
 	 	
 	 	@Column(name = "mon")
 	 	private Long mon;
@@ -89,6 +96,7 @@ public class MenuItem implements Serializable{
 			super();
 			// TODO Auto-generated constructor stub
 		}
+
 
 
 		public Long getRestaurant_id() {
@@ -151,14 +159,11 @@ public class MenuItem implements Serializable{
 		}
 
 
+
 		public Restaurant getRestaurant() {
 			return restaurant;
 		}
 
-
-		public void setRestaurant(Restaurant restaurant) {
-			this.restaurant = restaurant;
-		}
 
 
 		public Long getSpecialEnd() {
@@ -168,6 +173,18 @@ public class MenuItem implements Serializable{
 
 		public void setSpecialEnd(Long specialEnd) {
 			this.specialEnd = specialEnd;
+		}
+		public String getImageLink() {
+			return imageLink;
+		}
+
+		public void setImageLink(String imageLink) {
+			this.imageLink = imageLink;
+		}
+
+
+		public void setRestaurant(Restaurant restaurant) {
+			this.restaurant = restaurant;
 		}
 
 
@@ -238,8 +255,8 @@ public class MenuItem implements Serializable{
 
 		public void setSun(Long sun) {
 			this.sun = sun;
-		}
 
+		}
 
 		@Override
 		public int hashCode() {
@@ -247,6 +264,7 @@ public class MenuItem implements Serializable{
 			int result = 1;
 			result = prime * result + ((fri == null) ? 0 : fri.hashCode());
 			result = prime * result + ((id == null) ? 0 : id.hashCode());
+			result = prime * result + ((imageLink == null) ? 0 : imageLink.hashCode());
 			result = prime * result + ((itemName == null) ? 0 : itemName.hashCode());
 			result = prime * result + ((itemPrice == null) ? 0 : itemPrice.hashCode());
 			result = prime * result + ((mon == null) ? 0 : mon.hashCode());
@@ -282,6 +300,11 @@ public class MenuItem implements Serializable{
 				if (other.id != null)
 					return false;
 			} else if (!id.equals(other.id))
+				return false;
+			if (imageLink == null) {
+				if (other.imageLink != null)
+					return false;
+			} else if (!imageLink.equals(other.imageLink))
 				return false;
 			if (itemName == null) {
 				if (other.itemName != null)
@@ -355,9 +378,11 @@ public class MenuItem implements Serializable{
 		@Override
 		public String toString() {
 			return "MenuItem [id=" + id + ", itemName=" + itemName + ", itemPrice=" + itemPrice + ", specialPrice="
+
 					+ specialPrice + ", specialStart=" + specialStart + ", restaurant_id=" + restaurant_id
 					+ ", restaurant=" + restaurant + ", specialEnd=" + specialEnd + ", mon=" + mon + ", tue=" + tue
 					+ ", wed=" + wed + ", thu=" + thu + ", fri=" + fri + ", sat=" + sat + ", sun=" + sun + "]";
+
 		}
 
 

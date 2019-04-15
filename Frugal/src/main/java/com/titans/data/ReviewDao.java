@@ -6,11 +6,12 @@ import com.titans.beans.Review;
 
 public interface ReviewDao {
 	
-	Review getReview(String s);
+	Review getReview(String s); //**we need to change this line and add stuff
 
-	void saveReview(Review c);
-	void updateReview(Review c);
-	void deleteReview(Review c);
-	List<Review> getReview();
+	Review saveReview(Review r);
+	void updateReview(Review r);
+	void deleteReview(Review r);
+	List<Review> getAll();
 
 }
+

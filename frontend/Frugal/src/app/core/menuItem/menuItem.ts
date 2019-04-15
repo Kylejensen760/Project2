@@ -2,8 +2,10 @@ import { Restaurant } from 'src/app/shared/user/restaurant';
 
 export class menuItem {
     id: number;
+
     restaurant?: Restaurant;
     restaurant_id: number;
+
     itemName: string;
     itemPrice: number;
     specialPrice: number;
@@ -16,5 +18,7 @@ export class menuItem {
     fri?: number;
     sat?: number;
     sun?: number;
-    
+
+    imageLink: string;
+
 }
