@@ -25,6 +25,20 @@ export class MenuitemtableService {
     );
   }
 
+  update(mi: menuItem){
+    const url = this.appUrl + `/${mi.id}`;
+    const options = {headers: new HttpHeaders({'Content-Type': 'application/json'}), body:{mi}}
+    console.log(mi);
+    return this.http.put(url, mi, options)
+    .subscribe(
+      data => {
+        console.log("post was a success", data);
+      }
+    );
+  }
+
+
+
   remove(mi: menuItem): Observable<{}> {
     console.log(mi)
     const url = this.appUrl + `/${mi.id}`;

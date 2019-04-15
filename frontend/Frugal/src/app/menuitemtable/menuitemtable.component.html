@@ -99,40 +99,40 @@
         </tr>
         <tr *ngFor="let menu of menu; let id = index">
           <td>
-            <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'itemName', $event)" contenteditable="true">{{menu.itemName}}</span>
+            <span (keyup)="changeValue(id, 'name', $event)">{{menu.itemName}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'itemPrice', $event)" (blur)="updateList(id, 'age', $event)">{{menu.itemPrice}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'itemPrice', $event)">{{menu.itemPrice}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'specialPrice', $event)" (blur)="updateList(id, 'companyName', $event)">{{menu.specialPrice}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'specialPrice', $event)">{{menu.specialPrice}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'specialStart', $event)" (blur)="updateList(id, 'country', $event)">{{menu.specialStart}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'specialStart', $event)">{{menu.specialStart}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'specialEnd', $event)" (blur)="updateList(id, 'city', $event)">{{menu.specialEnd}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'specialEnd', $event)">{{menu.specialEnd}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'mon', $event)" (blur)="updateList(id, 'city', $event)">{{menu.mon}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'mon', $event)">{{menu.mon}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'tue', $event)" (blur)="updateList(id, 'city', $event)">{{menu.tue}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'tue', $event)">{{menu.tue}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'wed', $event)" (blur)="updateList(id, 'city', $event)">{{menu.wed}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'wed', $event)">{{menu.wed}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'thu', $event)" (blur)="updateList(id, 'city', $event)">{{menu.thu}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'thu', $event)">{{menu.thu}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'fri', $event)" (blur)="updateList(id, 'city', $event)">{{menu.fri}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'fri', $event)">{{menu.fri}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'sat', $event)" (blur)="updateList(id, 'city', $event)">{{menu.sat}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'sat', $event)">{{menu.sat}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'sun', $event)" (blur)="updateList(id, 'city', $event)">{{menu.sun}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'sun', $event)">{{menu.sun}}</span>
           </td>
           <td>
             <span class="table-remove">
@@ -141,7 +141,7 @@
           </td>
           <td>
               <span class="table-remove">
-                <button type="button" mdbBtn color="success" rounded="true" size="sm" class="my-0" (click)="remove(id)">Save</button>
+                <button type="button" mdbBtn color="success" rounded="true" size="sm" class="my-0" (click)="update(menu)">Save</button>
               </span>
             </td>
         </tr>

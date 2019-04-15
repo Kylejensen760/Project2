@@ -115,7 +115,7 @@ insert into menu_item values(1261, 106, 'Bacon Cheeseburger', 7.20, 7.20, 1, 1, 
 
 
 CREATE SEQUENCE customers_seq START WITH 1;
-create sequence restaurant_seq START WITH 1;
+CREATE SEQUENCE menuitem_seq  START WITH 1;
 CREATE SEQUENCE restaurant_seq START WITH 1;
 
 

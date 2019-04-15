@@ -50,9 +50,11 @@ public class Restaurant implements Serializable{
 	@Column(name = "restaurant_name")
 	private String name;
 	
+
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="restaurant",cascade=CascadeType.ALL) 
 	   @JsonManagedReference
 	   private Set<Review> review = new HashSet<Review>();
+
 	
 	private String username;
 	

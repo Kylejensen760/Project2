@@ -56,7 +56,7 @@ public class MenuItem implements Serializable{
 	 	@Column(name = "restaurant_id")
 	 	private Long restaurant_id;
 	 	
-	 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	 	@ManyToOne(fetch=FetchType.EAGER)
 	 	@JoinColumn(name = "restaurant_id", insertable=false, updatable=false, nullable=false)
 
 	    @JsonBackReference

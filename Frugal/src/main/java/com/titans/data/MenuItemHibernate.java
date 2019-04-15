@@ -40,20 +40,29 @@ public class MenuItemHibernate implements MenuItemDao{
 	}
 
 	@Override
-	public void updateMenuItem(MenuItem mi) {
-		// TODO Auto-generated method stub
-		
+	public MenuItem updateMenuItem(MenuItem mi) {
+		Session s = hu.getSession();
+		Transaction t = s.beginTransaction();
+		s.update(mi);
+		t.commit();
+		s.close();
+		return mi;
 	}
 
 	@Override
 	public void deleteMenuItem(MenuItem mi) {
 		Session s = hu.getSession();
 		Transaction t = s.beginTransaction();
-		s.save(mi);
-		//s.load(mi, mi.getId());
 		s.delete(mi);
-		s.flush();
 		t.commit();
 		s.close();
+	}
+
+	@Override
+	public MenuItem getMenuItemById(Long id) {
+		Session s = hu.getSession();
+		MenuItem mi = s.get(MenuItem.class, id);
+		s.close();
+		return mi;
 	}
 }
