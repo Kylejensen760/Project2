@@ -5,14 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.titans.beans.MenuItem;
+import com.titans.beans.Customer;
+import com.titans.beans.Review;
 
-import com.titans.data.MenuItemDao;
+import com.titans.data.ReviewDao;
 
 @Service 
-public class MenuItemServiceImpl implements MenuItemService{
+public class ReviewServiceImpl implements ReviewService{
 	@Autowired
-	private MenuItemDao mid;
+	private ReviewDao rd;
 	
 
 //	public MenuItem getMenuItem(String itemName) {
@@ -20,34 +21,18 @@ public class MenuItemServiceImpl implements MenuItemService{
 //	}
 
 
-	public List<MenuItem> getMenuItems() {
-		return mid.getAll();
+	public List<Review> getReviews() {
+		return rd.getAll();
 
 	}
-
 
 	@Override
-	public MenuItem saveMenuItem(MenuItem mi) {
-		return mid.saveMenuItem(mi);
+	public Review saveReview(Review rev) {
+		System.out.println("save review method in customer service");
+		rd.saveReview(rev);
+		return rev;
 	}
 
-
-	@Override
-	public void deleteMenuItem(MenuItem mi) {
-		mid.deleteMenuItem(mi);		
-	}
-
-
-	@Override
-	public MenuItem getMenuItemById(Long id) {
-		return mid.getMenuItemById(id);
-	}
-
-
-	@Override
-	public MenuItem updateMenuItem(MenuItem mi) {
-		return mid.updateMenuItem(mi);
-	}
 
 //	@Override
 //	public void deleteCustomer(Customer cust) {

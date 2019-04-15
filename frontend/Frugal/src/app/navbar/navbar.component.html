@@ -2,32 +2,21 @@
   <!-- Navbar brand -->
   <mdb-navbar-brand><a class="navbar-brand" href="#">Frugal</a></mdb-navbar-brand>
 
+  
+ 			
+
   <!-- Collapsible content -->
   <links>
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link waves-light" mdbWavesEffect href="#">Home<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Specials</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Pricing</a>
-      </li>
+  
+   
 
       <!-- Dropdown -->
-      <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-          Basic dropdown<span class="caret"></span></a>
-        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Action</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Another action</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Something else here</a>
-          <div class="divider dropdown-divider"></div>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
-        </div>
-      </li>
+     
       <li class="nav-item dropdown" dropdown>
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           Create Account<span class="caret"></span></a>
@@ -40,9 +29,7 @@
     </ul>
     <!-- Links -->
       <ul class="navbar-nav ml-auto nav-flex-icons">
-        <li class="nav-item">
-          <a class="nav-link">1 <mdb-icon fas icon="envelope"></mdb-icon></a>
-        </li>
+
         <ng-container *ngIf="!loggedUser; else display">
 
         <form action="login" method="post" class="form-inline waves-light" mdbWavesEffect>
@@ -54,11 +41,14 @@
           </form>
         </ng-container>
 
+      
         <li class="nav-item avatar dropdown" dropdown>
           <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0"></a>
+            <img height="25%" width="25%" src="https://www.dropbox.com/s/fjmhs4m3pg7clj3/Letter-F-black-icon.png?raw=1" alt="" class="img-fluid rounded-circle z-depth-0"></a>
           <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
             <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/menuitems">Restaurant Menu</a>
+
             <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()">Log out</a>
           </div>
         </li>
@@ -69,5 +59,6 @@
   <!-- Collapsible content -->
 </mdb-navbar>
 <ng-template #display>
-  <p class =  "waves-light" >Welcome {{ loggedUser.customer.username }}</p>
+
+    <p class =  "waves-light" >Welcome {{ loggedUser.customer.username }}</p>
 </ng-template>

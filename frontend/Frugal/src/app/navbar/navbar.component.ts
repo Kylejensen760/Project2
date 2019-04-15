@@ -12,9 +12,11 @@ export class NavbarComponent implements OnInit {
   public loggedUser: CurrentUser;
   public username: string;
   public password: string;
+  public isViewable: boolean;
   constructor(private userService: UserService, private menuItemService: MenuItemService) { }
 
   ngOnInit() {
+    
     this.userService.login(null,null).subscribe(
       user=> {
         this.loggedUser=user;
@@ -39,5 +41,8 @@ export class NavbarComponent implements OnInit {
   setRestaurant(): void{
     this.userService.setCreatingRestaurant(true);
   }
+  
+ 
 
+  
 }

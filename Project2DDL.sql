@@ -12,7 +12,6 @@ drop sequence CUSTOMERS_SEQ;
 drop sequence MENUITEM_SEQ;
 drop sequence RESTAURANT_SEQ;
 drop sequence TAG_SEQ;
-
 create table customer(
     id number(20) primary key,
     first_name varchar2(60) not null,
@@ -104,10 +103,12 @@ insert into menu_item values(1251, 103, 'Takoyaki', 6.29, 6.29, 1, 1, 1, 1, 1, 1
 insert into menu_item values(121, 104, 'Fiesta Slice', 5.00, 5.00, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/y7zfvv0s338y3b7/BennyVelinosFiestaSlice.jpg?raw=1');
 insert into menu_item values(1252, 104, 'Pepperoni', 5.00, 5.00, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/ck8jb9ewpwzv2j0/BennyVelinosPepperoni.jpg?raw=1');
 insert into menu_item values(1253, 104, 'Cheese', 4.00, 4.00, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/oah0g3ig73rtgy9/BennyVelinosCheese.jpg?raw=1');
+
 insert into menu_item values(1254, 105, 'Roni Zoni', 7.25, 7.25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/vwb942r4xzm97cc/DPDoughRoniZoni.PNG?raw=1');
 insert into menu_item values(1255, 105, 'Cheese Zone', 7.25, 7.25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/cjjphtzbo7rsc5c/DPDoughCheeseZone.PNG?raw=1');
 insert into menu_item values(1256, 105, 'BBQ Chiccken Zone', 7.25, 7.25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/boddg7e5xncnrvg/DPDoughBBQChickenZone.PNG?raw=1');
 insert into menu_item values(1257, 105, 'Buffer Zone', 7.25, 7.25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/xtnv8lev0ykn369/DPDoughBufferZone.PNG?raw=1');
+
 insert into menu_item values(1258, 106, 'Awaken W Bacon', 7.00, 7.00, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/vo9g22qm3lyebdn/PitaPitAwakenWithBacon.PNG?raw=1');
 insert into menu_item values(1259, 106, 'Philly', 7.20, 7.20, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/1i1bwe0lbc5itu5/PitaPitPhilly.PNG?raw=1');
 insert into menu_item values(1260, 106, 'Buffalo Chicken', 6.85, 6.85, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'https://www.dropbox.com/s/mp31il5v58j6ycb/PitaPitBuffaloChicken.PNG?raw=1');
@@ -162,5 +163,6 @@ insert into reviews values(7, 104, 1, 2, '7/15/19', 'The staff was mean');
 insert into reviews values(8, 105, 2, 5, '8/16/19', 'The lady was nice');
 insert into reviews values(9, 106, 1, 3, '9/17/19', 'bad service');
 insert into reviews values(10, 106, 2, 4, '10/15/19', 'The Best');
+
 
 commit;

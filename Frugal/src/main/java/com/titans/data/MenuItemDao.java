@@ -7,11 +7,12 @@ import com.titans.beans.MenuItem;
 public interface MenuItemDao {
 	
 	MenuItem getMenuItem(String s); //**we need to change this line and add stuff
-
-	void saveMenuItem(MenuItem mi);
-	void updateMenuItem(MenuItem mi);
+	
+	MenuItem saveMenuItem(MenuItem mi);
+	MenuItem updateMenuItem(MenuItem mi);
 	void deleteMenuItem(MenuItem mi);
 	List<MenuItem> getAll();
+	MenuItem getMenuItemById(Long id);
 
 }
 

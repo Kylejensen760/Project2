@@ -6,14 +6,20 @@ import com.titans.beans.MenuItem;
 
 public interface MenuItemService {
 
-		//public MenuItem getMenuItem(String itemName);
+		public MenuItem getMenuItemById(Long id);
 		public List<MenuItem> getMenuItems();
-		
-		
-//		public void deleteCustomer(Customer cust);
-//		public void updateCustomer(Customer cust);
+
+		MenuItem saveMenuItem(MenuItem mi);
+		public void deleteMenuItem(MenuItem mi);
+		MenuItem updateMenuItem(MenuItem mi);
 //		public void newCustomer(Customer cust);
 		
 	}
+
+		
+		
+
+
+
 
 
