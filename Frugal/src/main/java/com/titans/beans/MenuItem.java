@@ -59,15 +59,16 @@ public class MenuItem implements Serializable{
 	 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	 	@JoinColumn(name = "restaurant_id", insertable=false, updatable=false, nullable=false)
 
-	 	@Column(name = "image_link")
-	 	private String imageLink;
-	 	
-	 	
 	    @JsonBackReference
 	    private Restaurant restaurant; 
 	 	
 	 	@Column(name = "special_end")
 	    private Long specialEnd;
+	 	
+	 	
+
+	 	@Column(name = "image_link")
+	 	private String imageLink;
 	 	
 	 	@Column(name = "mon")
 	 	private Long mon;
@@ -164,10 +165,6 @@ public class MenuItem implements Serializable{
 		}
 
 
-		public void setRestaurant(Restaurant restaurant) {
-			this.restaurant = restaurant;
-		}
-
 
 		public Long getSpecialEnd() {
 			return specialEnd;
@@ -176,7 +173,7 @@ public class MenuItem implements Serializable{
 
 		public void setSpecialEnd(Long specialEnd) {
 			this.specialEnd = specialEnd;
-
+		}
 		public String getImageLink() {
 			return imageLink;
 		}
@@ -185,8 +182,6 @@ public class MenuItem implements Serializable{
 			this.imageLink = imageLink;
 		}
 
-
-		}
 
 		public void setRestaurant(Restaurant restaurant) {
 			this.restaurant = restaurant;
@@ -261,15 +256,7 @@ public class MenuItem implements Serializable{
 		public void setSun(Long sun) {
 			this.sun = sun;
 
-		public Long getSpecialEnd() {
-			return specialEnd;
 		}
-
-		public void setSpecialEnd(Long specialEnd) {
-			this.specialEnd = specialEnd;
-
-		}
-
 
 		@Override
 		public int hashCode() {

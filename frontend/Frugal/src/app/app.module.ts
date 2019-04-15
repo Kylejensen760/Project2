@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-
 import { NgModule} from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +19,7 @@ import { RestaurantViewComponent } from './restaurantView/restaurant-view/restau
 import { AccountCreationComponent } from './shared/account-creation/account-creation.component';
 import { HomepageComponent} from './core/homepage/homepage.component'
 import { ReviewComponent } from './shared/review/review.component';
+import { Review } from './shared/review/review';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,7 @@ import { ReviewComponent } from './shared/review/review.component';
     BrowserAnimationsModule
   ],
 
-  providers: [UrlService, UserService],
+  providers: [UrlService, UserService, Review, ReviewComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

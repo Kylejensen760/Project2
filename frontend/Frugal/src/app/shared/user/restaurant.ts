@@ -1,4 +1,6 @@
 import { User } from './user';
+import { Review } from '../review/review';
+import { menuItem } from 'src/app/core/menuItem/menuItem';
 
 export class Restaurant extends User{
     restaurant_id: number;
@@ -13,5 +15,13 @@ export class Restaurant extends User{
     websiteUrl: string;
     openingTime: string;
     closingTime: string;
+    review: Review[]; 
+   // menuItem: menuItem[]
+    id: number;
+    itemName: string;
+    itemPrice: number;
+    specialPrice: number;
+    specialStart: number;
+    specialEnd: number;; 
     imageLink: string;
 }

@@ -41,6 +41,7 @@ public class MenuItemController {
 	@RequestMapping(method=RequestMethod.GET)
 	public List<MenuItem> getAll() throws JsonProcessingException, IOException {
 		System.out.println("this is the other get");
+
 		List<MenuItem> x = cs.getMenuItems();
 		System.out.println(x);
 		

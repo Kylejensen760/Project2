@@ -8,7 +8,7 @@ import { HomepageComponent } from './core/homepage/homepage.component';
 
 const routes: Routes = [
   {
-    path: 'menuItems',
+    path: 'menuitems',
     component: MenuitemtableComponent
   },
   {

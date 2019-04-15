@@ -11,10 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.titans.beans.Customer;
 import com.titans.beans.LoginInfo;
 import com.titans.beans.MenuItem;
 import com.titans.beans.Restaurant;
 import com.titans.services.RestaurantService;
+import com.titans.beans.Review;
+import com.titans.data.ReviewDao;
+import com.titans.services.ReviewService;
 
 @RestController
 @RequestMapping(value="/restaurant")
@@ -23,6 +27,9 @@ public class RestaurantController {
 	private static final String USER = "loggedUser";
 	@Autowired
 	private RestaurantService rs;
+	
+	@Autowired
+	private ReviewService res;
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public List<Restaurant> getRestaurants() {
@@ -41,6 +48,8 @@ public class RestaurantController {
 		rs.newRestaurant(r);
 		return r;
 	}
+	
+
 	
 	@RequestMapping(method=RequestMethod.PUT)
 	public Restaurant saveTags(@RequestBody Restaurant r, HttpSession session) {
